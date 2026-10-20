@@ -1,0 +1,90 @@
+{
+  "project": "Ridge Robotics × GM Cares — celebration site for the October 22, 2026 visit, Columbia Ridge Elementary, Ephrata, WA",
+  "version": "1.2",
+  "changelog": [
+    {
+      "version": "1.0",
+      "date": "2026-10-20",
+      "summary": "First build. Celebration of the 2025–26 season, team and coaches, BIOGLOW ideas, support asks with a pledge builder, GM robotics/STEM/autonomy section, half-sheet cake design with printable baker's sheet, visit-day run of show, 27 sources."
+    },
+    {
+      "version": "1.1",
+      "date": "2026-10-20",
+      "summary": "Team section now states that last year's nine fourth-graders moved up to Parkway Intermediate (grades 5–6) and that 2026–27 is a new team picking up the torch. Added a 2026–27 roster block (first names only, coach-supplied). All student names reduced to first names. Every factual claim now carries at least two sources (59 sources, conflicts noted). Added this HIBT-AIGovOps ledger with browser re-verification, and thanks to the AIGovOps Foundation, Bob Rapp and Ken Johnston. Published to a permanent public URL."
+    },
+    {
+      "version": "1.2",
+      "date": "2026-10-20",
+      "summary": "Cake order sheet is now downloadable as a PDF (assets/cake-order-sheet.pdf) in addition to printable. Pledge form gained Download-as-file and Email-the-school (opens the user's mail app addressed to the Columbia Ridge office; nothing is sent automatically). Removed the in-page roster editor; the 2026–27 roster is posted only when the coaches supply first names. Published to gm-cares-about-ridge-robotics.pplx.app and mirrored in the public GitHub repo bobrapp/gm-cares-about-ridge-robotics."
+    }
+  ],
+  "entries": [
+    {
+      "seq": 1,
+      "version": "1.0",
+      "timestamp": "2026-10-20T11:20:00-07:00",
+      "person": "Bob Rapp",
+      "role": "Requester · Principal AI Architect, General Motors · GM Cares volunteer",
+      "model": "Claude Fable 5.1 (Perplexity Computer orchestrator); images: GPT Image 2.5 via the Computer media tool",
+      "prompt": "Create a supportive webapp for this team in Ephrata, WA for a GM Cares visit on October 22, 2026 by Bob Rapp (Principal AI Architect, General Motors) and Shari Smith (retired Microsoft techie and friend of Ephrata). Make this a celebration, a review of this amazing team, some ideas for this year's FIRST robotics competition, a highlight for the teachers who advise on this, a website that can be shared with the team to garner support (volunteers, contributions to their trip to finals), and some winning ways that GM supports robotics, self-driving via Cruise, our work with kids in STEM fields, and a design for an amazing 1/2 sheet cake that includes Ridge Robotics and GM Cares! in the colors of GM and the mascot and colors of the elementary school. Background supplied: Ridge Robotics is the FIRST LEGO League team at Columbia Ridge Elementary; in early 2026 the 9-member squad won Engineering Excellence and Core Values awards, was drawn as one of ten Washington teams, and in June 2026 scored a personal-best 180 points at the American Robotics Open in New Jersey and sang the National Anthem.",
+      "result": "Researched the team, school colors (Archer Orange #F57B20, black), the BIOGLOW season and GM programs; generated three images (cake rendering, hero robot, BIOGLOW ecosystem); built a single-page static site with pledge builder, share link and printable cake order sheet; QA at 1400px and 375px; deployed preview.",
+      "files_changed": [
+        "index.html",
+        "style.css",
+        "base.css",
+        "app.js",
+        "assets/cake-design.webp",
+        "assets/cake-design-print.jpg",
+        "assets/hero-robot.webp",
+        "assets/bioglow-ideas.webp"
+      ]
+    },
+    {
+      "seq": 2,
+      "version": "1.1",
+      "timestamp": "2026-10-20T12:40:00-07:00",
+      "person": "Bob Rapp",
+      "role": "Requester",
+      "model": "Claude Fable 5.1 (Perplexity Computer orchestrator)",
+      "prompt": "Mention that last year's team moved up to Parkway Intermediate, and that this is a new team picking up the torch. Add current roster, and make sure only to use first names for all kids. Make these changes and let me take a look, and make sure all facts have at least two sources, and that you show this as a version-controlled HIBT-AIGovOps and thanks to the AIGovOps Foundation and Bob and Ken for their work to make AI safer.",
+      "result": "Added the Parkway hand-off and new-team framing; 2025–26 roster reduced to first names; added a 2026–27 roster block that the coaches fill in (no public roster exists yet, so no names were invented); re-sourced every claim with at least two citations (59 sources) and flagged conflicts (team size nine vs. ten; Core Values award venue; NJIT vs. Drew; Dollars for Doers $200 vs. $500); added this ledger, the changelog, the hash chain and in-browser verification; added thanks to the AIGovOps Foundation, Bob Rapp and Ken Johnston.",
+      "files_changed": [
+        "index.html",
+        "style.css",
+        "app.js",
+        "hibt.json"
+      ]
+    },
+    {
+      "seq": 3,
+      "version": "1.1",
+      "timestamp": "2026-10-20T12:45:00-07:00",
+      "person": "Bob Rapp",
+      "role": "Requester",
+      "model": "Claude Fable 5.1 (Perplexity Computer orchestrator)",
+      "prompt": "And make this a permanent hosted site publicly available.",
+      "result": "Preview redeployed, then published to https://ridge-robotics-gm-cares.pplx.app. First live verification showed index.html differing from the ledger because the CDN injected an email-obfuscation script; the contact address is now assembled client-side so the served HTML matches the recorded hash, and the site was republished.",
+      "files_changed": [
+        "index.html",
+        "app.js",
+        "hibt.json"
+      ]
+    },
+    {
+      "seq": 4,
+      "version": "1.2",
+      "timestamp": "2026-10-20T13:05:00-07:00",
+      "person": "Bob Rapp",
+      "role": "Requester",
+      "model": "Claude Fable 5.1 (Perplexity Computer orchestrator)",
+      "prompt": "Now where is this hosted so it can be viewed as a webpage for this year; also create it as a downloadable file that can be given to the teachers; do not have any edits for the current team, but do allow someone to fill out a form and export it and email to the school; run end-to-end tests; translate the entire site from English to Spanish; give pointers to the prior chapter work; plus winning top 10 grade 1–4 FIRST robotics teams in rural areas of WA, Idaho and Montana (up to 10). Then: Publish this app to gm-cares-about-ridge-robotics.pplx.app. Then: create a public repo called gm-cares-about-ridge-robotics in my @bobrapp GitHub and make sure I can download the cake decoration order as well as print it.",
+      "result": "Published v1.1 to gm-cares-about-ridge-robotics.pplx.app. v1.2: removed roster editor; added pledge download (.txt) and email-the-school (mailto) actions; added downloadable cake order PDF; created public GitHub repo bobrapp/gm-cares-about-ridge-robotics with full history and build tooling. Spanish translation, prior-season links, rural champions list, teacher download package and the full end-to-end test report follow in v1.3.",
+      "files_changed": [
+        "index.html",
+        "app.js",
+        "assets/cake-order-sheet.pdf",
+        "hibt.json"
+      ]
+    }
+  ]
+}
