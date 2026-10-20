@@ -1,9 +1,9 @@
 {
   "standard": "HIBT-AIGovOps ledger, v1",
   "project": "Ridge Robotics × GM Cares — celebration site for the October 22, 2026 visit, Columbia Ridge Elementary, Ephrata, WA",
-  "version": "1.4",
-  "generated_at": "2026-10-20T16:14:56+00:00",
-  "built_from_commit": "a49acb1",
+  "version": "1.5",
+  "generated_at": "2026-10-20T16:21:57+00:00",
+  "built_from_commit": "6399b5f",
   "hash_algorithm": "SHA-256",
   "chain_rule": "chain = sha256(prev + canonical_json(entry_without_chain))",
   "files": [
@@ -33,6 +33,31 @@
       "bytes": 61744
     },
     {
+      "path": "assets/fonts/Chillax-500.woff2",
+      "sha256": "66011a95eed59e55eed49fc75a3aac277d4c42e5b3040ff55ea559588051daba",
+      "bytes": 21504
+    },
+    {
+      "path": "assets/fonts/Chillax-600.woff2",
+      "sha256": "974d6085abacf1cb806922482efd026256d3d64b708e5c095559c1dd62f18f56",
+      "bytes": 21420
+    },
+    {
+      "path": "assets/fonts/GeneralSans-400.woff2",
+      "sha256": "3ec2be771caf168b077ca05af4df1dace77088e2b3a27da570036e61be58a039",
+      "bytes": 23084
+    },
+    {
+      "path": "assets/fonts/GeneralSans-500.woff2",
+      "sha256": "c30377df1de8444d07161725c751f458beec07c28034df2fd275d1aa587a239f",
+      "bytes": 22904
+    },
+    {
+      "path": "assets/fonts/GeneralSans-600.woff2",
+      "sha256": "94a2a0e1ef59728eb65498ed7fe26e5af7e2858a3a4a278a89ac1f83a0544945",
+      "bytes": 23092
+    },
+    {
       "path": "assets/hero-robot.webp",
       "sha256": "77bbc1c940ed33a40a51782923c2d7c596391fe5178ba8fd04740f7dea344955",
       "bytes": 254086
@@ -59,18 +84,28 @@
     },
     {
       "path": "find-us.html",
-      "sha256": "2de0b167a3c1e51aefb8878eb114882ab9813c876f44c3dd9a8798fc5d584146",
-      "bytes": 5977
+      "sha256": "5aa393221ee99359686735580cd4599718ca566a5587149be5a4a464c36ce79c",
+      "bytes": 6174
+    },
+    {
+      "path": "fonts.css",
+      "sha256": "07e38c0020d3187a0ed78f0049ebbb8a261a7ac22b6c557832736fa098eaa31a",
+      "bytes": 903
     },
     {
       "path": "index.html",
-      "sha256": "ec0d1b28b16eeb20efa81d244605e05bdb617c3b774c248cefd9965b8e6b95ad",
-      "bytes": 118531
+      "sha256": "1b5d525edfe2f76f985ff0110ee41b5cce8647921323f29e228ebf2a631d09bb",
+      "bytes": 102940
+    },
+    {
+      "path": "js-flag.js",
+      "sha256": "9ab49027959472a353e2cc17fac2dcd7b5fd01da82f3989911272582f249b153",
+      "bytes": 46
     },
     {
       "path": "style.css",
-      "sha256": "6ccf0e09a667eedaab30f1800a848481106d89d95a9ea65635ee513d299a8813",
-      "bytes": 32990
+      "sha256": "406494acddb94bf86f7f61f39e14c25471691358c310ecce6f18d81e76163209",
+      "bytes": 34466
     }
   ],
   "changelog": [
@@ -98,6 +133,11 @@
       "version": "1.4",
       "date": "2026-10-20",
       "summary": "2026–27 roster added for FIRST LEGO League team #36203 (Aaron, Addy, Dean, Ellie, Gael, Hayden, Noah, Ka'la, Lettie, Coach Keegan), each with a code-drawn, gender-neutral robot avatar; last year's nine got avatars too. Coach Keegan is now the only adult named on the page."
+    },
+    {
+      "version": "1.5",
+      "date": "2026-10-20",
+      "summary": "Privacy, PII, children's-data and accessibility hardening: fonts self-hosted (no third-party requests), Content Security Policy and referrer policy added, new 'Privacy and protecting kids' section with coach checklist and removal path, pledge note guidance against student details, 48 WCAG contrast failures fixed to zero axe-core violations, review published as PRIVACY-AND-ACCESSIBILITY-REVIEW.md, 7 new legal/policy sources (66 total)."
     }
   ],
   "entries": [
@@ -216,7 +256,29 @@
       ],
       "prev": "df5be0f6997f71dc332393d15e43aaa2ed2f12ef862583fe82368640abe2fa45",
       "chain": "5c9e5f6dab3ead726e943aea4a8e7a453efe6d4259143006cb89fdf5c42a1927"
+    },
+    {
+      "seq": 7,
+      "version": "1.5",
+      "timestamp": "2026-10-20T14:30:00-07:00",
+      "person": "Bob Rapp",
+      "role": "Requester",
+      "model": "Claude Fable 5.1 (Perplexity Computer orchestrator)",
+      "prompt": "Review this site for accessibility, privacy, PII, and all rules relating to any issues sharing data about children in WA state, and make this site work well in all ways to protect everyone.",
+      "result": "Ran axe-core (WCAG 2.1 A/AA + best-practice) on both pages at desktop and mobile; fixed all contrast failures; removed the only third-party dependency by self-hosting fonts; added CSP and referrer policy; added a privacy and child-safety section grounded in FERPA, RCW 28A.604 (SUPER Act), COPPA and the FIRST Youth Protection Program; added coach checklist and removal path; committed a written review to the repo.",
+      "files_changed": [
+        "index.html",
+        "find-us.html",
+        "style.css",
+        "fonts.css",
+        "js-flag.js",
+        "assets/fonts/*",
+        "PRIVACY-AND-ACCESSIBILITY-REVIEW.md",
+        "hibt.json"
+      ],
+      "prev": "5c9e5f6dab3ead726e943aea4a8e7a453efe6d4259143006cb89fdf5c42a1927",
+      "chain": "b19e237c0c0918c77f702b8d75ddf39d1cc6d2a6cc125a42c798768fc04f9ebe"
     }
   ],
-  "head": "5c9e5f6dab3ead726e943aea4a8e7a453efe6d4259143006cb89fdf5c42a1927"
+  "head": "b19e237c0c0918c77f702b8d75ddf39d1cc6d2a6cc125a42c798768fc04f9ebe"
 }
