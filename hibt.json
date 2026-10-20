@@ -1,16 +1,16 @@
 {
   "standard": "HIBT-AIGovOps ledger, v1",
   "project": "Ridge Robotics × GM Cares — celebration site for the October 22, 2026 visit, Columbia Ridge Elementary, Ephrata, WA",
-  "version": "1.3",
-  "generated_at": "2026-10-20T14:06:51+00:00",
-  "built_from_commit": "85792fd",
+  "version": "1.4",
+  "generated_at": "2026-10-20T16:14:56+00:00",
+  "built_from_commit": "a49acb1",
   "hash_algorithm": "SHA-256",
   "chain_rule": "chain = sha256(prev + canonical_json(entry_without_chain))",
   "files": [
     {
       "path": "app.js",
-      "sha256": "b4e901dacc79fc7c41f59fb9e3291c1f7d070e5ac9bb90fa69c881b21dde4ca5",
-      "bytes": 12185
+      "sha256": "0116c23bd3e361a07d8f2cbbf0904fe268aa21c4be03dafd8fc9e884364dad5f",
+      "bytes": 12168
     },
     {
       "path": "assets/bioglow-ideas.webp",
@@ -59,18 +59,18 @@
     },
     {
       "path": "find-us.html",
-      "sha256": "b529fd9e6b7d9410125a7247f0f4e72d7ca23768467a986138a3cdd84f4001b5",
-      "bytes": 5979
+      "sha256": "2de0b167a3c1e51aefb8878eb114882ab9813c876f44c3dd9a8798fc5d584146",
+      "bytes": 5977
     },
     {
       "path": "index.html",
-      "sha256": "0c302aa575c5d3960adf5ec69cae7006738ca8a717ffb58dc21b6cdc42b566dc",
-      "bytes": 70204
+      "sha256": "ec0d1b28b16eeb20efa81d244605e05bdb617c3b774c248cefd9965b8e6b95ad",
+      "bytes": 118531
     },
     {
       "path": "style.css",
-      "sha256": "861b389fdfa81167d35e8a5425b6eb12d83f059131524068889cb2ddca3f4c38",
-      "bytes": 32054
+      "sha256": "6ccf0e09a667eedaab30f1800a848481106d89d95a9ea65635ee513d299a8813",
+      "bytes": 32990
     }
   ],
   "changelog": [
@@ -93,6 +93,11 @@
       "version": "1.3",
       "date": "2026-10-20",
       "summary": "New 'Find us and support us' page (find-us.html) with a large QR code to the published site, copy/share, QR PNG download and a printable poster. Every page's footer now carries a small QR code and the share link. Nav gained a 'Find us & support us' entry."
+    },
+    {
+      "version": "1.4",
+      "date": "2026-10-20",
+      "summary": "2026–27 roster added for FIRST LEGO League team #36203 (Aaron, Addy, Dean, Ellie, Gael, Hayden, Noah, Ka'la, Lettie, Coach Keegan), each with a code-drawn, gender-neutral robot avatar; last year's nine got avatars too. Coach Keegan is now the only adult named on the page."
     }
   ],
   "entries": [
@@ -192,7 +197,26 @@
       ],
       "prev": "7c9453011e96494cbf4c4feffbba584058fe0607cabd81b2f1d09582be657f19",
       "chain": "df5be0f6997f71dc332393d15e43aaa2ed2f12ef862583fe82368640abe2fa45"
+    },
+    {
+      "seq": 6,
+      "version": "1.4",
+      "timestamp": "2026-10-20T13:55:00-07:00",
+      "person": "Bob Rapp",
+      "role": "Requester",
+      "model": "Claude Fable 5.1 (Perplexity Computer orchestrator)",
+      "prompt": "Update the app with robotics fun cartoon avatars, gender neutral, for each name; only have Coach Keegan, drop the other adult. Ridge Robotics #36203: Aaron, Addy, Dean, Ellie, Gael, Hayden, Noah, Ka'la, Lettie, Coach Keegan.",
+      "result": "Added the supplied first-name roster with team number #36203; generated 19 deterministic SVG robot avatars in code (no image model, no likenesses); removed the second coach from all copy including the pledge greeting; coach card shows her avatar; republished.",
+      "files_changed": [
+        "index.html",
+        "find-us.html",
+        "style.css",
+        "app.js",
+        "hibt.json"
+      ],
+      "prev": "df5be0f6997f71dc332393d15e43aaa2ed2f12ef862583fe82368640abe2fa45",
+      "chain": "5c9e5f6dab3ead726e943aea4a8e7a453efe6d4259143006cb89fdf5c42a1927"
     }
   ],
-  "head": "df5be0f6997f71dc332393d15e43aaa2ed2f12ef862583fe82368640abe2fa45"
+  "head": "5c9e5f6dab3ead726e943aea4a8e7a453efe6d4259143006cb89fdf5c42a1927"
 }
