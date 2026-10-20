@@ -223,7 +223,7 @@
       hashList.innerHTML = '';
       data.files.forEach(function (f) {
         var li = el('li'); li.setAttribute('data-path', f.path);
-        li.appendChild(el('span', null, f.path)); li.appendChild(el('span', null, f.sha256));
+        var w = el('div', 'hash-item'); w.appendChild(el('strong', null, f.path)); w.appendChild(el('span', null, f.sha256)); li.appendChild(w);
         hashList.appendChild(li);
       });
     }
