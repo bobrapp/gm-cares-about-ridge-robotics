@@ -100,14 +100,14 @@ sup.fn a:hover { color: var(--color-primary-deep); }
   border-bottom: 1px solid var(--color-divider);
 }
 .site-header .container { display: flex; align-items: center; justify-content: space-between; gap: var(--space-4); min-height: 64px; }
-.brand { display: flex; align-items: center; gap: var(--space-3); text-decoration: none; color: var(--color-text); font-weight: 600; font-size: var(--text-sm); }
+.brand { display: flex; align-items: center; gap: var(--space-3); text-decoration: none; color: var(--color-text); font-weight: 600; font-size: var(--text-sm); white-space: nowrap; }
 .brand__dot { width: 12px; height: 12px; border-radius: 50%; background: var(--color-primary); box-shadow: 16px 0 0 var(--color-gm); margin-right: 16px; }
 .site-nav ul { display: flex; gap: var(--space-1); }
-.site-nav a { display: inline-block; padding: var(--space-2) var(--space-3); font-size: var(--text-sm); color: var(--color-text-muted); text-decoration: none; border-radius: 999px; min-height: 44px; line-height: 28px; }
+.site-nav a { display: inline-block; white-space: nowrap; padding: var(--space-2) var(--space-3); font-size: var(--text-sm); color: var(--color-text-muted); text-decoration: none; border-radius: 999px; min-height: 44px; line-height: 28px; }
 .site-nav a:hover, .site-nav a.is-active { color: var(--color-text); background: var(--color-surface-offset); }
 .nav-toggle { display: none; min-width: 44px; min-height: 44px; border-radius: var(--radius-sm); color: var(--color-text); }
 .nav-toggle svg { width: 24px; height: 24px; margin: auto; }
-@media (max-width: 900px) {
+@media (max-width: 1100px) {
   .nav-toggle { display: inline-flex; align-items: center; justify-content: center; }
   .site-nav { position: absolute; left: 0; right: 0; top: 64px; background: var(--color-bg); border-bottom: 1px solid var(--color-divider); display: none; padding: var(--space-3) clamp(1rem, 4vw, 2.5rem) var(--space-5); }
   .site-nav.is-open { display: block; }
