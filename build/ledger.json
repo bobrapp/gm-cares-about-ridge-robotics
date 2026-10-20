@@ -1,6 +1,6 @@
 {
   "project": "Ridge Robotics × GM Cares — celebration site for the October 22, 2026 visit, Columbia Ridge Elementary, Ephrata, WA",
-  "version": "1.4",
+  "version": "1.5",
   "changelog": [
     {
       "version": "1.0",
@@ -26,6 +26,11 @@
       "version": "1.4",
       "date": "2026-10-20",
       "summary": "2026–27 roster added for FIRST LEGO League team #36203 (Aaron, Addy, Dean, Ellie, Gael, Hayden, Noah, Ka'la, Lettie, Coach Keegan), each with a code-drawn, gender-neutral robot avatar; last year's nine got avatars too. Coach Keegan is now the only adult named on the page."
+    },
+    {
+      "version": "1.5",
+      "date": "2026-10-20",
+      "summary": "Privacy, PII, children's-data and accessibility hardening: fonts self-hosted (no third-party requests), Content Security Policy and referrer policy added, new 'Privacy and protecting kids' section with coach checklist and removal path, pledge note guidance against student details, 48 WCAG contrast failures fixed to zero axe-core violations, review published as PRIVACY-AND-ACCESSIBILITY-REVIEW.md, 7 new legal/policy sources (66 total)."
     }
   ],
   "entries": [
@@ -130,6 +135,26 @@
         "find-us.html",
         "style.css",
         "app.js",
+        "hibt.json"
+      ]
+    },
+    {
+      "seq": 7,
+      "version": "1.5",
+      "timestamp": "2026-10-20T14:30:00-07:00",
+      "person": "Bob Rapp",
+      "role": "Requester",
+      "model": "Claude Fable 5.1 (Perplexity Computer orchestrator)",
+      "prompt": "Review this site for accessibility, privacy, PII, and all rules relating to any issues sharing data about children in WA state, and make this site work well in all ways to protect everyone.",
+      "result": "Ran axe-core (WCAG 2.1 A/AA + best-practice) on both pages at desktop and mobile; fixed all contrast failures; removed the only third-party dependency by self-hosting fonts; added CSP and referrer policy; added a privacy and child-safety section grounded in FERPA, RCW 28A.604 (SUPER Act), COPPA and the FIRST Youth Protection Program; added coach checklist and removal path; committed a written review to the repo.",
+      "files_changed": [
+        "index.html",
+        "find-us.html",
+        "style.css",
+        "fonts.css",
+        "js-flag.js",
+        "assets/fonts/*",
+        "PRIVACY-AND-ACCESSIBILITY-REVIEW.md",
         "hibt.json"
       ]
     }

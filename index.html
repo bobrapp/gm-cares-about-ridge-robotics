@@ -8,13 +8,13 @@
   <meta property="og:title" content="GM Cares × Ridge Robotics — October 22, 2026" />
   <meta property="og:description" content="A celebration of Ephrata's Ridge Robotics team, their coaches, this year's BIOGLOW season, and how the community can help." />
   <meta property="og:image" content="./assets/hero-robot.webp" />
-  <link rel="preconnect" href="https://api.fontshare.com" />
-  <link href="https://api.fontshare.com/v2/css?f[]=chillax@500,600&display=swap" rel="stylesheet" />
-  <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600&display=swap" rel="stylesheet" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; frame-ancestors *; base-uri 'self'; form-action 'self' mailto:" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <link rel="stylesheet" href="./fonts.css" />
   <link rel="stylesheet" href="./base.css" />
   <link rel="stylesheet" href="./style.css" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='11' cy='16' r='9' fill='%23f57b20'/%3E%3Ccircle cx='22' cy='16' r='9' fill='%23194390' fill-opacity='.9'/%3E%3C/svg%3E" />
-  <script>document.documentElement.classList.add('js')</script>
+  <script src="./js-flag.js"></script>
 </head>
 <body class="page-home">
 <a class="skip-link" href="#main">Skip to content</a>
@@ -35,6 +35,7 @@
         <li><a href="#gm">GM &amp; STEM</a></li>
         <li><a href="#cake">Cake</a></li>
         <li><a href="#visit">Visit day</a></li>
+        <li><a href="#privacy">Privacy</a></li>
         <li><a href="#hibt">HIBT</a></li>
         <li><a href="./find-us.html" class="nav-cta">Find us &amp; support us</a></li>
       </ul>
@@ -328,7 +329,8 @@
           <label>Your name<input type="text" name="name" placeholder="Jordan Alvarez" autocomplete="name" /></label>
           <label>Best way to reach you<input type="text" name="contact" placeholder="phone or email" autocomplete="email" /></label>
         </div>
-        <label>Anything else<textarea name="note" rows="2" placeholder="I'm free Tuesday evenings, or: I can donate a sheet of plywood."></textarea></label>
+        <label>Anything else<textarea name="note" rows="2" placeholder="I'm free Tuesday evenings, or: I can donate a sheet of plywood." aria-describedby="note-help"></textarea></label>
+        <p class="roster-note" id="note-help">Please don't include any student's name or details in your note; the coach will take it from here.</p>
         <div class="pledge__actions">
           <button class="btn btn--primary" type="submit">Build my pledge</button>
           <button class="btn btn--on-dark" type="button" id="copy-pledge" hidden>Copy pledge</button>
@@ -469,11 +471,62 @@
   </div>
 </section>
 
+<!-- ================= PRIVACY ================= -->
+<section class="section section--offset" id="privacy">
+  <div class="container">
+    <p class="kicker">Privacy and protecting kids</p>
+    <h2 class="section-title">What this site does, and does not do, with information</h2>
+    <p class="lede">This is a volunteer page about an elementary-school team, so it is built to collect nothing and to say as little about children as the story needs. Here is the full accounting.</p>
+
+    <div class="privacy-grid">
+      <div class="privacy-card">
+        <h3>Nothing is collected</h3>
+        <ul role="list">
+          <li><strong>No cookies, no analytics, no trackers, no ads.</strong> The page is static files served by the host; there is no database and no server code written by us.</li>
+          <li><strong>No third-party requests.</strong> Fonts, images and scripts are served from this site. A Content Security Policy blocks anything else from loading.</li>
+          <li><strong>The pledge form never leaves your device</strong> until you choose to copy it, download it, or open it in your own mail app addressed to the school office. We never see it.</li>
+          <li><strong>The share and QR features</strong> point at this address only.</li>
+        </ul>
+      </div>
+      <div class="privacy-card">
+        <h3>About the students</h3>
+        <ul role="list">
+          <li><strong>First names only</strong>, supplied by the head coach, never surnames, grades, ages, photos, or schedules.</li>
+          <li><strong>Avatars are code-drawn robots</strong>, not likenesses, and they are assigned by list position, not by anything about the child.</li>
+          <li><strong>Last year's team</strong> appears only as first names already published by local news and the school district, with those sources cited.</li>
+          <li><strong>Removal on request.</strong> Any parent or guardian can ask the school office to have a name removed and it comes off at the next version, with the change recorded in the HIBT ledger.</li>
+          <li><strong>No direct contact with students.</strong> Every contact path on this page goes to adults at the school office, consistent with the FIRST Youth Protection Program.<sup class="fn"><a href="#src-63">63</a> <a href="#src-64">64</a></sup></li>
+        </ul>
+      </div>
+      <div class="privacy-card">
+        <h3>The rules we measured against</h3>
+        <ul role="list">
+          <li><strong>FERPA.</strong> Student names can be shared as "directory information" only when the district has designated them so and families have had the chance to opt out; Ephrata publishes its FERPA notice. Because this page is not the school, we go further and rely on coach-supplied first names with family permission.<sup class="fn"><a href="#src-60">60</a> <a href="#src-61">61</a></sup></li>
+          <li><strong>Washington's Student User Privacy in Education Rights Act</strong> (RCW 28A.604) binds school service providers; this page is not one, but it follows the same limits anyway: no targeted ads, no selling or profiling of student information, no collection beyond the first names shown.<sup class="fn"><a href="#src-62">62</a> <a href="#src-66">66</a></sup></li>
+          <li><strong>COPPA.</strong> This page is not directed to children and collects no personal information from anyone, so no parental-consent mechanism is triggered; we still avoid anything a child could submit.<sup class="fn"><a href="#src-65">65</a></sup></li>
+          <li><strong>FIRST YPP.</strong> Adults coordinate through the school; the site never asks a student for anything.<sup class="fn"><a href="#src-63">63</a> <a href="#src-64">64</a></sup></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="checklist">
+      <h3>Coach's checklist before adding or changing a student name</h3>
+      <ol>
+        <li>Confirm the family's district media/directory permission is on file and not opted out (the office keeps the forms).</li>
+        <li>Send first names only, to Bob, from a school email address.</li>
+        <li>Never send photos of students for this page; it does not use them by design.</li>
+        <li>If a family asks for removal, email the office; the change ships in the next version and the ledger records it.</li>
+      </ol>
+    </div>
+    <p class="roster-note">Accessibility: this page targets WCAG 2.1 AA. It is keyboard-navigable with visible focus, has a skip link, labels every control, keeps text at a minimum 4.5:1 contrast, honors reduced-motion settings, and works at 375 px wide and in print. Found a barrier? Tell the school office and it goes on the next version's list.</p>
+  </div>
+</section>
+
 <!-- ================= HIBT ================= -->
 <section class="section section--ink" id="hibt">
   <div class="container">
     <p class="kicker">How I Built This · version control</p>
-    <h2 class="section-title">HIBT-AIGovOps ledger <span class="ver" id="ver-badge">v1.4</span></h2>
+    <h2 class="section-title">HIBT-AIGovOps ledger <span class="ver" id="ver-badge">v1.5</span></h2>
     <p class="lede">This page was built with an AI assistant, and it says so. The ledger below records every prompt that shaped it: who asked, when, which model answered, what changed, and a SHA-256 hash of every file that ships. Each entry is chained to the one before it, so the record can be re-verified in your browser against the files you are looking at right now. That is the AIGovOps idea in miniature: make the governance of AI work visible, checkable and boring.</p>
 
     <div class="hibt-grid">
@@ -561,13 +614,20 @@
       <li id="src-50">TechCrunch, "GM partners with Girls Who Code with $250K grant for after-school activities," Jan. 10, 2017. <a href="https://techcrunch.com/2017/01/10/gm-partners-with-girls-who-code-with-250k-grant-for-after-school-activities/" target="_blank" rel="noopener noreferrer">https://techcrunch.com/2017/01/10/gm-partners-with-girls-who-code-with-250k-grant-for-after-school-activities/</a></li>
       <li id="src-51">GM News, "GM partners with Disney Imagination Campus and DonorsChoose to give back to America's teachers," May 4, 2026 (GM Cares DonorsChoose volunteer program). <a href="https://news.gm.com/home.detail.html/Pages/news/us/en/2026/may/0504-GM-partners-Disney-Imagination-Campus-DonorsChoose.html" target="_blank" rel="noopener noreferrer">https://news.gm.com/home.detail.html/Pages/news/us/en/2026/may/0504-GM-partners-Disney-Imagination-Campus-DonorsChoose.html</a></li>
       <li id="src-52">WDW News Today, "Fifteen Teachers Honored with Walt Disney World Parade and $150,000 in Grants," May 2026 (GM and DonorsChoose grants). <a href="https://wdwnt.com/2026/05/fifteen-teachers-honored-with-walt-disney-world-parade-and-150000-in-grants-for-teacher-appreciation-week/" target="_blank" rel="noopener noreferrer">https://wdwnt.com/2026/05/fifteen-teachers-honored-with-walt-disney-world-parade-and-150000-in-grants-for-teacher-appreciation-week/</a></li>
-      <li id="src-53">GM de México, "GM de México celebra 20 años de impulsar el talento del futuro a través de FIRST Robotics," Jan. 12, 2026. <a href="https://news.gm.com.mx/es/home/newsroom.detail.html/Pages/news/mx/es/2026/jan/FirstRobotics2026" target="_blank" rel="noopener noreferrer">https://news.gm.com.mx/es/home/newsroom.detail.html/Pages/news/mx/es/2026/jan/FirstRobotics2026</a></li>
-      <li id="src-54">DPL News, "Guacamole llegó a Detroit y la robótica juvenil mexicana cambió para siempre" (20 years of GM–FIRST collaboration in Mexico; 11 teams in 2026). <a href="https://dplnews.com/guacamole-llego-detroit-robotica-juvenil-mexicana-cambio-siempre/" target="_blank" rel="noopener noreferrer">https://dplnews.com/guacamole-llego-detroit-robotica-juvenil-mexicana-cambio-siempre/</a></li>
+      <li id="src-53">GM de México, <span lang="es">"GM de México celebra 20 años de impulsar el talento del futuro a través de FIRST Robotics,"</span> Jan. 12, 2026. <a href="https://news.gm.com.mx/es/home/newsroom.detail.html/Pages/news/mx/es/2026/jan/FirstRobotics2026" target="_blank" rel="noopener noreferrer">https://news.gm.com.mx/es/home/newsroom.detail.html/Pages/news/mx/es/2026/jan/FirstRobotics2026</a></li>
+      <li id="src-54">DPL News, <span lang="es">"Guacamole llegó a Detroit y la robótica juvenil mexicana cambió para siempre"</span> (20 years of GM–FIRST collaboration in Mexico; 11 teams in 2026). <a href="https://dplnews.com/guacamole-llego-detroit-robotica-juvenil-mexicana-cambio-siempre/" target="_blank" rel="noopener noreferrer">https://dplnews.com/guacamole-llego-detroit-robotica-juvenil-mexicana-cambio-siempre/</a></li>
       <li id="src-55">Ephrata School District, "Color Palette" (Archer Orange #F57B20, Pantone 4011 C; black; white; silver). <a href="https://www.ephrataschools.org/color-palette" target="_blank" rel="noopener noreferrer">https://www.ephrataschools.org/color-palette</a></li>
       <li id="src-56">Ephrata School District, "Superintendent's Educational Leadership Platform" (orange and black; Tiger Head, E and Paw logos). <a href="https://www.ephrataschools.org/departments/superintendent/superintendents-educational-leadership-platform" target="_blank" rel="noopener noreferrer">https://www.ephrataschools.org/departments/superintendent/superintendents-educational-leadership-platform</a></li>
       <li id="src-57">Ephrata School District, "Logos" (Archer Tiger; Hewitt Paw used primarily with elementary schools). <a href="https://www.ephrataschools.org/logos" target="_blank" rel="noopener noreferrer">https://www.ephrataschools.org/logos</a></li>
       <li id="src-58">Brand Palettes, "General Motors Logo Colors" (GM blue family hex values). <a href="https://brandpalettes.com/general-motors-logo-colors/" target="_blank" rel="noopener noreferrer">https://brandpalettes.com/general-motors-logo-colors/</a></li>
       <li id="src-59">SchemeColor, "General Motors Logo Colors" (GM blue family hex values). <a href="https://www.schemecolor.com/general-motors-logo-colors.php" target="_blank" rel="noopener noreferrer">https://www.schemecolor.com/general-motors-logo-colors.php</a></li>
+      <li id="src-60">U.S. Department of Education, Protecting Student Privacy, "May an educational agency or institution disclose directory information without prior consent?" (34 CFR §§ 99.31(a)(11), 99.37). <a href="https://studentprivacy.ed.gov/faq/may-educational-agency-or-institution-disclose-directory-information-without-prior-consent" target="_blank" rel="noopener noreferrer">https://studentprivacy.ed.gov/faq/may-educational-agency-or-institution-disclose-directory-information-without-prior-consent</a> · <a href="https://studentprivacy.ed.gov/ferpa" target="_blank" rel="noopener noreferrer">https://studentprivacy.ed.gov/ferpa</a></li>
+      <li id="src-61">Ephrata School District, FERPA notice (parents' rights; directory information). <a href="https://www.ephrataschools.org/ferpa" target="_blank" rel="noopener noreferrer">https://www.ephrataschools.org/ferpa</a> · PPRA notice: <a href="https://www.ephrataschools.org/ppra" target="_blank" rel="noopener noreferrer">https://www.ephrataschools.org/ppra</a></li>
+      <li id="src-62">Washington State Legislature, Chapter 28A.604 RCW, Student User Privacy in Education Rights (definitions; RCW 28A.604.020 and .030: no targeted advertising, no sale of student personal information, purpose limits). <a href="https://app.leg.wa.gov/RCW/default.aspx?cite=28A.604&full=true" target="_blank" rel="noopener noreferrer">https://app.leg.wa.gov/RCW/default.aspx?cite=28A.604&full=true</a> · <a href="https://app.leg.wa.gov/RCW/default.aspx?cite=28A.604.030" target="_blank" rel="noopener noreferrer">https://app.leg.wa.gov/RCW/default.aspx?cite=28A.604.030</a></li>
+      <li id="src-63">FIRST, Youth Protection Program and Code of Conduct. <a href="https://www.firstinspires.org/programs/youth-protection-program" target="_blank" rel="noopener noreferrer">https://www.firstinspires.org/programs/youth-protection-program</a></li>
+      <li id="src-64">FIRST, Youth Protection Program Guide (PDF; digital communication and online interaction section). <a href="https://www.firstinspires.org/hubfs/web/about/policy/FIRST-YPP-ProgramGuide.pdf" target="_blank" rel="noopener noreferrer">https://www.firstinspires.org/hubfs/web/about/policy/FIRST-YPP-ProgramGuide.pdf</a></li>
+      <li id="src-65">U.S. Federal Trade Commission, "Complying with COPPA: Frequently Asked Questions" (scope: sites directed to children under 13 that collect personal information). <a href="https://www.ftc.gov/business-guidance/resources/complying-coppa-frequently-asked-questions" target="_blank" rel="noopener noreferrer">https://www.ftc.gov/business-guidance/resources/complying-coppa-frequently-asked-questions</a> · <a href="https://www.ftc.gov/legal-library/browse/rules/childrens-online-privacy-protection-rule-coppa" target="_blank" rel="noopener noreferrer">https://www.ftc.gov/legal-library/browse/rules/childrens-online-privacy-protection-rule-coppa</a></li>
+      <li id="src-66">edprivacy, "Washington Student Data Privacy Guide" (summary of the SUPER Act's scope and limits). <a href="https://edprivacy.com/state-guides/washington" target="_blank" rel="noopener noreferrer">https://edprivacy.com/state-guides/washington</a></li>
     </ol>
   </div>
 </section>
@@ -584,7 +644,7 @@
       </div>
     </div>
     <div class="footer-meta">
-      <span>Prepared for the GM Cares visit to Ridge Robotics · Columbia Ridge Elementary · Ephrata, Washington · October 22, 2026 · <a href="./index.html#hibt">v1.4 · HIBT-AIGovOps</a> · <a href="https://github.com/bobrapp/gm-cares-about-ridge-robotics" target="_blank" rel="noopener noreferrer">Source on GitHub</a></span>
+      <span>Prepared for the GM Cares visit to Ridge Robotics · Columbia Ridge Elementary · Ephrata, Washington · October 22, 2026 · <a href="./index.html#privacy">Privacy &amp; kids' safety</a> · <a href="./index.html#hibt">v1.5 · HIBT-AIGovOps</a> · <a href="https://github.com/bobrapp/gm-cares-about-ridge-robotics" target="_blank" rel="noopener noreferrer">Source on GitHub</a></span>
       <span>FIRST and FIRST LEGO League are trademarks of FIRST; LEGO is a trademark of the LEGO Group; General Motors marks belong to GM. This volunteer page is not an official publication of any of them.</span>
     </div>
   </div>

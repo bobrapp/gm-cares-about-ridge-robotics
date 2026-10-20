@@ -24,7 +24,7 @@ def main():
     for root, dirs, names in os.walk(SITE):
         dirs[:] = [d for d in dirs if not d.startswith('.') and d != 'build']
         for n in sorted(names):
-            if n in ('hibt.json', 'README.md', 'LICENSE') or n.startswith('.'):
+            if n in ('hibt.json', 'README.md', 'LICENSE', 'PRIVACY-AND-ACCESSIBILITY-REVIEW.md') or n.startswith('.'):
                 continue
             p = os.path.join(root, n)
             rel = os.path.relpath(p, SITE).replace(os.sep, '/')

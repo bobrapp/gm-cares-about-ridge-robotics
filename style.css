@@ -30,7 +30,7 @@
 
   /* Ephrata Tigers — Archer Orange */
   --color-primary: #f57b20;
-  --color-primary-deep: #c95d0d;
+  --color-primary-deep: #9e4508;        /* 5.5:1 on cream */
   --color-primary-soft: #fdebdc;
   /* General Motors blue family */
   --color-gm: #194390;
@@ -72,9 +72,9 @@ p + p { margin-top: var(--space-4); }
 a { color: var(--color-gm); text-decoration-thickness: 1px; text-underline-offset: 3px; }
 a:hover { color: var(--color-gm-bright); }
 sup.fn { font-size: 0.65em; line-height: 0; }
-sup.fn a { color: var(--color-text-faint); text-decoration: none; font-weight: 600; }
+sup.fn a { color: var(--color-text-muted); text-decoration: none; font-weight: 600; }
 sup.fn a:hover { color: var(--color-primary-deep); }
-.section--ink sup.fn a, .section--gm sup.fn a { color: oklch(75% 0.02 80); }
+.section--ink sup.fn a, .section--gm sup.fn a { color: oklch(88% 0.02 80); }
 
 .btn {
   display: inline-flex; align-items: center; gap: var(--space-2); min-height: 44px;
@@ -127,7 +127,7 @@ sup.fn a:hover { color: var(--color-primary-deep); }
 .hero__date span.tag { background: var(--color-ink); color: #fff; border-radius: var(--radius-sm); padding: 6px 10px; font-size: var(--text-xs); letter-spacing: 0.06em; text-transform: uppercase; white-space: nowrap; }
 .hero__date span:not(.tag) { padding-inline: var(--space-1); }
 .hero__title { font-family: var(--font-display); font-weight: 600; font-size: clamp(2.25rem, 1.2rem + 3.4vw, 4.25rem); line-height: 1.04; letter-spacing: -0.01em; max-width: 16ch; }
-.hero__title em { font-style: normal; color: var(--color-primary-deep); }
+.hero__title em { font-style: normal; color: #c95d0d; }
 .hero__lede { margin-top: var(--space-6); font-size: var(--text-base); line-height: 1.55; color: var(--color-text-muted); max-width: 52ch; font-weight: 400; }
 .hero__actions { display: flex; flex-wrap: wrap; gap: var(--space-3); margin-top: var(--space-8); }
 .hero__visual { position: relative; }
@@ -254,7 +254,8 @@ sup.fn a:hover { color: var(--color-primary-deep); }
 .pledge__actions { display: flex; flex-wrap: wrap; gap: var(--space-3); align-items: center; margin-top: var(--space-2); }
 .pledge__out { margin-top: var(--space-4); background: oklch(100% 0 0 / 0.06); border: 1px dashed oklch(100% 0 0 / 0.25); border-radius: var(--radius-sm); padding: var(--space-4); font-size: var(--text-sm); white-space: pre-wrap; color: oklch(92% 0.01 80); min-height: 44px; display: none; }
 .pledge__out.is-visible { display: block; }
-.status { font-size: var(--text-sm); color: var(--color-primary); min-height: 1.4em; }
+.status { font-size: var(--text-sm); color: var(--color-primary-deep); font-weight: 600; min-height: 1.4em; }
+.pledge .status, .section--ink .status { color: var(--color-primary); }
 
 .contact-strip { margin-top: var(--space-8); display: grid; gap: var(--space-4); font-size: var(--text-sm); }
 @media (min-width: 760px) { .contact-strip { grid-template-columns: repeat(3, 1fr); } }
@@ -269,7 +270,8 @@ sup.fn a:hover { color: var(--color-primary-deep); }
 .gm-card p { font-size: var(--text-sm); }
 .gm-card .big { font-family: var(--font-display); font-weight: 600; font-size: var(--text-2xl); line-height: 1; color: var(--color-gm-light); margin-bottom: var(--space-3); font-variant-numeric: tabular-nums; }
 .gm-card ul { margin-top: var(--space-3); padding-left: 1.1em; font-size: var(--text-sm); display: grid; gap: var(--space-2); color: oklch(94% 0.02 240); }
-.gm-note { margin-top: var(--space-6); font-size: var(--text-xs); color: oklch(85% 0.02 240); max-width: 70ch; }
+.gm-note { margin-top: var(--space-6); font-size: var(--text-xs); color: oklch(92% 0.02 240); max-width: 70ch; }
+.section--ink .gm-note { color: oklch(88% 0.01 80); }
 
 /* Cake */
 .cake-grid { display: grid; gap: clamp(var(--space-8), 5vw, var(--space-12)); align-items: start; margin-top: var(--space-8); }
@@ -385,7 +387,7 @@ sup.fn a:hover { color: var(--color-primary-deep); }
 @media (min-width: 960px) { .findus__grid { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 959px) { .findus__qr { order: -1; } }
 .findus__title { font-family: var(--font-display); font-weight: 600; font-size: clamp(2rem, 1.2rem + 3vw, 3.75rem); line-height: 1.05; }
-.findus__title em { font-style: normal; color: var(--color-primary-deep); }
+.findus__title em { font-style: normal; color: #c95d0d; }
 .findus__url { margin-top: var(--space-6); font-family: var(--font-display); font-weight: 600; font-size: var(--text-lg); word-break: break-all; }
 .findus__url a { color: var(--color-gm); text-decoration-thickness: 2px; }
 .findus__ways { margin-top: var(--space-8); display: grid; gap: var(--space-3); }
@@ -416,3 +418,18 @@ sup.fn a:hover { color: var(--color-primary-deep); }
 @media (max-width: 500px) { .coach--solo { grid-template-columns: minmax(0, 1fr); } .coach--solo .av--coach { grid-row: auto; } .coach--solo h3, .coach--solo .role, .coach--solo p { grid-column: 1; } }
 .roster--avatars li span { display: grid; line-height: 1.2; }
 .roster--avatars li small { font-weight: 500; color: var(--color-text-muted); font-size: var(--text-xs); }
+
+/* ---------- v1.5: privacy & safety ---------- */
+.privacy-grid { display: grid; gap: var(--space-4); margin-top: var(--space-8); }
+@media (min-width: 900px) { .privacy-grid { grid-template-columns: repeat(3, 1fr); } }
+.privacy-card { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: var(--space-6); }
+.privacy-card h3 { font-family: var(--font-display); font-size: var(--text-lg); }
+.privacy-card ul { margin-top: var(--space-3); padding-left: 1.1em; display: grid; gap: var(--space-2); font-size: var(--text-sm); color: var(--color-text-muted); }
+.privacy-card p { font-size: var(--text-sm); color: var(--color-text-muted); }
+.privacy-card strong { color: var(--color-text); }
+.checklist { margin-top: var(--space-8); background: var(--color-gm-soft); border-radius: var(--radius-lg); padding: var(--space-6); }
+.checklist h3 { font-family: var(--font-display); font-size: var(--text-lg); }
+.checklist ol { margin-top: var(--space-3); padding-left: 1.3em; display: grid; gap: var(--space-2); font-size: var(--text-sm); }
+.nav-cta { color: var(--color-primary-deep) !important; font-weight: 600; }
+.roster-note { font-size: var(--text-xs); color: var(--color-text-muted); margin-top: var(--space-3); }
+.hero__badge sup.fn a { color: #dbe8f7; }
