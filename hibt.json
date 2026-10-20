@@ -1,16 +1,16 @@
 {
   "standard": "HIBT-AIGovOps ledger, v1",
   "project": "Ridge Robotics × GM Cares — celebration site for the October 22, 2026 visit, Columbia Ridge Elementary, Ephrata, WA",
-  "version": "1.2",
-  "generated_at": "2026-10-20T12:38:33+00:00",
-  "built_from_commit": "ede8668",
+  "version": "1.3",
+  "generated_at": "2026-10-20T14:06:51+00:00",
+  "built_from_commit": "85792fd",
   "hash_algorithm": "SHA-256",
   "chain_rule": "chain = sha256(prev + canonical_json(entry_without_chain))",
   "files": [
     {
       "path": "app.js",
-      "sha256": "dc431a0a4812c235cd56ea9e0d95283cf59a6bdeafc81e6d071319019803e52a",
-      "bytes": 12049
+      "sha256": "b4e901dacc79fc7c41f59fb9e3291c1f7d070e5ac9bb90fa69c881b21dde4ca5",
+      "bytes": 12185
     },
     {
       "path": "assets/bioglow-ideas.webp",
@@ -38,19 +38,39 @@
       "bytes": 254086
     },
     {
+      "path": "assets/qr-site-print.png",
+      "sha256": "54261bda8357666c7542d8286e612e0fd1c9d27dfd6659c98abd109105610874",
+      "bytes": 2710
+    },
+    {
+      "path": "assets/qr-site.png",
+      "sha256": "081b0174eb30651a70a5d486962debe20f6a6e39548ab48e58bf47acce29cde9",
+      "bytes": 1334
+    },
+    {
+      "path": "assets/qr-site.svg",
+      "sha256": "56e5d9fac2ec07ecd9dd319fa22db5eddcbb1cabc71ea11793957e165cc3fe04",
+      "bytes": 2836
+    },
+    {
       "path": "base.css",
       "sha256": "8574dd559c2abab6e15e75e24791a99e5aa01e3185f35dce821ad3d7f08c3537",
       "bytes": 1652
     },
     {
+      "path": "find-us.html",
+      "sha256": "b529fd9e6b7d9410125a7247f0f4e72d7ca23768467a986138a3cdd84f4001b5",
+      "bytes": 5979
+    },
+    {
       "path": "index.html",
-      "sha256": "0363403b78f582e45dcd9db5453e3b96d4d9486808ebae8c321fb60279872304",
-      "bytes": 69296
+      "sha256": "0c302aa575c5d3960adf5ec69cae7006738ca8a717ffb58dc21b6cdc42b566dc",
+      "bytes": 70204
     },
     {
       "path": "style.css",
-      "sha256": "760702c69dfd0f51a21813339ff55ab6b2a409da16cda386108c952171b4f256",
-      "bytes": 28824
+      "sha256": "861b389fdfa81167d35e8a5425b6eb12d83f059131524068889cb2ddca3f4c38",
+      "bytes": 32054
     }
   ],
   "changelog": [
@@ -68,6 +88,11 @@
       "version": "1.2",
       "date": "2026-10-20",
       "summary": "Cake order sheet is now downloadable as a PDF (assets/cake-order-sheet.pdf) in addition to printable. Pledge form gained Download-as-file and Email-the-school (opens the user's mail app addressed to the Columbia Ridge office; nothing is sent automatically). Removed the in-page roster editor; the 2026–27 roster is posted only when the coaches supply first names. Published to gm-cares-about-ridge-robotics.pplx.app and mirrored in the public GitHub repo bobrapp/gm-cares-about-ridge-robotics."
+    },
+    {
+      "version": "1.3",
+      "date": "2026-10-20",
+      "summary": "New 'Find us and support us' page (find-us.html) with a large QR code to the published site, copy/share, QR PNG download and a printable poster. Every page's footer now carries a small QR code and the share link. Nav gained a 'Find us & support us' entry."
     }
   ],
   "entries": [
@@ -145,7 +170,29 @@
       ],
       "prev": "d8ee4c64d8be3e7939a1448109dc202ae9415fbc0d0756d65ae98d9148105ecb",
       "chain": "7c9453011e96494cbf4c4feffbba584058fe0607cabd81b2f1d09582be657f19"
+    },
+    {
+      "seq": 5,
+      "version": "1.3",
+      "timestamp": "2026-10-20T13:30:00-07:00",
+      "person": "Bob Rapp",
+      "role": "Requester",
+      "model": "Claude Fable 5.1 (Perplexity Computer orchestrator)",
+      "prompt": "Add a BIG QR code that points to this website that is easy to show and share; add it to its own page called 'Find us and support us'; plus put a link at the bottom of each page with a small QR code to the published share.",
+      "result": "Generated QR codes (SVG + PNG, error-correction level H) for https://gm-cares-about-ridge-robotics.pplx.app, verified they decode; built find-us.html with the large code, share/copy, PNG download and print poster; added footer share block with small QR to both pages; QA at desktop and 375px; republished.",
+      "files_changed": [
+        "find-us.html",
+        "index.html",
+        "style.css",
+        "app.js",
+        "assets/qr-site.svg",
+        "assets/qr-site.png",
+        "assets/qr-site-print.png",
+        "hibt.json"
+      ],
+      "prev": "7c9453011e96494cbf4c4feffbba584058fe0607cabd81b2f1d09582be657f19",
+      "chain": "df5be0f6997f71dc332393d15e43aaa2ed2f12ef862583fe82368640abe2fa45"
     }
   ],
-  "head": "7c9453011e96494cbf4c4feffbba584058fe0607cabd81b2f1d09582be657f19"
+  "head": "df5be0f6997f71dc332393d15e43aaa2ed2f12ef862583fe82368640abe2fa45"
 }
