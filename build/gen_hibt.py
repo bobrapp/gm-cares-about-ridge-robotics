@@ -22,7 +22,7 @@ def main():
         src = json.load(f)
     files = []
     for root, dirs, names in os.walk(SITE):
-        dirs[:] = [d for d in dirs if not d.startswith('.') and d != 'build']
+        dirs[:] = [d for d in dirs if not d.startswith('.') and d not in ('build', 'offline')]
         for n in sorted(names):
             if n in ('hibt.json', 'README.md', 'LICENSE', 'PRIVACY-AND-ACCESSIBILITY-REVIEW.md') or n.startswith('.'):
                 continue

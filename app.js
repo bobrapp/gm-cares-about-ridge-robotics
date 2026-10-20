@@ -89,19 +89,18 @@
     }
   }
 
-  /* ---------- Share link ---------- */
-  var shareBtn = document.getElementById('share-btn');
-  var shareStatus = document.getElementById('share-status');
-  if (shareBtn) {
+  /* ---------- Share link (one or more buttons) ---------- */
+  Array.prototype.forEach.call(document.querySelectorAll('[id^="share-btn"]'), function (shareBtn) {
+    var shareStatus = document.getElementById(shareBtn.id.replace('share-btn', 'share-status'));
     shareBtn.addEventListener('click', function () {
-      var url = window.location.href.split('#')[0];
+      var url = 'https://gm-cares-about-ridge-robotics.pplx.app';
       if (navigator.share) {
         navigator.share({ title: document.title, url: url }).catch(function () { copyText(url, shareStatus, 'Link copied.'); });
       } else {
         copyText(url, shareStatus, 'Link copied. Paste it anywhere.');
       }
     });
-  }
+  });
 
   /* ---------- Pledge builder ---------- */
   var form = document.getElementById('pledge-form');
@@ -237,11 +236,19 @@
     verifyStatus.textContent = (bad === 0 ? 'All ' + ok + ' files match the ledger. ' : bad + ' file(s) differ from the ledger. ') + (chainOk ? 'Ledger chain intact (head ' + HIBT.head.slice(0, 12) + '…).' : 'Ledger chain does NOT verify.');
   }
 
+  var inlineLedger = document.getElementById('hibt-data');
+  var OFFLINE = !!inlineLedger;
   if (ledgerEl) {
-    fetch('./hibt.json', { cache: 'no-store' }).then(function (r) { return r.json(); }).then(renderHibt).catch(function () {
-      if (verifyStatus) verifyStatus.textContent = 'Ledger file not found.';
-    });
-    if (verifyBtn) verifyBtn.addEventListener('click', verify);
+    if (OFFLINE) {
+      try { renderHibt(JSON.parse(inlineLedger.textContent)); } catch (e) { if (verifyStatus) verifyStatus.textContent = 'Ledger could not be read.'; }
+      if (verifyBtn) { verifyBtn.disabled = true; verifyBtn.textContent = 'Verify on the hosted site'; }
+      if (verifyStatus) verifyStatus.textContent = 'This is the offline single-file copy; hashes below are the recorded values. Open the hosted site to re-verify them live.';
+    } else {
+      fetch('./hibt.json', { cache: 'no-store' }).then(function (r) { return r.json(); }).then(renderHibt).catch(function () {
+        if (verifyStatus) verifyStatus.textContent = 'Ledger file not found.';
+      });
+      if (verifyBtn) verifyBtn.addEventListener('click', verify);
+    }
   }
 
   /* ---------- assemble email addresses client-side (keeps CDN email-obfuscation out of the served HTML) ---------- */
