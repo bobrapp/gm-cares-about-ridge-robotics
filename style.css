@@ -329,3 +329,42 @@ sup.fn a:hover { color: var(--color-primary-deep); }
   .js .reveal { opacity: 1 !important; transition: none; }
   a[href]::after { content: ""; }
 }
+
+/* ---------- v1.1: hand-off, roster editor, HIBT ---------- */
+.handoff { margin-top: var(--space-8); padding: var(--space-6); border-radius: var(--radius-lg); background: var(--color-primary-soft); border-left: 4px solid var(--color-primary); }
+.handoff h3 { font-family: var(--font-display); font-size: var(--text-lg); }
+.handoff p { font-size: var(--text-sm); color: var(--color-text); }
+.roster--now li::before { background: var(--color-gm); }
+.roster--now li:nth-child(even)::before { background: var(--color-primary); }
+.roster--now:empty { display: none; }
+.roster-empty { margin-top: var(--space-4); font-size: var(--text-sm); color: var(--color-text-muted); padding: var(--space-4); border: 1px dashed var(--color-border); border-radius: var(--radius-md); }
+.roster-edit { margin-top: var(--space-4); display: grid; gap: var(--space-2); }
+.roster-edit label { font-size: var(--text-xs); font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--color-text-muted); }
+.roster-edit__row { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+.roster-edit input { flex: 1 1 220px; min-height: 44px; padding: var(--space-3); border-radius: 999px; border: 1px solid var(--color-border); background: var(--color-surface); }
+.roster-note { font-size: var(--text-xs); color: var(--color-text-faint); }
+.ver { display: inline-block; vertical-align: middle; margin-left: var(--space-2); font-family: var(--font-body); font-size: var(--text-xs); font-weight: 600; letter-spacing: 0.08em; padding: 4px 10px; border-radius: 999px; background: var(--color-primary); color: var(--color-ink); }
+.hibt-grid { display: grid; gap: var(--space-5); margin-top: var(--space-8); }
+@media (min-width: 900px) { .hibt-grid { grid-template-columns: 1fr 1fr; } }
+.hibt-card { background: oklch(100% 0 0 / 0.06); border: 1px solid oklch(100% 0 0 / 0.14); border-radius: var(--radius-lg); padding: var(--space-6); }
+.hibt-card h3 { color: #fff; font-family: var(--font-display); font-size: var(--text-lg); }
+.hibt-card p { font-size: var(--text-sm); }
+.hibt-card a { color: var(--color-gm-light); }
+.hibt-actions { display: flex; flex-wrap: wrap; gap: var(--space-3); margin-top: var(--space-4); }
+.hash-list { margin-top: var(--space-4); display: grid; gap: var(--space-2); font-size: var(--text-xs); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+.hash-list li { display: grid; grid-template-columns: auto 1fr; gap: var(--space-3); align-items: start; color: oklch(85% 0.01 80); word-break: break-all; }
+.hash-list li::before { content: ""; width: 10px; height: 10px; margin-top: 4px; border-radius: 50%; background: oklch(70% 0.02 80); }
+.hash-list li.ok::before { background: #4ade80; }
+.hash-list li.bad::before { background: #f87171; }
+.changelog, .ledger { display: grid; gap: var(--space-4); margin-top: var(--space-5); }
+.changelog li, .ledger li { background: oklch(100% 0 0 / 0.05); border: 1px solid oklch(100% 0 0 / 0.12); border-radius: var(--radius-md); padding: var(--space-5); font-size: var(--text-sm); }
+.ledger li { display: grid; gap: var(--space-2); }
+.ledger .meta { display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-4); font-size: var(--text-xs); color: var(--color-primary); font-weight: 600; letter-spacing: 0.04em; }
+.ledger .prompt { color: #fff; }
+.ledger .prompt::before { content: "Prompt · "; color: oklch(70% 0.02 80); font-weight: 600; }
+.ledger .result::before { content: "Result · "; color: oklch(70% 0.02 80); font-weight: 600; }
+.ledger .chain { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: var(--text-xs); color: oklch(70% 0.02 80); word-break: break-all; }
+.ledger details summary { cursor: pointer; color: var(--color-gm-light); font-size: var(--text-xs); }
+.ledger details p { margin-top: var(--space-2); white-space: pre-wrap; color: oklch(88% 0.01 80); font-size: var(--text-xs); }
+.changelog strong { color: #fff; }
+.section--ink code { font-family: ui-monospace, Menlo, monospace; font-size: 0.9em; }

@@ -137,4 +137,137 @@
   /* ---------- Print the baker's sheet ---------- */
   var printBtn = document.getElementById('print-cake');
   if (printBtn) printBtn.addEventListener('click', function () { window.print(); });
+
+  /* ---------- v1.1: 2026–27 roster (first names only) ---------- */
+  // Baked-in roster. Keep FIRST NAMES ONLY. Empty until the coaches supply names.
+  var ROSTER_2026 = [];
+  var rosterList = document.getElementById('roster-now-list');
+  var rosterEmpty = document.getElementById('roster-empty');
+  var rosterForm = document.getElementById('roster-form');
+  var rosterClear = document.getElementById('roster-clear');
+  var ROSTER_KEY = 'ridge-roster-2026-27';
+  function cleanNames(arr) {
+    return arr.map(function (n) { return String(n).trim().split(/\s+/)[0]; }) // first names only, always
+      .filter(Boolean)
+      .map(function (n) { return n.charAt(0).toUpperCase() + n.slice(1); })
+      .filter(function (n, i, a) { return a.indexOf(n) === i; });
+  }
+  function renderRoster() {
+    if (!rosterList) return;
+    var local = [];
+    try { local = JSON.parse(localStorage.getItem(ROSTER_KEY) || '[]'); } catch (e) { local = []; }
+    var names = cleanNames(ROSTER_2026.concat(local));
+    rosterList.innerHTML = '';
+    names.forEach(function (n) { var li = document.createElement('li'); li.textContent = n; rosterList.appendChild(li); });
+    if (rosterEmpty) rosterEmpty.hidden = names.length > 0;
+  }
+  if (rosterForm) {
+    rosterForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var raw = rosterForm.elements.names.value || '';
+      var add = cleanNames(raw.split(/[,;\n]+/));
+      if (!add.length) return;
+      var local = [];
+      try { local = JSON.parse(localStorage.getItem(ROSTER_KEY) || '[]'); } catch (err) { local = []; }
+      try { localStorage.setItem(ROSTER_KEY, JSON.stringify(cleanNames(local.concat(add)))); } catch (err) {}
+      rosterForm.elements.names.value = '';
+      renderRoster();
+    });
+    rosterClear.addEventListener('click', function () { try { localStorage.removeItem(ROSTER_KEY); } catch (e) {} renderRoster(); });
+  }
+  renderRoster();
+
+  /* ---------- v1.1: HIBT ledger + in-browser verification ---------- */
+  var ledgerEl = document.getElementById('ledger');
+  var changelogEl = document.getElementById('changelog');
+  var hashList = document.getElementById('hash-list');
+  var verifyBtn = document.getElementById('verify-btn');
+  var verifyStatus = document.getElementById('verify-status');
+  var verBadge = document.getElementById('ver-badge');
+  var HIBT = null;
+
+  function el(tag, cls, text) { var n = document.createElement(tag); if (cls) n.className = cls; if (text != null) n.textContent = text; return n; }
+
+  function renderHibt(data) {
+    HIBT = data;
+    if (verBadge) verBadge.textContent = 'v' + data.version + ' · ' + data.built_from_commit;
+    if (changelogEl) {
+      changelogEl.innerHTML = '';
+      data.changelog.slice().reverse().forEach(function (c) {
+        var li = el('li');
+        var b = el('strong', null, 'v' + c.version + ' · ' + c.date + ' · ');
+        li.appendChild(b); li.appendChild(document.createTextNode(c.summary));
+        changelogEl.appendChild(li);
+      });
+    }
+    if (ledgerEl) {
+      ledgerEl.innerHTML = '';
+      data.entries.forEach(function (e) {
+        var li = el('li');
+        var meta = el('div', 'meta');
+        meta.appendChild(el('span', null, '#' + e.seq + ' · v' + e.version));
+        meta.appendChild(el('span', null, e.timestamp));
+        meta.appendChild(el('span', null, e.person));
+        meta.appendChild(el('span', null, e.model));
+        li.appendChild(meta);
+        li.appendChild(el('p', 'result', e.result));
+        var det = document.createElement('details');
+        var sum = el('summary', null, 'Show full prompt');
+        det.appendChild(sum); det.appendChild(el('p', 'prompt', e.prompt));
+        li.appendChild(det);
+        li.appendChild(el('div', 'chain', 'chain ' + e.chain));
+        ledgerEl.appendChild(li);
+      });
+    }
+    if (hashList) {
+      hashList.innerHTML = '';
+      data.files.forEach(function (f) {
+        var li = el('li'); li.setAttribute('data-path', f.path);
+        li.appendChild(el('span', null, f.path)); li.appendChild(el('span', null, f.sha256));
+        hashList.appendChild(li);
+      });
+    }
+  }
+
+  function hex(buf) { return Array.prototype.map.call(new Uint8Array(buf), function (b) { return ('0' + b.toString(16)).slice(-2); }).join(''); }
+  function canonical(o) {
+    if (Array.isArray(o)) return '[' + o.map(canonical).join(',') + ']';
+    if (o && typeof o === 'object') return '{' + Object.keys(o).sort().map(function (k) { return JSON.stringify(k) + ':' + canonical(o[k]); }).join(',') + '}';
+    return JSON.stringify(o);
+  }
+  async function sha256Text(t) { return hex(await crypto.subtle.digest('SHA-256', new TextEncoder().encode(t))); }
+
+  async function verify() {
+    if (!HIBT || !window.crypto || !crypto.subtle) { verifyStatus.textContent = 'Verification needs a secure (https) page.'; return; }
+    verifyStatus.textContent = 'Hashing files…';
+    var ok = 0, bad = 0;
+    for (var i = 0; i < HIBT.files.length; i++) {
+      var f = HIBT.files[i];
+      var li = hashList.querySelector('[data-path="' + f.path + '"]');
+      try {
+        var r = await fetch('./' + f.path, { cache: 'no-store' });
+        var buf = await r.arrayBuffer();
+        var h = hex(await crypto.subtle.digest('SHA-256', buf));
+        if (h === f.sha256) { ok++; li.classList.add('ok'); li.classList.remove('bad'); }
+        else { bad++; li.classList.add('bad'); li.classList.remove('ok'); }
+      } catch (e) { bad++; if (li) li.classList.add('bad'); }
+    }
+    // chain check
+    var prev = '0'.repeat(64), chainOk = true;
+    for (var j = 0; j < HIBT.entries.length; j++) {
+      var e = Object.assign({}, HIBT.entries[j]); var recorded = e.chain; delete e.chain;
+      var c = await sha256Text(prev + canonical(e));
+      if (c !== recorded) { chainOk = false; break; }
+      prev = c;
+    }
+    if (chainOk && prev !== HIBT.head) chainOk = false;
+    verifyStatus.textContent = (bad === 0 ? 'All ' + ok + ' files match the ledger. ' : bad + ' file(s) differ from the ledger. ') + (chainOk ? 'Ledger chain intact (head ' + HIBT.head.slice(0, 12) + '…).' : 'Ledger chain does NOT verify.');
+  }
+
+  if (ledgerEl) {
+    fetch('./hibt.json', { cache: 'no-store' }).then(function (r) { return r.json(); }).then(renderHibt).catch(function () {
+      if (verifyStatus) verifyStatus.textContent = 'Ledger file not found.';
+    });
+    if (verifyBtn) verifyBtn.addEventListener('click', verify);
+  }
 })();
