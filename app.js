@@ -266,4 +266,10 @@
     });
     if (verifyBtn) verifyBtn.addEventListener('click', verify);
   }
+
+  /* ---------- assemble email addresses client-side (keeps CDN email-obfuscation out of the served HTML) ---------- */
+  Array.prototype.forEach.call(document.querySelectorAll('.email[data-user][data-domain]'), function (sp) {
+    var addr = sp.getAttribute('data-user') + '@' + sp.getAttribute('data-domain');
+    var a = document.createElement('a'); a.href = 'mailto:' + addr; a.textContent = addr; sp.textContent = ''; sp.appendChild(a);
+  });
 })();
