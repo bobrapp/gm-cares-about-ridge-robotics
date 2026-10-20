@@ -1,0 +1,119 @@
+{
+  "standard": "HIBT-AIGovOps ledger, v1",
+  "project": "Ridge Robotics × GM Cares — celebration site for the October 22, 2026 visit, Columbia Ridge Elementary, Ephrata, WA",
+  "version": "1.1",
+  "generated_at": "2026-10-20T12:19:00+00:00",
+  "built_from_commit": "a91a2ea",
+  "hash_algorithm": "SHA-256",
+  "chain_rule": "chain = sha256(prev + canonical_json(entry_without_chain))",
+  "files": [
+    {
+      "path": "app.js",
+      "sha256": "a66c06e3eca7f873cd5e5f3843ae9b248c7b7df4f1342430d05c30a1fa01b00b",
+      "bytes": 12609
+    },
+    {
+      "path": "assets/bioglow-ideas.webp",
+      "sha256": "0aa761e06bac59b41db4df1bcd502f0a2cce15280ad037b10f91e2a195cecc2c",
+      "bytes": 478614
+    },
+    {
+      "path": "assets/cake-design-print.jpg",
+      "sha256": "1c5c807298831613873f9e8ed1269e2310e8712e09608b683605a50448f635b5",
+      "bytes": 485369
+    },
+    {
+      "path": "assets/cake-design.webp",
+      "sha256": "98c8a7d203e5fe56b74fa06b953f36b3062dbf8e25b2bb046f6022a0ed6823d5",
+      "bytes": 183362
+    },
+    {
+      "path": "assets/hero-robot.webp",
+      "sha256": "77bbc1c940ed33a40a51782923c2d7c596391fe5178ba8fd04740f7dea344955",
+      "bytes": 254086
+    },
+    {
+      "path": "base.css",
+      "sha256": "8574dd559c2abab6e15e75e24791a99e5aa01e3185f35dce821ad3d7f08c3537",
+      "bytes": 1652
+    },
+    {
+      "path": "index.html",
+      "sha256": "e6463a1588e457db706012957d7c621c5acfab29afd65254358f57efa1ca403b",
+      "bytes": 69469
+    },
+    {
+      "path": "style.css",
+      "sha256": "1f9d23e20cfb6776934e31937d97d41f8dceaaddc46538a3dd8ebb01b4247ab0",
+      "bytes": 28708
+    }
+  ],
+  "changelog": [
+    {
+      "version": "1.0",
+      "date": "2026-10-20",
+      "summary": "First build. Celebration of the 2025–26 season, team and coaches, BIOGLOW ideas, support asks with a pledge builder, GM robotics/STEM/autonomy section, half-sheet cake design with printable baker's sheet, visit-day run of show, 27 sources."
+    },
+    {
+      "version": "1.1",
+      "date": "2026-10-20",
+      "summary": "Team section now states that last year's nine fourth-graders moved up to Parkway Intermediate (grades 5–6) and that 2026–27 is a new team picking up the torch. Added a 2026–27 roster block (first names only, coach-supplied). All student names reduced to first names. Every factual claim now carries at least two sources (59 sources, conflicts noted). Added this HIBT-AIGovOps ledger with browser re-verification, and thanks to the AIGovOps Foundation, Bob Rapp and Ken Johnston. Published to a permanent public URL."
+    }
+  ],
+  "entries": [
+    {
+      "seq": 1,
+      "version": "1.0",
+      "timestamp": "2026-10-20T11:20:00-07:00",
+      "person": "Bob Rapp",
+      "role": "Requester · Principal AI Architect, General Motors · GM Cares volunteer",
+      "model": "Claude Fable 5.1 (Perplexity Computer orchestrator); images: GPT Image 2.5 via the Computer media tool",
+      "prompt": "Create a supportive webapp for this team in Ephrata, WA for a GM Cares visit on October 22, 2026 by Bob Rapp (Principal AI Architect, General Motors) and Shari Smith (retired Microsoft techie and friend of Ephrata). Make this a celebration, a review of this amazing team, some ideas for this year's FIRST robotics competition, a highlight for the teachers who advise on this, a website that can be shared with the team to garner support (volunteers, contributions to their trip to finals), and some winning ways that GM supports robotics, self-driving via Cruise, our work with kids in STEM fields, and a design for an amazing 1/2 sheet cake that includes Ridge Robotics and GM Cares! in the colors of GM and the mascot and colors of the elementary school. Background supplied: Ridge Robotics is the FIRST LEGO League team at Columbia Ridge Elementary; in early 2026 the 9-member squad won Engineering Excellence and Core Values awards, was drawn as one of ten Washington teams, and in June 2026 scored a personal-best 180 points at the American Robotics Open in New Jersey and sang the National Anthem.",
+      "result": "Researched the team, school colors (Archer Orange #F57B20, black), the BIOGLOW season and GM programs; generated three images (cake rendering, hero robot, BIOGLOW ecosystem); built a single-page static site with pledge builder, share link and printable cake order sheet; QA at 1400px and 375px; deployed preview.",
+      "files_changed": [
+        "index.html",
+        "style.css",
+        "base.css",
+        "app.js",
+        "assets/cake-design.webp",
+        "assets/cake-design-print.jpg",
+        "assets/hero-robot.webp",
+        "assets/bioglow-ideas.webp"
+      ],
+      "prev": "0000000000000000000000000000000000000000000000000000000000000000",
+      "chain": "5c8f0139c024be4420b7409fe5b6cde39ae864bc8f2ac2366fb0bcd5cb5b8d62"
+    },
+    {
+      "seq": 2,
+      "version": "1.1",
+      "timestamp": "2026-10-20T12:40:00-07:00",
+      "person": "Bob Rapp",
+      "role": "Requester",
+      "model": "Claude Fable 5.1 (Perplexity Computer orchestrator)",
+      "prompt": "Mention that last year's team moved up to Parkway Intermediate, and that this is a new team picking up the torch. Add current roster, and make sure only to use first names for all kids. Make these changes and let me take a look, and make sure all facts have at least two sources, and that you show this as a version-controlled HIBT-AIGovOps and thanks to the AIGovOps Foundation and Bob and Ken for their work to make AI safer.",
+      "result": "Added the Parkway hand-off and new-team framing; 2025–26 roster reduced to first names; added a 2026–27 roster block that the coaches fill in (no public roster exists yet, so no names were invented); re-sourced every claim with at least two citations (59 sources) and flagged conflicts (team size nine vs. ten; Core Values award venue; NJIT vs. Drew; Dollars for Doers $200 vs. $500); added this ledger, the changelog, the hash chain and in-browser verification; added thanks to the AIGovOps Foundation, Bob Rapp and Ken Johnston.",
+      "files_changed": [
+        "index.html",
+        "style.css",
+        "app.js",
+        "hibt.json"
+      ],
+      "prev": "5c8f0139c024be4420b7409fe5b6cde39ae864bc8f2ac2366fb0bcd5cb5b8d62",
+      "chain": "1efcabbd89ca42bf4ca10cc09d71ef49cf7d2e56f123632508b00e6051915d14"
+    },
+    {
+      "seq": 3,
+      "version": "1.1",
+      "timestamp": "2026-10-20T12:45:00-07:00",
+      "person": "Bob Rapp",
+      "role": "Requester",
+      "model": "Claude Fable 5.1 (Perplexity Computer orchestrator)",
+      "prompt": "And make this a permanent hosted site publicly available.",
+      "result": "Preview redeployed, then published to a permanent public pplx.app URL after the files in this ledger were hashed.",
+      "files_changed": [],
+      "prev": "1efcabbd89ca42bf4ca10cc09d71ef49cf7d2e56f123632508b00e6051915d14",
+      "chain": "72c930c2493697c032a4329b17eea5f4ad49b7c92451d577665b69886160c22e"
+    }
+  ],
+  "head": "72c930c2493697c032a4329b17eea5f4ad49b7c92451d577665b69886160c22e"
+}
