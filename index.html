@@ -146,19 +146,9 @@
       <div>
         <p class="kicker">This year's team</p>
         <h2 class="section-title">Ridge Robotics 2026–27</h2>
-        <p class="lede">The new cohort, first names only. The school has not published this season's roster yet, so the list below is filled in by the coaches.</p>
+        <p class="lede">The new cohort, first names only. The school has not published this season's roster yet.</p>
         <div class="roster-now" id="roster-now">
-          <ul class="roster roster--now" role="list" id="roster-now-list"></ul>
-          <p class="roster-empty" id="roster-empty">Names coming from Coach Keegan and Coach Kessel. On visit day the coaches can type them in below and they will appear here on this screen.</p>
-          <form class="roster-edit" id="roster-form">
-            <label for="roster-input">Add first names (comma-separated)</label>
-            <div class="roster-edit__row">
-              <input id="roster-input" type="text" name="names" placeholder="Ava, Mateo, Jordan" autocomplete="off" />
-              <button class="btn btn--primary" type="submit">Show on page</button>
-              <button class="btn btn--ghost" type="button" id="roster-clear">Clear</button>
-            </div>
-            <p class="roster-note">Shown on this screen only until the page is reloaded. To bake names into the shared site, send them to Bob and they go into the next version.</p>
-          </form>
+          <p class="roster-empty">This season's roster will be posted here once Coach Keegan and Coach Kessel share first names. Until then: Go Tigers.</p>
         </div>
         <h3 style="margin-top: var(--space-8)">What makes this program different</h3>
         <p>They are young. Every Ridge Robotics athlete competes up an age bracket, often against middle schoolers.<sup class="fn"><a href="#src-6">6</a> <a href="#src-3">3</a></sup> They are consistent. This is not a one-season story: the 2024–25 team took a shark-shaped reef-cleaning capsule to the Pasco qualifier in the SUBMERGED season, and the 2025–26 team went to nationals.<sup class="fn"><a href="#src-21">21</a> <a href="#src-13">13</a></sup> And they are generous. Judges at the qualifier and at state honored the team for how they treated each other and their competitors.<sup class="fn"><a href="#src-5">5</a> <a href="#src-12">12</a></sup> The program's own words: students "proudly representing the community with Tiger Pride."<sup class="fn"><a href="#src-1">1</a></sup></p>
@@ -304,7 +294,7 @@
 
     <div class="pledge reveal">
       <h3>Write your pledge in 30 seconds</h3>
-      <p>Pick how you'd like to help, add your name, and copy the note. Paste it into an email or text to the Columbia Ridge office, or hand it to a coach on visit day. Nothing is sent from this page.</p>
+      <p>Pick how you'd like to help, add your name, and copy the note. Then copy it, download it as a file, or open it as an email to the Columbia Ridge office. Nothing is sent until you press send in your own mail app.</p>
       <form class="pledge__form" id="pledge-form">
         <fieldset>
           <legend class="sr-only">Ways to help</legend>
@@ -327,6 +317,8 @@
         <div class="pledge__actions">
           <button class="btn btn--primary" type="submit">Build my pledge</button>
           <button class="btn btn--on-dark" type="button" id="copy-pledge" hidden>Copy pledge</button>
+          <button class="btn btn--on-dark" type="button" id="download-pledge" hidden>Download as file</button>
+          <a class="btn btn--on-dark" id="email-pledge" href="#" hidden>Email the school</a>
           <span class="status" id="pledge-status" aria-live="polite"></span>
         </div>
         <output class="pledge__out" id="pledge-out" for="pledge-form"></output>
@@ -430,6 +422,7 @@
         </div>
         <div class="spec__actions">
           <button class="btn btn--gm" type="button" id="print-cake">Print the order sheet</button>
+          <a class="btn btn--primary" href="./assets/cake-order-sheet.pdf" download="Ridge-Robotics-GM-Cares-cake-order.pdf">Download order sheet (PDF)</a>
           <a class="btn btn--ghost" href="./assets/cake-design-print.jpg" target="_blank" rel="noopener noreferrer">Open full-size rendering</a>
         </div>
       </div>
@@ -465,7 +458,7 @@
 <section class="section section--ink" id="hibt">
   <div class="container">
     <p class="kicker">How I Built This · version control</p>
-    <h2 class="section-title">HIBT-AIGovOps ledger <span class="ver" id="ver-badge">v1.1</span></h2>
+    <h2 class="section-title">HIBT-AIGovOps ledger <span class="ver" id="ver-badge">v1.2</span></h2>
     <p class="lede">This page was built with an AI assistant, and it says so. The ledger below records every prompt that shaped it: who asked, when, which model answered, what changed, and a SHA-256 hash of every file that ships. Each entry is chained to the one before it, so the record can be re-verified in your browser against the files you are looking at right now. That is the AIGovOps idea in miniature: make the governance of AI work visible, checkable and boring.</p>
 
     <div class="hibt-grid">
@@ -567,7 +560,7 @@
 
 <footer class="site-footer">
   <div class="container">
-    <span>Prepared for the GM Cares visit to Ridge Robotics · Columbia Ridge Elementary · Ephrata, Washington · October 22, 2026 · <a href="#hibt">v1.1 · HIBT-AIGovOps</a></span>
+    <span>Prepared for the GM Cares visit to Ridge Robotics · Columbia Ridge Elementary · Ephrata, Washington · October 22, 2026 · <a href="#hibt">v1.2 · HIBT-AIGovOps</a></span>
     <span>FIRST and FIRST LEGO League are trademarks of FIRST; LEGO is a trademark of the LEGO Group; General Motors marks belong to GM. This volunteer page is not an official publication of any of them.</span>
   </div>
 </footer>

@@ -108,6 +108,9 @@
   var out = document.getElementById('pledge-out');
   var copyBtn = document.getElementById('copy-pledge');
   var pStatus = document.getElementById('pledge-status');
+  var dlBtn = document.getElementById('download-pledge');
+  var emailBtn = document.getElementById('email-pledge');
+  var SCHOOL_EMAIL = ['ridgeinfo', 'ephrataschools.org'].join('@'); // Columbia Ridge office
   if (form && out) {
     form.addEventListener('submit', function (e) {
       e.preventDefault();
@@ -128,50 +131,22 @@
         'Go Tigers,\n' + (name || '[your name]');
       out.textContent = msg;
       out.classList.add('is-visible');
-      copyBtn.hidden = false;
+      copyBtn.hidden = false; dlBtn.hidden = false; emailBtn.hidden = false;
+      emailBtn.href = 'mailto:' + SCHOOL_EMAIL + '?subject=' + encodeURIComponent('Ridge Robotics: I\'d like to help') + '&body=' + encodeURIComponent(msg);
       pStatus.textContent = 'Pledge ready. Copy it and send it to the school office at (509) 754-2882 or hand it to a coach.';
     });
     copyBtn.addEventListener('click', function () { copyText(out.textContent, pStatus, 'Pledge copied.'); });
+    dlBtn.addEventListener('click', function () {
+      var blob = new Blob([out.textContent], { type: 'text/plain;charset=utf-8' });
+      var a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'Ridge-Robotics-pledge.txt';
+      document.body.appendChild(a); a.click(); document.body.removeChild(a); setTimeout(function () { URL.revokeObjectURL(a.href); }, 1000);
+      pStatus.textContent = 'Pledge downloaded.';
+    });
   }
 
   /* ---------- Print the baker's sheet ---------- */
   var printBtn = document.getElementById('print-cake');
   if (printBtn) printBtn.addEventListener('click', function () { window.print(); });
-
-  /* ---------- v1.1: 2026–27 roster (first names only) ---------- */
-  // Baked-in roster. Keep FIRST NAMES ONLY. Empty until the coaches supply names.
-  var ROSTER_2026 = [];
-  var rosterList = document.getElementById('roster-now-list');
-  var rosterEmpty = document.getElementById('roster-empty');
-  var rosterForm = document.getElementById('roster-form');
-  var rosterClear = document.getElementById('roster-clear');
-  var rosterLocal = []; // in-memory only; cleared on reload
-  function cleanNames(arr) {
-    return arr.map(function (n) { return String(n).trim().split(/\s+/)[0]; }) // first names only, always
-      .filter(Boolean)
-      .map(function (n) { return n.charAt(0).toUpperCase() + n.slice(1); })
-      .filter(function (n, i, a) { return a.indexOf(n) === i; });
-  }
-  function renderRoster() {
-    if (!rosterList) return;
-    var names = cleanNames(ROSTER_2026.concat(rosterLocal));
-    rosterList.innerHTML = '';
-    names.forEach(function (n) { var li = document.createElement('li'); li.textContent = n; rosterList.appendChild(li); });
-    if (rosterEmpty) rosterEmpty.hidden = names.length > 0;
-  }
-  if (rosterForm) {
-    rosterForm.addEventListener('submit', function (e) {
-      e.preventDefault();
-      var raw = rosterForm.elements.names.value || '';
-      var add = cleanNames(raw.split(/[,;\n]+/));
-      if (!add.length) return;
-      rosterLocal = cleanNames(rosterLocal.concat(add));
-      rosterForm.elements.names.value = '';
-      renderRoster();
-    });
-    rosterClear.addEventListener('click', function () { rosterLocal = []; renderRoster(); });
-  }
-  renderRoster();
 
   /* ---------- v1.1: HIBT ledger + in-browser verification ---------- */
   var ledgerEl = document.getElementById('ledger');
