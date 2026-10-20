@@ -145,7 +145,7 @@
   var rosterEmpty = document.getElementById('roster-empty');
   var rosterForm = document.getElementById('roster-form');
   var rosterClear = document.getElementById('roster-clear');
-  var ROSTER_KEY = 'ridge-roster-2026-27';
+  var rosterLocal = []; // in-memory only; cleared on reload
   function cleanNames(arr) {
     return arr.map(function (n) { return String(n).trim().split(/\s+/)[0]; }) // first names only, always
       .filter(Boolean)
@@ -154,9 +154,7 @@
   }
   function renderRoster() {
     if (!rosterList) return;
-    var local = [];
-    try { local = JSON.parse(localStorage.getItem(ROSTER_KEY) || '[]'); } catch (e) { local = []; }
-    var names = cleanNames(ROSTER_2026.concat(local));
+    var names = cleanNames(ROSTER_2026.concat(rosterLocal));
     rosterList.innerHTML = '';
     names.forEach(function (n) { var li = document.createElement('li'); li.textContent = n; rosterList.appendChild(li); });
     if (rosterEmpty) rosterEmpty.hidden = names.length > 0;
@@ -167,13 +165,11 @@
       var raw = rosterForm.elements.names.value || '';
       var add = cleanNames(raw.split(/[,;\n]+/));
       if (!add.length) return;
-      var local = [];
-      try { local = JSON.parse(localStorage.getItem(ROSTER_KEY) || '[]'); } catch (err) { local = []; }
-      try { localStorage.setItem(ROSTER_KEY, JSON.stringify(cleanNames(local.concat(add)))); } catch (err) {}
+      rosterLocal = cleanNames(rosterLocal.concat(add));
       rosterForm.elements.names.value = '';
       renderRoster();
     });
-    rosterClear.addEventListener('click', function () { try { localStorage.removeItem(ROSTER_KEY); } catch (e) {} renderRoster(); });
+    rosterClear.addEventListener('click', function () { rosterLocal = []; renderRoster(); });
   }
   renderRoster();
 
