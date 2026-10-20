@@ -1,16 +1,16 @@
 {
   "standard": "HIBT-AIGovOps ledger, v1",
   "project": "Ridge Robotics × GM Cares — celebration site for the October 22, 2026 visit, Columbia Ridge Elementary, Ephrata, WA",
-  "version": "1.1",
-  "generated_at": "2026-10-20T12:23:31+00:00",
-  "built_from_commit": "5bf4f81",
+  "version": "1.2",
+  "generated_at": "2026-10-20T12:38:13+00:00",
+  "built_from_commit": "19cb519",
   "hash_algorithm": "SHA-256",
   "chain_rule": "chain = sha256(prev + canonical_json(entry_without_chain))",
   "files": [
     {
       "path": "app.js",
-      "sha256": "b54bc4e14c433ec690270d83ab0c88493ec3784f28db2162f39dcec6792ee582",
-      "bytes": 12794
+      "sha256": "dc431a0a4812c235cd56ea9e0d95283cf59a6bdeafc81e6d071319019803e52a",
+      "bytes": 12049
     },
     {
       "path": "assets/bioglow-ideas.webp",
@@ -28,6 +28,11 @@
       "bytes": 183362
     },
     {
+      "path": "assets/cake-order-sheet.pdf",
+      "sha256": "1509b088db0e6c77f552082001591eb0d2c678357c5800126eeb0ac4f4c6d17b",
+      "bytes": 61744
+    },
+    {
       "path": "assets/hero-robot.webp",
       "sha256": "77bbc1c940ed33a40a51782923c2d7c596391fe5178ba8fd04740f7dea344955",
       "bytes": 254086
@@ -39,8 +44,8 @@
     },
     {
       "path": "index.html",
-      "sha256": "ed5821cb3c602a2f7deff1770c7eb3d569427f01bed059ca413f8ca2a2d9db57",
-      "bytes": 69771
+      "sha256": "0363403b78f582e45dcd9db5453e3b96d4d9486808ebae8c321fb60279872304",
+      "bytes": 69296
     },
     {
       "path": "style.css",
@@ -58,6 +63,11 @@
       "version": "1.1",
       "date": "2026-10-20",
       "summary": "Team section now states that last year's nine fourth-graders moved up to Parkway Intermediate (grades 5–6) and that 2026–27 is a new team picking up the torch. Added a 2026–27 roster block (first names only, coach-supplied). All student names reduced to first names. Every factual claim now carries at least two sources (59 sources, conflicts noted). Added this HIBT-AIGovOps ledger with browser re-verification, and thanks to the AIGovOps Foundation, Bob Rapp and Ken Johnston. Published to a permanent public URL."
+    },
+    {
+      "version": "1.2",
+      "date": "2026-10-20",
+      "summary": "Cake order sheet is now downloadable as a PDF (assets/cake-order-sheet.pdf) in addition to printable. Pledge form gained Download-as-file and Email-the-school (opens the user's mail app addressed to the Columbia Ridge office; nothing is sent automatically). Removed the in-page roster editor; the 2026–27 roster is posted only when the coaches supply first names. Published to gm-cares-about-ridge-robotics.pplx.app and mirrored in the public GitHub repo bobrapp/gm-cares-about-ridge-robotics."
     }
   ],
   "entries": [
@@ -117,7 +127,25 @@
       ],
       "prev": "1efcabbd89ca42bf4ca10cc09d71ef49cf7d2e56f123632508b00e6051915d14",
       "chain": "d8ee4c64d8be3e7939a1448109dc202ae9415fbc0d0756d65ae98d9148105ecb"
+    },
+    {
+      "seq": 4,
+      "version": "1.2",
+      "timestamp": "2026-10-20T13:05:00-07:00",
+      "person": "Bob Rapp",
+      "role": "Requester",
+      "model": "Claude Fable 5.1 (Perplexity Computer orchestrator)",
+      "prompt": "Now where is this hosted so it can be viewed as a webpage for this year; also create it as a downloadable file that can be given to the teachers; do not have any edits for the current team, but do allow someone to fill out a form and export it and email to the school; run end-to-end tests; translate the entire site from English to Spanish; give pointers to the prior chapter work; plus winning top 10 grade 1–4 FIRST robotics teams in rural areas of WA, Idaho and Montana (up to 10). Then: Publish this app to gm-cares-about-ridge-robotics.pplx.app. Then: create a public repo called gm-cares-about-ridge-robotics in my @bobrapp GitHub and make sure I can download the cake decoration order as well as print it.",
+      "result": "Published v1.1 to gm-cares-about-ridge-robotics.pplx.app. v1.2: removed roster editor; added pledge download (.txt) and email-the-school (mailto) actions; added downloadable cake order PDF; created public GitHub repo bobrapp/gm-cares-about-ridge-robotics with full history and build tooling. Spanish translation, prior-season links, rural champions list, teacher download package and the full end-to-end test report follow in v1.3.",
+      "files_changed": [
+        "index.html",
+        "app.js",
+        "assets/cake-order-sheet.pdf",
+        "hibt.json"
+      ],
+      "prev": "d8ee4c64d8be3e7939a1448109dc202ae9415fbc0d0756d65ae98d9148105ecb",
+      "chain": "7c9453011e96494cbf4c4feffbba584058fe0607cabd81b2f1d09582be657f19"
     }
   ],
-  "head": "d8ee4c64d8be3e7939a1448109dc202ae9415fbc0d0756d65ae98d9148105ecb"
+  "head": "7c9453011e96494cbf4c4feffbba584058fe0607cabd81b2f1d09582be657f19"
 }
