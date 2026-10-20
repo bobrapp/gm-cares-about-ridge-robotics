@@ -2,15 +2,15 @@
   "standard": "HIBT-AIGovOps ledger, v1",
   "project": "Ridge Robotics × GM Cares — celebration site for the October 22, 2026 visit, Columbia Ridge Elementary, Ephrata, WA",
   "version": "1.1",
-  "generated_at": "2026-10-20T12:21:12+00:00",
-  "built_from_commit": "a7bc106",
+  "generated_at": "2026-10-20T12:23:31+00:00",
+  "built_from_commit": "5bf4f81",
   "hash_algorithm": "SHA-256",
   "chain_rule": "chain = sha256(prev + canonical_json(entry_without_chain))",
   "files": [
     {
       "path": "app.js",
-      "sha256": "dbed39d7e67c5d00d03f3620311fea407567480ff693839f1198af7126243492",
-      "bytes": 12345
+      "sha256": "b54bc4e14c433ec690270d83ab0c88493ec3784f28db2162f39dcec6792ee582",
+      "bytes": 12794
     },
     {
       "path": "assets/bioglow-ideas.webp",
@@ -39,8 +39,8 @@
     },
     {
       "path": "index.html",
-      "sha256": "b52e13e3748bddba4ad37506f6410a9e5b51bef4d93592114c9efe7abe7c323d",
-      "bytes": 69495
+      "sha256": "ed5821cb3c602a2f7deff1770c7eb3d569427f01bed059ca413f8ca2a2d9db57",
+      "bytes": 69771
     },
     {
       "path": "style.css",
@@ -109,11 +109,15 @@
       "role": "Requester",
       "model": "Claude Fable 5.1 (Perplexity Computer orchestrator)",
       "prompt": "And make this a permanent hosted site publicly available.",
-      "result": "Preview redeployed, then published to a permanent public pplx.app URL after the files in this ledger were hashed.",
-      "files_changed": [],
+      "result": "Preview redeployed, then published to https://ridge-robotics-gm-cares.pplx.app. First live verification showed index.html differing from the ledger because the CDN injected an email-obfuscation script; the contact address is now assembled client-side so the served HTML matches the recorded hash, and the site was republished.",
+      "files_changed": [
+        "index.html",
+        "app.js",
+        "hibt.json"
+      ],
       "prev": "1efcabbd89ca42bf4ca10cc09d71ef49cf7d2e56f123632508b00e6051915d14",
-      "chain": "72c930c2493697c032a4329b17eea5f4ad49b7c92451d577665b69886160c22e"
+      "chain": "d8ee4c64d8be3e7939a1448109dc202ae9415fbc0d0756d65ae98d9148105ecb"
     }
   ],
-  "head": "72c930c2493697c032a4329b17eea5f4ad49b7c92451d577665b69886160c22e"
+  "head": "d8ee4c64d8be3e7939a1448109dc202ae9415fbc0d0756d65ae98d9148105ecb"
 }
