@@ -118,14 +118,14 @@ sup.fn a:hover { color: var(--color-primary-deep); }
 /* ---------- Hero ---------- */
 .hero { padding-block: clamp(var(--space-10), 6vw, var(--space-20)) clamp(var(--space-12), 7vw, var(--space-24)); }
 .hero__grid { display: grid; gap: clamp(var(--space-8), 5vw, var(--space-16)); align-items: center; }
-@media (min-width: 900px) { .hero__grid { grid-template-columns: 1.1fr 0.9fr; } }
+@media (min-width: 900px) { .hero__grid { grid-template-columns: 1.15fr 0.85fr; } }
 .hero__date {
-  display: inline-flex; align-items: center; gap: var(--space-3); font-size: var(--text-sm); font-weight: 600;
+  display: inline-flex; flex-wrap: wrap; align-items: center; gap: var(--space-2) var(--space-3); font-size: var(--text-sm); font-weight: 600;
   color: var(--color-text); background: var(--color-surface); border: 1px solid var(--color-border);
-  padding: var(--space-2) var(--space-4) var(--space-2) var(--space-2); border-radius: 999px; margin-bottom: var(--space-6);
+  padding: var(--space-2) var(--space-4) var(--space-2) var(--space-2); border-radius: var(--radius-md); margin-bottom: var(--space-6); max-width: 100%;
 }
-.hero__date span.tag { background: var(--color-ink); color: #fff; border-radius: 999px; padding: 6px 12px; font-size: var(--text-xs); letter-spacing: 0.08em; text-transform: uppercase; white-space: nowrap; }
-.hero__date { flex-wrap: wrap; }
+.hero__date span.tag { background: var(--color-ink); color: #fff; border-radius: var(--radius-sm); padding: 6px 10px; font-size: var(--text-xs); letter-spacing: 0.06em; text-transform: uppercase; white-space: nowrap; }
+.hero__date span:not(.tag) { padding-inline: var(--space-1); }
 .hero__title { font-family: var(--font-display); font-weight: 600; font-size: clamp(2.25rem, 1.2rem + 3.4vw, 4.25rem); line-height: 1.04; letter-spacing: -0.01em; max-width: 16ch; }
 .hero__title em { font-style: normal; color: var(--color-primary-deep); }
 .hero__lede { margin-top: var(--space-6); font-size: var(--text-base); line-height: 1.55; color: var(--color-text-muted); max-width: 52ch; font-weight: 400; }
