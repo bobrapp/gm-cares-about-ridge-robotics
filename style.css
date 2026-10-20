@@ -410,9 +410,9 @@ sup.fn a:hover { color: var(--color-primary-deep); }
 .roster--avatars li { padding: var(--space-3) var(--space-4); gap: var(--space-3); }
 .roster--avatars li::before { display: none; }
 .roster--avatars .av { width: 64px; height: 64px; flex: none; }
-.coach--solo { max-width: 44rem; display: grid; grid-template-columns: auto 1fr; gap: var(--space-2) var(--space-5); align-items: start; }
+.coach--solo { max-width: 44rem; display: grid; grid-template-columns: auto minmax(0, 1fr); gap: var(--space-2) var(--space-5); align-items: start; }
 .coach--solo .av--coach { width: 96px; height: 96px; grid-row: span 3; background: #fff; border-radius: 50%; }
 .coach--solo h3, .coach--solo .role, .coach--solo p { grid-column: 2; }
-@media (max-width: 500px) { .coach--solo { grid-template-columns: 1fr; } .coach--solo .av--coach { grid-row: auto; } .coach--solo h3, .coach--solo .role, .coach--solo p { grid-column: 1; } }
+@media (max-width: 500px) { .coach--solo { grid-template-columns: minmax(0, 1fr); } .coach--solo .av--coach { grid-row: auto; } .coach--solo h3, .coach--solo .role, .coach--solo p { grid-column: 1; } }
 .roster--avatars li span { display: grid; line-height: 1.2; }
 .roster--avatars li small { font-weight: 500; color: var(--color-text-muted); font-size: var(--text-xs); }
