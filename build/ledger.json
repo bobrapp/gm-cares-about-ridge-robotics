@@ -1,6 +1,6 @@
 {
   "project": "Ridge Robotics × GM Cares — celebration site for the October 22, 2026 visit, Columbia Ridge Elementary, Ephrata, WA",
-  "version": "1.2",
+  "version": "1.3",
   "changelog": [
     {
       "version": "1.0",
@@ -16,6 +16,11 @@
       "version": "1.2",
       "date": "2026-10-20",
       "summary": "Cake order sheet is now downloadable as a PDF (assets/cake-order-sheet.pdf) in addition to printable. Pledge form gained Download-as-file and Email-the-school (opens the user's mail app addressed to the Columbia Ridge office; nothing is sent automatically). Removed the in-page roster editor; the 2026–27 roster is posted only when the coaches supply first names. Published to gm-cares-about-ridge-robotics.pplx.app and mirrored in the public GitHub repo bobrapp/gm-cares-about-ridge-robotics."
+    },
+    {
+      "version": "1.3",
+      "date": "2026-10-20",
+      "summary": "New 'Find us and support us' page (find-us.html) with a large QR code to the published site, copy/share, QR PNG download and a printable poster. Every page's footer now carries a small QR code and the share link. Nav gained a 'Find us & support us' entry."
     }
   ],
   "entries": [
@@ -83,6 +88,26 @@
         "index.html",
         "app.js",
         "assets/cake-order-sheet.pdf",
+        "hibt.json"
+      ]
+    },
+    {
+      "seq": 5,
+      "version": "1.3",
+      "timestamp": "2026-10-20T13:30:00-07:00",
+      "person": "Bob Rapp",
+      "role": "Requester",
+      "model": "Claude Fable 5.1 (Perplexity Computer orchestrator)",
+      "prompt": "Add a BIG QR code that points to this website that is easy to show and share; add it to its own page called 'Find us and support us'; plus put a link at the bottom of each page with a small QR code to the published share.",
+      "result": "Generated QR codes (SVG + PNG, error-correction level H) for https://gm-cares-about-ridge-robotics.pplx.app, verified they decode; built find-us.html with the large code, share/copy, PNG download and print poster; added footer share block with small QR to both pages; QA at desktop and 375px; republished.",
+      "files_changed": [
+        "find-us.html",
+        "index.html",
+        "style.css",
+        "app.js",
+        "assets/qr-site.svg",
+        "assets/qr-site.png",
+        "assets/qr-site-print.png",
         "hibt.json"
       ]
     }

@@ -147,6 +147,8 @@
   /* ---------- Print the baker's sheet ---------- */
   var printBtn = document.getElementById('print-cake');
   if (printBtn) printBtn.addEventListener('click', function () { window.print(); });
+  var printQr = document.getElementById('print-qr');
+  if (printQr) printQr.addEventListener('click', function () { window.print(); });
 
   /* ---------- v1.1: HIBT ledger + in-browser verification ---------- */
   var ledgerEl = document.getElementById('ledger');

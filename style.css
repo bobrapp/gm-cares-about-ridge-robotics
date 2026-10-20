@@ -314,9 +314,9 @@ sup.fn a:hover { color: var(--color-primary-deep); }
 
 /* ---------- Print: baker's order sheet ---------- */
 @media print {
-  body > header, body > footer, main > section:not(#cake), .skip-link { display: none !important; }
+  .page-home > header, .page-home > footer, .page-home main > section:not(#cake), .skip-link { display: none !important; }
   body { background: #fff; color: #000; }
-  #cake { padding: 0; }
+  .page-home #cake { padding: 0; }
   #cake .section-title { font-size: 20pt; }
   #cake .lede { font-size: 10pt; }
   .spec__actions { display: none !important; }
@@ -370,3 +370,37 @@ sup.fn a:hover { color: var(--color-primary-deep); }
 .ledger details p { margin-top: var(--space-2); white-space: pre-wrap; color: oklch(88% 0.01 80); font-size: var(--text-xs); }
 .changelog strong { color: #fff; }
 .section--ink code { font-family: ui-monospace, Menlo, monospace; font-size: 0.9em; }
+
+/* ---------- v1.3: footer share + Find us page ---------- */
+.site-footer .container { display: grid; gap: var(--space-6); }
+.footer-share { display: grid; grid-template-columns: auto 1fr; gap: var(--space-4); align-items: center; padding: var(--space-4); background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-lg); max-width: 36rem; }
+.footer-qr img { width: 88px; height: 88px; border-radius: var(--radius-sm); background: #fff; padding: 4px; }
+.footer-share strong { display: block; color: var(--color-text); font-size: var(--text-sm); }
+.footer-share > div > a { display: block; font-weight: 600; font-size: var(--text-sm); word-break: break-all; }
+.footer-share span { display: block; margin-top: var(--space-1); }
+.footer-meta { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--space-3); }
+.nav-cta { color: var(--color-primary-deep) !important; font-weight: 600; }
+.findus { padding-block: clamp(var(--space-10), 6vw, var(--space-20)); min-height: calc(100dvh - 64px); display: flex; align-items: center; }
+.findus__grid { display: grid; gap: clamp(var(--space-8), 5vw, var(--space-16)); align-items: center; }
+@media (min-width: 960px) { .findus__grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 959px) { .findus__qr { order: -1; } }
+.findus__title { font-family: var(--font-display); font-weight: 600; font-size: clamp(2rem, 1.2rem + 3vw, 3.75rem); line-height: 1.05; }
+.findus__title em { font-style: normal; color: var(--color-primary-deep); }
+.findus__url { margin-top: var(--space-6); font-family: var(--font-display); font-weight: 600; font-size: var(--text-lg); word-break: break-all; }
+.findus__url a { color: var(--color-gm); text-decoration-thickness: 2px; }
+.findus__ways { margin-top: var(--space-8); display: grid; gap: var(--space-3); }
+.findus__ways li { display: grid; gap: 2px; padding: var(--space-3) var(--space-4); border-left: 3px solid var(--color-primary); background: var(--color-surface); border-radius: 0 var(--radius-md) var(--radius-md) 0; font-size: var(--text-sm); }
+.findus__ways a { font-weight: 600; }
+.findus__ways span { color: var(--color-text-muted); }
+.findus__qr { background: #fff; border: 1px solid var(--color-border); border-radius: var(--radius-xl); padding: clamp(var(--space-4), 3vw, var(--space-8)); box-shadow: var(--shadow-md); margin-inline: auto; width: 100%; max-width: 640px; }
+.findus__qr img { width: 100%; height: auto; aspect-ratio: 1; }
+.findus__qr figcaption { text-align: center; margin-top: var(--space-4); font-weight: 600; font-size: var(--text-sm); color: var(--color-text-muted); }
+@media print {
+  .page-findus main { display: block !important; }
+  .page-findus .findus__grid { grid-template-columns: 1fr; text-align: center; }
+  .page-findus .hero__actions, .page-findus .status, .page-findus .findus__ways, .page-findus .site-footer, .page-findus .site-header { display: none !important; }
+  .page-findus .findus__qr { box-shadow: none; border: 0; max-width: 5.2in; padding: 0; }
+  .page-findus .findus { min-height: 0; padding: 0; }
+  .page-findus .findus__title { font-size: 28pt; }
+  .page-findus .lede { margin-inline: auto; }
+}
