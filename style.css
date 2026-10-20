@@ -192,7 +192,7 @@ sup.fn a:hover { color: var(--color-primary-deep); }
 
 /* Coaches */
 .coaches { display: grid; gap: var(--space-5); margin-top: var(--space-8); }
-@media (min-width: 800px) { .coaches { grid-template-columns: 1fr 1fr; } }
+
 .coach { background: oklch(100% 0 0 / 0.06); border: 1px solid oklch(100% 0 0 / 0.14); border-radius: var(--radius-lg); padding: var(--space-6); }
 .coach h3 { font-family: var(--font-display); font-size: var(--text-xl); color: #fff; margin-bottom: var(--space-1); }
 .coach .role { color: var(--color-primary); font-size: var(--text-sm); font-weight: 600; margin-bottom: var(--space-4); }
@@ -404,3 +404,15 @@ sup.fn a:hover { color: var(--color-primary-deep); }
   .page-findus .findus__title { font-size: 28pt; }
   .page-findus .lede { margin-inline: auto; }
 }
+
+/* ---------- v1.4: robot avatars ---------- */
+.roster--avatars { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+.roster--avatars li { padding: var(--space-3) var(--space-4); gap: var(--space-3); }
+.roster--avatars li::before { display: none; }
+.roster--avatars .av { width: 64px; height: 64px; flex: none; }
+.coach--solo { max-width: 44rem; display: grid; grid-template-columns: auto 1fr; gap: var(--space-2) var(--space-5); align-items: start; }
+.coach--solo .av--coach { width: 96px; height: 96px; grid-row: span 3; background: #fff; border-radius: 50%; }
+.coach--solo h3, .coach--solo .role, .coach--solo p { grid-column: 2; }
+@media (max-width: 500px) { .coach--solo { grid-template-columns: 1fr; } .coach--solo .av--coach { grid-row: auto; } .coach--solo h3, .coach--solo .role, .coach--solo p { grid-column: 1; } }
+.roster--avatars li span { display: grid; line-height: 1.2; }
+.roster--avatars li small { font-weight: 500; color: var(--color-text-muted); font-size: var(--text-xs); }

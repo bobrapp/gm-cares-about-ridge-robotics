@@ -1,6 +1,6 @@
 {
   "project": "Ridge Robotics × GM Cares — celebration site for the October 22, 2026 visit, Columbia Ridge Elementary, Ephrata, WA",
-  "version": "1.3",
+  "version": "1.4",
   "changelog": [
     {
       "version": "1.0",
@@ -21,6 +21,11 @@
       "version": "1.3",
       "date": "2026-10-20",
       "summary": "New 'Find us and support us' page (find-us.html) with a large QR code to the published site, copy/share, QR PNG download and a printable poster. Every page's footer now carries a small QR code and the share link. Nav gained a 'Find us & support us' entry."
+    },
+    {
+      "version": "1.4",
+      "date": "2026-10-20",
+      "summary": "2026–27 roster added for FIRST LEGO League team #36203 (Aaron, Addy, Dean, Ellie, Gael, Hayden, Noah, Ka'la, Lettie, Coach Keegan), each with a code-drawn, gender-neutral robot avatar; last year's nine got avatars too. Coach Keegan is now the only adult named on the page."
     }
   ],
   "entries": [
@@ -108,6 +113,23 @@
         "assets/qr-site.svg",
         "assets/qr-site.png",
         "assets/qr-site-print.png",
+        "hibt.json"
+      ]
+    },
+    {
+      "seq": 6,
+      "version": "1.4",
+      "timestamp": "2026-10-20T13:55:00-07:00",
+      "person": "Bob Rapp",
+      "role": "Requester",
+      "model": "Claude Fable 5.1 (Perplexity Computer orchestrator)",
+      "prompt": "Update the app with robotics fun cartoon avatars, gender neutral, for each name; only have Coach Keegan, drop the other adult. Ridge Robotics #36203: Aaron, Addy, Dean, Ellie, Gael, Hayden, Noah, Ka'la, Lettie, Coach Keegan.",
+      "result": "Added the supplied first-name roster with team number #36203; generated 19 deterministic SVG robot avatars in code (no image model, no likenesses); removed the second coach from all copy including the pledge greeting; coach card shows her avatar; republished.",
+      "files_changed": [
+        "index.html",
+        "find-us.html",
+        "style.css",
+        "app.js",
         "hibt.json"
       ]
     }

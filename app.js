@@ -123,7 +123,7 @@
         return;
       }
       var list = helps.length === 1 ? helps[0] : helps.slice(0, -1).join(', ') + ' and ' + helps[helps.length - 1];
-      var msg = 'Hi Coach Keegan and Coach Kessel,\n\n' +
+      var msg = 'Hi Coach Keegan,\n\n' +
         'I saw the GM Cares celebration page for Ridge Robotics and I\'d like to help this season. ' +
         'I can ' + list + '.\n\n' +
         (note ? note + '\n\n' : '') +
