@@ -3,11 +3,14 @@
 with CSS, fonts, images, PDF, QR and the HIBT ledger inlined as data URIs.
 Output: offline/ridge-robotics-gm-cares-offline.html  (open from a USB stick, email, or a file share)
 """
-import base64, json, mimetypes, os, re
+import base64, json, mimetypes, os, re, sys
+LANG = 'es' if '--es' in sys.argv else 'en'
+PFX = 'es/' if LANG == 'es' else ''
+UP = '../' if LANG == 'es' else './'
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 OUT_DIR = os.path.join(ROOT, 'offline')
-OUT = os.path.join(OUT_DIR, 'ridge-robotics-gm-cares-offline.html')
+OUT = os.path.join(OUT_DIR, 'ridge-robotics-gm-cares-sin-conexion.html' if LANG == 'es' else 'ridge-robotics-gm-cares-offline.html')
 mimetypes.add_type('image/webp', '.webp'); mimetypes.add_type('font/woff2', '.woff2'); mimetypes.add_type('image/svg+xml', '.svg')
 
 def read(rel, mode='r'):
@@ -22,8 +25,10 @@ def inline_css(css):
     return re.sub(r"url\('\./(assets/[^']+)'\)", lambda m: "url('%s')" % data_uri(m.group(1)), css)
 
 def main():
-    html = read('index.html')
-    findus = read('find-us.html')
+    html = read(PFX + 'index.html')
+    findus = read(PFX + 'find-us.html')
+    if LANG == 'es':
+        html = html.replace('"../', '"./').replace(' data-base="../"', ''); findus = findus.replace('"../', '"./')
 
     # --- merge the Find-us page as a section at the end of <main> ---
     sec = re.search(r'<main id="main">\s*(<section class="findus" id="top">.*?</section>)\s*</main>', findus, re.S).group(1)
@@ -31,13 +36,16 @@ def main():
     sec = sec.replace('<h1 class="findus__title">', '<h2 class="findus__title">').replace('</h1>', '</h2>')
     sec = sec.replace('id="share-btn"', 'id="share-btn-2"').replace('id="share-status"', 'id="share-status-2"')
     sec = re.sub(r'href="\./index\.html#', 'href="#', sec)
-    champs = read('past-champions.html')
+    champs = read(PFX + 'past-champions.html')
+    if LANG == 'es':
+        champs = champs.replace('"../', '"./')
     csec = re.search(r'<main id="main">\s*(.*?)\s*</main>', champs, re.S).group(1)
     csec = csec.replace('<section class="hero hero--compact" id="top">', '<section class="hero hero--compact" id="past-champions">')
     csec = csec.replace('<h1 class="hero__title">', '<h2 class="hero__title">').replace('</h1>', '</h2>')
     csec = re.sub(r'href="\./index\.html#', 'href="#', csec)
     html = html.replace('</main>', csec + '\n' + sec + '\n</main>')
     html = html.replace('href="./find-us.html"', 'href="#find-us"').replace('href="./past-champions.html"', 'href="#past-champions"')
+    html = re.sub(r'<a class="lang-switch"[^>]*>[^<]*</a>\s*', '', html)
     html = html.replace('href="./index.html#', 'href="#')
 
     # --- CSS: inline the three stylesheets (fonts become data URIs) ---
@@ -62,7 +70,8 @@ def main():
     html = html.replace('content="./assets/hero-robot.webp"', 'content=""')
 
     # --- offline banner + title ---
-    html = html.replace('<body class="page-home">', '<body class="page-home page-offline">\n<p class="offline-banner">Offline copy of <a href="https://gm-cares-about-ridge-robotics.pplx.app">gm-cares-about-ridge-robotics.pplx.app</a>. Everything works without internet except live hash verification and the source links.</p>')
+    banner = ('Copia sin conexión de <a href="https://gm-cares-about-ridge-robotics.pplx.app/es/">gm-cares-about-ridge-robotics.pplx.app/es</a>. Todo funciona sin internet, excepto la verificación de hashes en vivo y los enlaces a las fuentes.' if LANG == 'es' else 'Offline copy of <a href="https://gm-cares-about-ridge-robotics.pplx.app">gm-cares-about-ridge-robotics.pplx.app</a>. Everything works without internet except live hash verification and the source links.')
+    html = html.replace('<body class="page-home">', '<body class="page-home page-offline">\n<p class="offline-banner">' + banner + '</p>')
     html = html.replace('<style>\n', '<style>\n.offline-banner{margin:0;padding:8px 16px;background:#194390;color:#fff;font-size:14px;text-align:center}.offline-banner a{color:#fff}\n', 1)
 
     os.makedirs(OUT_DIR, exist_ok=True)

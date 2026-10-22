@@ -1,6 +1,6 @@
 {
   "project": "Ridge Robotics × GM Cares — celebration site for the October 22, 2026 visit, Columbia Ridge Elementary, Ephrata, WA",
-  "version": "1.7",
+  "version": "1.8",
   "changelog": [
     {
       "version": "1.0",
@@ -41,6 +41,11 @@
       "version": "1.7",
       "date": "2026-10-21",
       "summary": "New page and menu item 'Past Champions: What Can We Learn?' — the FIRST LEGO League Challenge World Festival Champion's Award podium (winner + finalists) for MASTERPIECE 2024, SUBMERGED 2025 and UNEARTHED 2026 (18 teams, global), a tutorial on how the Champion's Award is scored, nine team profiles (robot build, software, project design, presentation and Core Values, why they scored highly) with public team/school contacts only, and 25 page-specific sources. Restored the mobile table-stacking CSS that an earlier print-stylesheet rewrite had dropped. 'Visit day' left the top nav (section remains). Offline bundle now includes the new page."
+    },
+    {
+      "version": "1.8",
+      "date": "2026-10-21",
+      "summary": "Full Spanish edition (es/index.html, es/find-us.html, es/past-champions.html) with EN/ES switch in every header, hreflang alternates and Spanish UI strings; Spanish offline single-file build. 'Prior chapters' section with links to every earlier season document and sibling programs. 'Small towns, big trophies' table of award-winning rural FIRST LEGO League teams in Washington, Idaho and Montana (11 rows, sourced). Automated end-to-end suite (182 checks: links, anchors, footnotes, privacy guards, CSP, fonts, images, overflow, axe-core, nav, flows, HIBT verification, offline files, external source reachability, live hosts) with TEST-REPORT.md committed. Teacher ZIP package."
     }
   ],
   "entries": [
@@ -204,6 +209,28 @@
         "style.css",
         "build/build_single.py",
         "offline/ridge-robotics-gm-cares-offline.html",
+        "hibt.json"
+      ]
+    },
+    {
+      "seq": 10,
+      "version": "1.8",
+      "timestamp": "2026-10-21T11:00:00-07:00",
+      "person": "Bob Rapp",
+      "role": "Requester",
+      "model": "Claude Fable 5.1 (Perplexity Computer orchestrator); Spanish translation drafted by GPT-6 Luna via the Computer LLM tool under a preserve-markup instruction, then structurally validated (tags, links, ids, footnotes identical) and spot-read",
+      "prompt": "Do all the queued items (Spanish version of the whole site, prior-season links, rural WA/ID/MT champions list, teacher download package, written end-to-end test report).",
+      "result": "Shipped all five: Spanish edition with language switch; prior-chapters links; rural champions table; teacher ZIP; automated E2E suite and report. Fixed Spanish nav width and a lang-switch accessible-name mismatch found by the suite.",
+      "files_changed": [
+        "es/*",
+        "index.html",
+        "find-us.html",
+        "past-champions.html",
+        "style.css",
+        "app.js",
+        "build/build_single.py",
+        "offline/*",
+        "TEST-REPORT.md",
         "hibt.json"
       ]
     }

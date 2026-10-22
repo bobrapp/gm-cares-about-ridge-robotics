@@ -1,5 +1,18 @@
 (function () {
   'use strict';
+  var BASE = document.documentElement.getAttribute('data-base') || './';
+  var LANG = (document.documentElement.getAttribute('lang') || 'en').slice(0, 2);
+  var T = LANG === 'es' ? {
+    linkCopied: 'Enlace copiado.', linkCopiedPaste: 'Enlace copiado. Pégalo donde quieras.', copyBlocked: 'No se pudo copiar aquí. Selecciona el texto y cópialo manualmente.',
+    pickOne: 'Elige al menos una forma de ayudar.', pledgeReady: 'Compromiso listo. Cópialo, descárgalo o envíalo por correo a la oficina de la escuela: (509) 754-2882.', pledgeCopied: 'Compromiso copiado.', pledgeDownloaded: 'Compromiso descargado.',
+    greeting: 'Hola, Coach Keegan:\n\n', body1: 'Vi la página de celebración de GM Cares para Ridge Robotics y me gustaría ayudar esta temporada. Puedo ', reach: 'Pueden contactarme en ', yourContact: '[tu teléfono o correo]', signoff: '¡Vamos, Tigers!\n', yourName: '[tu nombre]', andWord: ' y ', subject: 'Ridge Robotics: quiero ayudar', pledgeFile: 'Ridge-Robotics-compromiso.txt',
+    hashing: 'Calculando hashes…', allMatch: function (n) { return 'Los ' + n + ' archivos coinciden con el registro. '; }, differ: function (n) { return n + ' archivo(s) difieren del registro. '; }, chainOk: function (h) { return 'Cadena del registro íntegra (cabeza ' + h + '…).'; }, chainBad: 'La cadena del registro NO se verifica.', needsSecure: 'La verificación requiere una página segura (https).', ledgerMissing: 'No se encontró el archivo del registro.', offlineNote: 'Esta es la copia sin conexión en un solo archivo; los hashes mostrados son los valores registrados. Abre el sitio alojado para verificarlos en vivo.', verifyHosted: 'Verificar en el sitio alojado', ledgerUnreadable: 'No se pudo leer el registro.', showPrompt: 'Mostrar el prompt completo', chain: 'cadena '
+  } : {
+    linkCopied: 'Link copied.', linkCopiedPaste: 'Link copied. Paste it anywhere.', copyBlocked: 'Copy blocked here. Select the text and copy it manually.',
+    pickOne: 'Pick at least one way to help.', pledgeReady: 'Pledge ready. Copy it and send it to the school office at (509) 754-2882 or hand it to a coach.', pledgeCopied: 'Pledge copied.', pledgeDownloaded: 'Pledge downloaded.',
+    greeting: 'Hi Coach Keegan,\n\n', body1: 'I saw the GM Cares celebration page for Ridge Robotics and I\'d like to help this season. I can ', reach: 'Reach me at ', yourContact: '[your phone or email]', signoff: 'Go Tigers,\n', yourName: '[your name]', andWord: ' and ', subject: 'Ridge Robotics: I\'d like to help', pledgeFile: 'Ridge-Robotics-pledge.txt',
+    hashing: 'Hashing files…', allMatch: function (n) { return 'All ' + n + ' files match the ledger. '; }, differ: function (n) { return n + ' file(s) differ from the ledger. '; }, chainOk: function (h) { return 'Ledger chain intact (head ' + h + '…).'; }, chainBad: 'Ledger chain does NOT verify.', needsSecure: 'Verification needs a secure (https) page.', ledgerMissing: 'Ledger file not found.', offlineNote: 'This is the offline single-file copy; hashes below are the recorded values. Open the hosted site to re-verify them live.', verifyHosted: 'Verify on the hosted site', ledgerUnreadable: 'Ledger could not be read.', showPrompt: 'Show full prompt', chain: 'chain '
+  };
 
   /* ---------- Mobile nav ---------- */
   var toggle = document.querySelector('.nav-toggle');
@@ -73,7 +86,7 @@
   /* ---------- Clipboard helper with fallback ---------- */
   function copyText(text, statusEl, okMsg) {
     function done(ok) {
-      statusEl.textContent = ok ? okMsg : 'Copy blocked here. Select the text and copy it manually.';
+      statusEl.textContent = ok ? okMsg : T.copyBlocked;
       setTimeout(function () { statusEl.textContent = ''; }, 4000);
     }
     if (navigator.clipboard && navigator.clipboard.writeText) {
@@ -95,9 +108,9 @@
     shareBtn.addEventListener('click', function () {
       var url = 'https://gm-cares-about-ridge-robotics.pplx.app';
       if (navigator.share) {
-        navigator.share({ title: document.title, url: url }).catch(function () { copyText(url, shareStatus, 'Link copied.'); });
+        navigator.share({ title: document.title, url: url }).catch(function () { copyText(url, shareStatus, T.linkCopied); });
       } else {
-        copyText(url, shareStatus, 'Link copied. Paste it anywhere.');
+        copyText(url, shareStatus, T.linkCopiedPaste);
       }
     });
   });
@@ -118,28 +131,23 @@
       var contact = (form.elements.contact.value || '').trim();
       var note = (form.elements.note.value || '').trim();
       if (!helps.length) {
-        pStatus.textContent = 'Pick at least one way to help.';
+        pStatus.textContent = T.pickOne;
         return;
       }
-      var list = helps.length === 1 ? helps[0] : helps.slice(0, -1).join(', ') + ' and ' + helps[helps.length - 1];
-      var msg = 'Hi Coach Keegan,\n\n' +
-        'I saw the GM Cares celebration page for Ridge Robotics and I\'d like to help this season. ' +
-        'I can ' + list + '.\n\n' +
-        (note ? note + '\n\n' : '') +
-        'Reach me at ' + (contact || '[your phone or email]') + '.\n\n' +
-        'Go Tigers,\n' + (name || '[your name]');
+      var list = helps.length === 1 ? helps[0] : helps.slice(0, -1).join(', ') + T.andWord + helps[helps.length - 1];
+      var msg = T.greeting + T.body1 + list + '.\n\n' + (note ? note + '\n\n' : '') + T.reach + (contact || T.yourContact) + '.\n\n' + T.signoff + (name || T.yourName);
       out.textContent = msg;
       out.classList.add('is-visible');
       copyBtn.hidden = false; dlBtn.hidden = false; emailBtn.hidden = false;
-      emailBtn.href = 'mailto:' + SCHOOL_EMAIL + '?subject=' + encodeURIComponent('Ridge Robotics: I\'d like to help') + '&body=' + encodeURIComponent(msg);
-      pStatus.textContent = 'Pledge ready. Copy it and send it to the school office at (509) 754-2882 or hand it to a coach.';
+      emailBtn.href = 'mailto:' + SCHOOL_EMAIL + '?subject=' + encodeURIComponent(T.subject) + '&body=' + encodeURIComponent(msg);
+      pStatus.textContent = T.pledgeReady;
     });
-    copyBtn.addEventListener('click', function () { copyText(out.textContent, pStatus, 'Pledge copied.'); });
+    copyBtn.addEventListener('click', function () { copyText(out.textContent, pStatus, T.pledgeCopied); });
     dlBtn.addEventListener('click', function () {
       var blob = new Blob([out.textContent], { type: 'text/plain;charset=utf-8' });
-      var a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'Ridge-Robotics-pledge.txt';
+      var a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = T.pledgeFile;
       document.body.appendChild(a); a.click(); document.body.removeChild(a); setTimeout(function () { URL.revokeObjectURL(a.href); }, 1000);
-      pStatus.textContent = 'Pledge downloaded.';
+      pStatus.textContent = T.pledgeDownloaded;
     });
   }
 
@@ -184,10 +192,10 @@
         li.appendChild(meta);
         li.appendChild(el('p', 'result', e.result));
         var det = document.createElement('details');
-        var sum = el('summary', null, 'Show full prompt');
+        var sum = el('summary', null, T.showPrompt);
         det.appendChild(sum); det.appendChild(el('p', 'prompt', e.prompt));
         li.appendChild(det);
-        li.appendChild(el('div', 'chain', 'chain ' + e.chain));
+        li.appendChild(el('div', 'chain', T.chain + e.chain));
         ledgerEl.appendChild(li);
       });
     }
@@ -210,14 +218,14 @@
   async function sha256Text(t) { return hex(await crypto.subtle.digest('SHA-256', new TextEncoder().encode(t))); }
 
   async function verify() {
-    if (!HIBT || !window.crypto || !crypto.subtle) { verifyStatus.textContent = 'Verification needs a secure (https) page.'; return; }
-    verifyStatus.textContent = 'Hashing files…';
+    if (!HIBT || !window.crypto || !crypto.subtle) { verifyStatus.textContent = T.needsSecure; return; }
+    verifyStatus.textContent = T.hashing;
     var ok = 0, bad = 0;
     for (var i = 0; i < HIBT.files.length; i++) {
       var f = HIBT.files[i];
       var li = hashList.querySelector('[data-path="' + f.path + '"]');
       try {
-        var r = await fetch('./' + f.path, { cache: 'no-store' });
+        var r = await fetch(BASE + f.path, { cache: 'no-store' });
         var buf = await r.arrayBuffer();
         var h = hex(await crypto.subtle.digest('SHA-256', buf));
         if (h === f.sha256) { ok++; li.classList.add('ok'); li.classList.remove('bad'); }
@@ -233,19 +241,19 @@
       prev = c;
     }
     if (chainOk && prev !== HIBT.head) chainOk = false;
-    verifyStatus.textContent = (bad === 0 ? 'All ' + ok + ' files match the ledger. ' : bad + ' file(s) differ from the ledger. ') + (chainOk ? 'Ledger chain intact (head ' + HIBT.head.slice(0, 12) + '…).' : 'Ledger chain does NOT verify.');
+    verifyStatus.textContent = (bad === 0 ? T.allMatch(ok) : T.differ(bad)) + (chainOk ? T.chainOk(HIBT.head.slice(0, 12)) : T.chainBad);
   }
 
   var inlineLedger = document.getElementById('hibt-data');
   var OFFLINE = !!inlineLedger;
   if (ledgerEl) {
     if (OFFLINE) {
-      try { renderHibt(JSON.parse(inlineLedger.textContent)); } catch (e) { if (verifyStatus) verifyStatus.textContent = 'Ledger could not be read.'; }
-      if (verifyBtn) { verifyBtn.disabled = true; verifyBtn.textContent = 'Verify on the hosted site'; }
-      if (verifyStatus) verifyStatus.textContent = 'This is the offline single-file copy; hashes below are the recorded values. Open the hosted site to re-verify them live.';
+      try { renderHibt(JSON.parse(inlineLedger.textContent)); } catch (e) { if (verifyStatus) verifyStatus.textContent = T.ledgerUnreadable; }
+      if (verifyBtn) { verifyBtn.disabled = true; verifyBtn.textContent = T.verifyHosted; }
+      if (verifyStatus) verifyStatus.textContent = T.offlineNote;
     } else {
-      fetch('./hibt.json', { cache: 'no-store' }).then(function (r) { return r.json(); }).then(renderHibt).catch(function () {
-        if (verifyStatus) verifyStatus.textContent = 'Ledger file not found.';
+      fetch(BASE + 'hibt.json', { cache: 'no-store' }).then(function (r) { return r.json(); }).then(renderHibt).catch(function () {
+        if (verifyStatus) verifyStatus.textContent = T.ledgerMissing;
       });
       if (verifyBtn) verifyBtn.addEventListener('click', verify);
     }

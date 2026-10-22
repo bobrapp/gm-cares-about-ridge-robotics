@@ -2,15 +2,20 @@
   "standard": "HIBT-AIGovOps ledger, v1",
   "project": "Ridge Robotics × GM Cares — celebration site for the October 22, 2026 visit, Columbia Ridge Elementary, Ephrata, WA",
   "version": "1.7",
-  "generated_at": "2026-10-22T00:55:14+00:00",
-  "built_from_commit": "85b3456",
+  "generated_at": "2026-10-22T01:20:47+00:00",
+  "built_from_commit": "68e85c9",
   "hash_algorithm": "SHA-256",
   "chain_rule": "chain = sha256(prev + canonical_json(entry_without_chain))",
   "files": [
     {
+      "path": "TEST-REPORT.md",
+      "sha256": "64662ed2934f0a1149de1279742c50568cbd3e663b1d3159d44d915c8c2c3f0f",
+      "bytes": 18052
+    },
+    {
       "path": "app.js",
-      "sha256": "44043de0de21de894330bcb1066b267d2ceaa5f30ea5a19f42f419401279b82c",
-      "bytes": 12839
+      "sha256": "cb002e2ea6d15b1b4c876a1aa0d0096dca2137b0b631f882c295841c4adf450d",
+      "bytes": 15408
     },
     {
       "path": "assets/bioglow-ideas.webp",
@@ -83,9 +88,24 @@
       "bytes": 1652
     },
     {
+      "path": "es/find-us.html",
+      "sha256": "28ddd0b873c61bdcadd50e42019dec770034c7a1dcaf3c1ba99abfd7808de858",
+      "bytes": 7563
+    },
+    {
+      "path": "es/index.html",
+      "sha256": "5cfda28c73231148c81253ec569fe46995bb0a7d9e17460a484d5302f304444d",
+      "bytes": 117085
+    },
+    {
+      "path": "es/past-champions.html",
+      "sha256": "ec0aac77149bddf2e4bfd3d2ad7bf223ef461c6389cf6914bad1762e94122625",
+      "bytes": 62437
+    },
+    {
       "path": "find-us.html",
-      "sha256": "b028f6fdd9caccf162d5690ccdb68ffee8f2a336fb1324508186b5dd3745f0b6",
-      "bytes": 6741
+      "sha256": "8d1d98ade77567097a9a8f7dbb37b4b957f031f5c65ec173bce2b8634449f6d1",
+      "bytes": 7081
     },
     {
       "path": "fonts.css",
@@ -94,8 +114,8 @@
     },
     {
       "path": "index.html",
-      "sha256": "229e366bb69e9743f7e79b4f25285df467e7ba923ced02fae429b1845959b1ec",
-      "bytes": 103629
+      "sha256": "0414144907f3e856462556b08ca2bc9b1b3d109092d2aec3b7c937222fa32214",
+      "bytes": 107916
     },
     {
       "path": "js-flag.js",
@@ -104,13 +124,13 @@
     },
     {
       "path": "past-champions.html",
-      "sha256": "2b2aa9d466d69f4b5fcecb3253388baef624438156e5e7eb869805eea16845fa",
-      "bytes": 48391
+      "sha256": "65d2a7bd7f413a8377c9502c4bfa2ea54ba82d1fa1b461f7a49aa73a3fdf5223",
+      "bytes": 56560
     },
     {
       "path": "style.css",
-      "sha256": "0691108e66cde29f2a377bd2f275573d515ab885b23c07d46eabc9de85eaf1c2",
-      "bytes": 37367
+      "sha256": "09b10337ea173a43fde04d4f83187918f8cfdc88b29b60549f0c2639a8b85b28",
+      "bytes": 38665
     }
   ],
   "changelog": [
