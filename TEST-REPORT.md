@@ -1,8 +1,8 @@
 # End-to-end test report
 
-Generated 2026-10-22T01:27:49.809Z · 182 passed · 0 failed · 182 checks
+Generated 2026-10-22T01:31:10.807Z · 186 passed · 0 failed · 186 checks
 
-Scope: six pages (EN + ES), two offline single-file builds, desktop 1400px and mobile 375px, axe-core WCAG 2.1 A/AA + best-practice, functional flows (share, pledge build/copy/download/email, cake PDF and print, QR download, HIBT ledger verification), static link/anchor/footnote integrity, privacy guards (no third-party requests, no raw emails, no student surnames, CSP), external source reachability.
+Scope: six pages (EN + ES), two offline single-file builds, desktop 1400px and mobile 375px, axe-core WCAG 2.1 A/AA + best-practice, functional flows (share, pledge build/copy/download/email, cake PDF and print, QR download, HIBT ledger verification), static link/anchor/footnote integrity, privacy guards (no third-party requests, no raw emails, no student surnames, CSP), external source reachability, and live-host verification.
 
 ## All checks
 
@@ -180,13 +180,17 @@ Scope: six pages (EN + ES), two offline single-file builds, desktop 1400px and m
 | PASS | HIBT | Ledger entries rendered | es/index.html |  |
 | PASS | Console | No page errors during flows | es/index.html |  |
 | PASS | Flow | QR PNG download | find-us.html |  |
-| PASS | Flow | Offline single-file download reachable | find-us.html | 200 2352535 |
+| PASS | Flow | Offline single-file download reachable | find-us.html | 200 2352669 |
 | PASS | Flow | QR PNG download | es/find-us.html |  |
-| PASS | Flow | Offline single-file download reachable | es/find-us.html | 200 2366470 |
+| PASS | Flow | Offline single-file download reachable | es/find-us.html | 200 2366636 |
 | PASS | Content | 18 podium rows + 9 profiles + rural table | past-champions.html |  |
 | PASS | Content | 18 podium rows + 9 profiles + rural table | es/past-champions.html |  |
 | PASS | Offline | Single-file app opens from disk with all images, zero network requests | offline/ridge-robotics-gm-cares-offline.html | 5/5 images, 0 requests |
 | PASS | Offline | Ledger shown inline, verify disabled with explanation | offline/ridge-robotics-gm-cares-offline.html |  |
 | PASS | Offline | Single-file app opens from disk with all images, zero network requests | offline/ridge-robotics-gm-cares-sin-conexion.html | 5/5 images, 0 requests |
 | PASS | Offline | Ledger shown inline, verify disabled with explanation | offline/ridge-robotics-gm-cares-sin-conexion.html |  |
-| PASS | Sources | External source links reachable (114/117; 403/429 bot-walls counted as reachable) | all pages | https://gm-cares-about-ridge-robotics.pplx.app/es/index.html (404); https://gm-cares-about-ridge-robotics.pplx.app/es/find-us.html (404); https://gm-cares-about |
+| PASS | Sources | External source links reachable (117/117; 403/429 bot-walls counted as reachable) | all pages |  |
+| PASS | Live | Host serves site | https://gm-cares-about-ridge-robotics.pplx.app | v1.8 · 5479d1d |
+| PASS | Live | Hosted files match ledger | https://gm-cares-about-ridge-robotics.pplx.app | All 24 files match the ledger. Ledger chain intact (head 6305dcd392ee…). |
+| PASS | Live | Host serves site | https://bobrapp.github.io/gm-cares-about-ridge-robotics | v1.8 · 5479d1d |
+| PASS | Live | Hosted files match ledger | https://bobrapp.github.io/gm-cares-about-ridge-robotics | All 24 files match the ledger. Ledger chain intact (head 6305dcd392ee…). |

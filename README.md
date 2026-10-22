@@ -30,6 +30,12 @@ python3 -m http.server 8765
 3. Commit the content, then `python3 build/gen_hibt.py` and commit `hibt.json`.
 4. Deploy. The HIBT section's **Re-verify hashes** button should show every file green.
 
+## Spanish edition, offline copies, tests
+
+- Spanish: `es/index.html`, `es/find-us.html`, `es/past-champions.html` (EN/ES switch in every header).
+- Offline single-file builds: `offline/ridge-robotics-gm-cares-offline.html` (EN) and `offline/ridge-robotics-gm-cares-sin-conexion.html` (ES); `offline/teacher-package.zip` bundles both plus the cake PDF, QR and review. Rebuild with `python3 build/build_single.py` and `python3 build/build_single.py --es`.
+- End-to-end suite: `node build/run_e2e.mjs [--live]` (needs Playwright + axe-core; serve the folder on http://127.0.0.1:8765 first). Latest results: [`TEST-REPORT.md`](TEST-REPORT.md).
+
 ## Sourcing rule
 
 Every factual claim on the page carries at least two footnotes; direct quotes are attributed to the publication that recorded them; conflicts between sources are noted in the Sources section.
