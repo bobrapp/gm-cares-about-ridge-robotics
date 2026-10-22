@@ -2,8 +2,8 @@
   "standard": "HIBT-AIGovOps ledger, v1",
   "project": "Ridge Robotics × GM Cares — celebration site for the October 22, 2026 visit, Columbia Ridge Elementary, Ephrata, WA",
   "version": "1.7",
-  "generated_at": "2026-10-22T00:53:18+00:00",
-  "built_from_commit": "9171825",
+  "generated_at": "2026-10-22T00:55:14+00:00",
+  "built_from_commit": "85b3456",
   "hash_algorithm": "SHA-256",
   "chain_rule": "chain = sha256(prev + canonical_json(entry_without_chain))",
   "files": [
@@ -104,8 +104,8 @@
     },
     {
       "path": "past-champions.html",
-      "sha256": "4a02e733bdc339bb788d5ea49d040ed6580c1301f877695c95c5c0fd63d720c8",
-      "bytes": 48162
+      "sha256": "2b2aa9d466d69f4b5fcecb3253388baef624438156e5e7eb869805eea16845fa",
+      "bytes": 48391
     },
     {
       "path": "style.css",
