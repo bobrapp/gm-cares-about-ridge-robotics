@@ -1,6 +1,6 @@
 {
   "project": "Ridge Robotics × GM Cares — celebration site for the October 22, 2026 visit, Columbia Ridge Elementary, Ephrata, WA",
-  "version": "1.6",
+  "version": "1.7",
   "changelog": [
     {
       "version": "1.0",
@@ -36,6 +36,11 @@
       "version": "1.6",
       "date": "2026-10-20",
       "summary": "Offline single-file build (offline/ridge-robotics-gm-cares-offline.html) with CSS, fonts, images, PDF, QR and ledger inlined, downloadable from every footer and the Find-us page for schools that block the host. GitHub Pages enabled as a mirror at bobrapp.github.io/gm-cares-about-ridge-robotics. Share buttons always share the canonical address. Dropped the meta frame-ancestors directive. The offline bundle embeds hibt.json and is therefore excluded from the hash chain by design."
+    },
+    {
+      "version": "1.7",
+      "date": "2026-10-21",
+      "summary": "New page and menu item 'Past Champions: What Can We Learn?' — the FIRST LEGO League Challenge World Festival Champion's Award podium (winner + finalists) for MASTERPIECE 2024, SUBMERGED 2025 and UNEARTHED 2026 (18 teams, global), a tutorial on how the Champion's Award is scored, nine team profiles (robot build, software, project design, presentation and Core Values, why they scored highly) with public team/school contacts only, and 25 page-specific sources. Restored the mobile table-stacking CSS that an earlier print-stylesheet rewrite had dropped. 'Visit day' left the top nav (section remains). Offline bundle now includes the new page."
     }
   ],
   "entries": [
@@ -180,6 +185,25 @@
         "build/gen_hibt.py",
         "offline/ridge-robotics-gm-cares-offline.html",
         ".nojekyll",
+        "hibt.json"
+      ]
+    },
+    {
+      "seq": 9,
+      "version": "1.7",
+      "timestamp": "2026-10-21T09:30:00-07:00",
+      "person": "Bob Rapp",
+      "role": "Requester",
+      "model": "Claude Fable 5.1 (Perplexity Computer orchestrator)",
+      "prompt": "Create a link and tutorial to the last 10 winning teams in the 4th grade league (same as Ridge Robotics) in the last three years — the top 3 finishers — with a review of the team, summary of their challenge, how they approached it (robot build, software build, presentation, design), why their team scored so highly; create a roster of winning teams as an example for Ridge Robotics; give a contact for each team coach and school; make this a global list; add a new menu item called Past Champions: What Can We Learn?",
+      "result": "Built past-champions.html from FIRST's official World Festival award lists (2024, 2025, 2026) plus team, school, lab and museum publications; profiled the three winners and six finalists with the best documentation; listed all 18 podium teams; published only public team/school/organization contact channels (no personal numbers), consistent with the site's privacy policy; axe-core 0 violations; added to nav on all pages and to the offline bundle.",
+      "files_changed": [
+        "past-champions.html",
+        "index.html",
+        "find-us.html",
+        "style.css",
+        "build/build_single.py",
+        "offline/ridge-robotics-gm-cares-offline.html",
         "hibt.json"
       ]
     }

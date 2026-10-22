@@ -31,8 +31,13 @@ def main():
     sec = sec.replace('<h1 class="findus__title">', '<h2 class="findus__title">').replace('</h1>', '</h2>')
     sec = sec.replace('id="share-btn"', 'id="share-btn-2"').replace('id="share-status"', 'id="share-status-2"')
     sec = re.sub(r'href="\./index\.html#', 'href="#', sec)
-    html = html.replace('</main>', sec + '\n</main>')
-    html = html.replace('href="./find-us.html"', 'href="#find-us"')
+    champs = read('past-champions.html')
+    csec = re.search(r'<main id="main">\s*(.*?)\s*</main>', champs, re.S).group(1)
+    csec = csec.replace('<section class="hero hero--compact" id="top">', '<section class="hero hero--compact" id="past-champions">')
+    csec = csec.replace('<h1 class="hero__title">', '<h2 class="hero__title">').replace('</h1>', '</h2>')
+    csec = re.sub(r'href="\./index\.html#', 'href="#', csec)
+    html = html.replace('</main>', csec + '\n' + sec + '\n</main>')
+    html = html.replace('href="./find-us.html"', 'href="#find-us"').replace('href="./past-champions.html"', 'href="#past-champions"')
     html = html.replace('href="./index.html#', 'href="#')
 
     # --- CSS: inline the three stylesheets (fonts become data URIs) ---
