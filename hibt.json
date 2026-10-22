@@ -1,9 +1,9 @@
 {
   "standard": "HIBT-AIGovOps ledger, v1",
   "project": "Ridge Robotics × GM Cares — celebration site for the October 22, 2026 visit, Columbia Ridge Elementary, Ephrata, WA",
-  "version": "1.6",
-  "generated_at": "2026-10-20T17:11:35+00:00",
-  "built_from_commit": "3d3a106",
+  "version": "1.7",
+  "generated_at": "2026-10-22T00:53:18+00:00",
+  "built_from_commit": "9171825",
   "hash_algorithm": "SHA-256",
   "chain_rule": "chain = sha256(prev + canonical_json(entry_without_chain))",
   "files": [
@@ -84,8 +84,8 @@
     },
     {
       "path": "find-us.html",
-      "sha256": "1b82b87c659f1a2bdb6d6fe1e23fd4ad6a1e19d53be9c8615a99b69e5da8fa80",
-      "bytes": 6733
+      "sha256": "b028f6fdd9caccf162d5690ccdb68ffee8f2a336fb1324508186b5dd3745f0b6",
+      "bytes": 6741
     },
     {
       "path": "fonts.css",
@@ -94,8 +94,8 @@
     },
     {
       "path": "index.html",
-      "sha256": "7c8034ea39f2e2fa65ab4e0aa06983559a2873b6fd51dddc597db8c1fef6ef08",
-      "bytes": 103160
+      "sha256": "229e366bb69e9743f7e79b4f25285df467e7ba923ced02fae429b1845959b1ec",
+      "bytes": 103629
     },
     {
       "path": "js-flag.js",
@@ -103,9 +103,14 @@
       "bytes": 46
     },
     {
+      "path": "past-champions.html",
+      "sha256": "4a02e733bdc339bb788d5ea49d040ed6580c1301f877695c95c5c0fd63d720c8",
+      "bytes": 48162
+    },
+    {
       "path": "style.css",
-      "sha256": "f9edd15f71ac7b52183c9887491d0963298064dc479caf01cedf7799ebdc4b30",
-      "bytes": 34509
+      "sha256": "0691108e66cde29f2a377bd2f275573d515ab885b23c07d46eabc9de85eaf1c2",
+      "bytes": 37367
     }
   ],
   "changelog": [
@@ -143,6 +148,11 @@
       "version": "1.6",
       "date": "2026-10-20",
       "summary": "Offline single-file build (offline/ridge-robotics-gm-cares-offline.html) with CSS, fonts, images, PDF, QR and ledger inlined, downloadable from every footer and the Find-us page for schools that block the host. GitHub Pages enabled as a mirror at bobrapp.github.io/gm-cares-about-ridge-robotics. Share buttons always share the canonical address. Dropped the meta frame-ancestors directive. The offline bundle embeds hibt.json and is therefore excluded from the hash chain by design."
+    },
+    {
+      "version": "1.7",
+      "date": "2026-10-21",
+      "summary": "New page and menu item 'Past Champions: What Can We Learn?' — the FIRST LEGO League Challenge World Festival Champion's Award podium (winner + finalists) for MASTERPIECE 2024, SUBMERGED 2025 and UNEARTHED 2026 (18 teams, global), a tutorial on how the Champion's Award is scored, nine team profiles (robot build, software, project design, presentation and Core Values, why they scored highly) with public team/school contacts only, and 25 page-specific sources. Restored the mobile table-stacking CSS that an earlier print-stylesheet rewrite had dropped. 'Visit day' left the top nav (section remains). Offline bundle now includes the new page."
     }
   ],
   "entries": [
@@ -305,7 +315,28 @@
       ],
       "prev": "b19e237c0c0918c77f702b8d75ddf39d1cc6d2a6cc125a42c798768fc04f9ebe",
       "chain": "2f40245281560edd71890d6422d2d75a1b6c34fb9fd14a019e765730747a2b23"
+    },
+    {
+      "seq": 9,
+      "version": "1.7",
+      "timestamp": "2026-10-21T09:30:00-07:00",
+      "person": "Bob Rapp",
+      "role": "Requester",
+      "model": "Claude Fable 5.1 (Perplexity Computer orchestrator)",
+      "prompt": "Create a link and tutorial to the last 10 winning teams in the 4th grade league (same as Ridge Robotics) in the last three years — the top 3 finishers — with a review of the team, summary of their challenge, how they approached it (robot build, software build, presentation, design), why their team scored so highly; create a roster of winning teams as an example for Ridge Robotics; give a contact for each team coach and school; make this a global list; add a new menu item called Past Champions: What Can We Learn?",
+      "result": "Built past-champions.html from FIRST's official World Festival award lists (2024, 2025, 2026) plus team, school, lab and museum publications; profiled the three winners and six finalists with the best documentation; listed all 18 podium teams; published only public team/school/organization contact channels (no personal numbers), consistent with the site's privacy policy; axe-core 0 violations; added to nav on all pages and to the offline bundle.",
+      "files_changed": [
+        "past-champions.html",
+        "index.html",
+        "find-us.html",
+        "style.css",
+        "build/build_single.py",
+        "offline/ridge-robotics-gm-cares-offline.html",
+        "hibt.json"
+      ],
+      "prev": "2f40245281560edd71890d6422d2d75a1b6c34fb9fd14a019e765730747a2b23",
+      "chain": "bcce61d60e218810625e52fad8a0571ba17f6645c68343af8e6d6bddc9aa2a4f"
     }
   ],
-  "head": "2f40245281560edd71890d6422d2d75a1b6c34fb9fd14a019e765730747a2b23"
+  "head": "bcce61d60e218810625e52fad8a0571ba17f6645c68343af8e6d6bddc9aa2a4f"
 }

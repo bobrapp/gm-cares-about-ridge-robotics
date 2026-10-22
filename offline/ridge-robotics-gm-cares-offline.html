@@ -471,6 +471,43 @@ sup.fn a:hover { color: var(--color-primary-deep); }
 .roster-note { font-size: var(--text-xs); color: var(--color-text-muted); margin-top: var(--space-3); }
 .hero__badge sup.fn a { color: #dbe8f7; }
 
+/* ---------- v1.7: Past Champions ---------- */
+.hero--compact { padding-block: clamp(var(--space-10), 6vw, var(--space-16)) clamp(var(--space-8), 5vw, var(--space-12)); }
+.hero--compact .hero__title { max-width: 20ch; }
+.roster-table th, .roster-table td { font-size: var(--text-sm); }
+.roster-table tr.is-winner td { background: var(--color-primary-soft); }
+.roster-table td small { color: var(--color-text-muted); }
+.champ-grid { display: grid; gap: var(--space-5); margin-top: var(--space-8); }
+@media (min-width: 1000px) { .champ-grid { grid-template-columns: 1fr 1fr; } }
+.champ { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: var(--space-6); }
+.champ__head { display: flex; flex-wrap: wrap; gap: var(--space-2); font-size: var(--text-xs); font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; }
+.champ__season { color: var(--color-gm); }
+.champ__place { color: var(--color-text-muted); }
+.champ__place--win { color: var(--color-primary-deep); }
+.champ h3 { font-family: var(--font-display); font-size: var(--text-xl); margin-top: var(--space-2); }
+.champ__where { color: var(--color-text-muted); font-size: var(--text-sm); margin-bottom: var(--space-4); }
+.champ__grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-1) var(--space-4); font-size: var(--text-sm); }
+@media (min-width: 600px) { .champ__grid { grid-template-columns: 11rem minmax(0, 1fr); gap: var(--space-2) var(--space-4); } }
+.champ__grid dt { font-weight: 600; color: var(--color-text-muted); }
+.champ__grid dd { color: var(--color-text); margin-bottom: var(--space-2); }
+.champ__src { margin-top: var(--space-3); font-size: var(--text-xs); color: var(--color-text-muted); }
+@media (max-width: 640px) { .roster-table td:nth-child(5) { display: none; } .roster-table td:first-child { text-transform: none; letter-spacing: 0; } }
+
+/* Tables: stack on small screens (restored) */
+@media (max-width: 640px) {
+  .dates table, .dates tbody { display: block; width: 100%; }
+  .dates thead { display: none; }
+  .dates tr { display: block; padding: var(--space-3) 0; border-bottom: 1px solid var(--color-border); }
+  .dates td { display: block; border: 0; padding: var(--space-1) 0; }
+  .dates td:first-child { font-weight: 600; color: var(--color-primary-deep); font-size: var(--text-xs); letter-spacing: 0.06em; text-transform: uppercase; }
+  .dates td:nth-child(2) { font-weight: 600; }
+  .dates td:nth-child(3) { color: var(--color-text-muted); }
+  .roster-table td:nth-child(3) { color: var(--color-text); }
+  .roster-table td:nth-child(4) { color: var(--color-text-muted); }
+  .roster-table tr.is-winner td { background: transparent; }
+  .roster-table tr.is-winner { background: var(--color-primary-soft); padding-inline: var(--space-2); border-radius: var(--radius-sm); }
+}
+
 .page-home .findus { min-height: 0; }
 
   </style>
@@ -496,7 +533,7 @@ sup.fn a:hover { color: var(--color-primary-deep); }
         <li><a href="#support">Help</a></li>
         <li><a href="#gm">GM &amp; STEM</a></li>
         <li><a href="#cake">Cake</a></li>
-        <li><a href="#visit">Visit day</a></li>
+        <li><a href="#past-champions">Past Champions</a></li>
         <li><a href="#find-us" class="nav-cta">Find us</a></li>
       </ul>
     </nav>
@@ -714,6 +751,11 @@ sup.fn a:hover { color: var(--color-primary-deep); }
         <span class="idea__tag">Core Values · the Tiger way</span>
         <h3>Keep doing the thing judges keep noticing</h3>
         <p>Two awards in one season were for how the team treats people.<sup class="fn"><a href="#src-5">5</a> <a href="#src-12">12</a></sup> Bring a small gift or a cheer for the team at the next table. Help a team whose robot broke. Write it down afterward: judges ask for examples.</p>
+      </article>
+      <article class="idea idea--lg">
+        <span class="idea__tag">New page</span>
+        <h3>Past Champions: What Can We Learn?</h3>
+        <p>The World Festival Champion’s Award podium for 2024, 2025 and 2026, with nine team profiles broken down by robot build, software, project design, presentation and Core Values, plus public contacts for each team or school. <a href="#past-champions">Open the playbook</a>.</p>
       </article>
       <article class="idea idea--full">
         <div><span class="idea__tag">A GM tie-in for visit day</span>
@@ -986,7 +1028,7 @@ sup.fn a:hover { color: var(--color-primary-deep); }
 <section class="section section--ink" id="hibt">
   <div class="container">
     <p class="kicker">How I Built This · version control</p>
-    <h2 class="section-title">HIBT-AIGovOps ledger <span class="ver" id="ver-badge">v1.6</span></h2>
+    <h2 class="section-title">HIBT-AIGovOps ledger <span class="ver" id="ver-badge">v1.7</span></h2>
     <p class="lede">This page was built with an AI assistant, and it says so. The ledger below records every prompt that shaped it: who asked, when, which model answered, what changed, and a SHA-256 hash of every file that ships. Each entry is chained to the one before it, so the record can be re-verified in your browser against the files you are looking at right now. That is the AIGovOps idea in miniature: make the governance of AI work visible, checkable and boring.</p>
 
     <div class="hibt-grid">
@@ -1091,6 +1133,281 @@ sup.fn a:hover { color: var(--color-primary-deep); }
     </ol>
   </div>
 </section>
+<section class="hero hero--compact" id="past-champions">
+  <div class="container">
+    <p class="kicker">Past champions · FIRST LEGO League Challenge · global</p>
+    <h2 class="hero__title">Past Champions: <em>What can we learn?</em></h2>
+    <p class="hero__lede">Ridge Robotics competes in FIRST LEGO League Challenge, the same division as every team on this page. These are the World Festival Champion’s Award podiums for the last three seasons, from Houston, with nine team profiles broken down the way judges score: robot build, software, Innovation Project design, presentation and Core Values. Read it as a playbook, not a scoreboard.</p>
+    <div class="hero__actions">
+      <a class="btn btn--primary" href="#tutorial">Start with the tutorial</a>
+      <a class="btn btn--ghost" href="#roster">Jump to the roster</a>
+      <a class="btn btn--ghost" href="#profiles">Team profiles</a>
+    </div>
+  </div>
+</section>
+
+<section class="section section--offset" id="tutorial">
+  <div class="container">
+    <p class="kicker">Tutorial</p>
+    <h2 class="section-title">How a Champion’s Award is actually won</h2>
+    <p class="lede">The Champion’s Award is not “best robot.” It goes to the team ranked first in the Champion’s Rank, which combines the Robot Game score with the judges’ rubrics for Robot Design, Innovation Project and Core Values; one winner and a small set of finalists are named at each event.<sup class="fn"><a href="#psrc-24">24</a></sup> At the World Festival the field is the national and regional champions of 60-plus countries.<sup class="fn"><a href="#psrc-1">1</a> <a href="#psrc-2">2</a></sup></p>
+    <div class="idea-grid">
+      <article class="idea idea--lg"><span class="idea__tag">Step 1 · Robot Game</span><h3>Consistency beats ceiling</h3><p>Ten teams hit a perfect 545 in 2026; the tiebreaks were about repeating it.<sup class="fn"><a href="#psrc-6">6</a></sup> The Mavericks’ 100 → 355 → 535 arc shows the other half: a repair plan and a spare motor matter as much as the program.<sup class="fn"><a href="#psrc-14">14</a></sup></p></article>
+      <article class="idea idea--lg"><span class="idea__tag">Step 2 · Robot Design</span><h3>Show your engineering, not just your robot</h3><p>Judges praised Robot Rampage’s gear shifting, “pencil-point accuracy” and robust testing methods<sup class="fn"><a href="#psrc-8">8</a></sup>; Brazil’s Robot Design winner logged every launch in spreadsheets and filmed runs to review attachments.<sup class="fn"><a href="#psrc-20">20</a></sup> The notebook is the evidence.</p></article>
+      <article class="idea idea--lg"><span class="idea__tag">Step 3 · Innovation Project</span><h3>Real experts, real users, real tests</h3><p>ROBOTECH interviewed archaeologists and attended the professional society’s webinars<sup class="fn"><a href="#psrc-5">5</a></sup>; the Mavericks deployed their UV-C rig in Sequim Bay with national-lab scientists<sup class="fn"><a href="#psrc-15">15</a></sup>; Robot Rampage’s tool holder has a provisional patent and is on real dig sites.<sup class="fn"><a href="#psrc-8">8</a></sup></p></article>
+      <article class="idea idea--lg"><span class="idea__tag">Step 4 · Core Values</span><h3>Help the team at the next table</h3><p>FSIngenium lent a motor to a rival; both finished as finalists.<sup class="fn"><a href="#psrc-14">14</a></sup> Robot Rampage ran a design forum for other teams.<sup class="fn"><a href="#psrc-8">8</a></sup> Ridge already wins Core Values awards; this is the same muscle on a bigger stage.</p></article>
+      <article class="idea idea--full"><div><span class="idea__tag">Ridge’s path to this list</span><h3>Qualifier → Eastern Washington State → Houston</h3></div><p>In Washington, the state Champion’s Award winner advances to the World Festival; a lottery sends additional strong teams to Open Invitationals, which is how Ridge reached New Jersey in 2026.<sup class="fn"><a href="#psrc-25">25</a></sup> The only Washington team ever on this podium, the Intelligent Mavericks, is a grades 5–8 team from Richland, two hours from Ephrata.<sup class="fn"><a href="#psrc-12">12</a> <a href="#psrc-14">14</a></sup></p></article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="roster">
+  <div class="container">
+    <p class="kicker">Roster of winning teams · an example set for Ridge Robotics</p>
+    <h2 class="section-title">The World Festival podium, 2024–2026</h2>
+    <p class="lede">All eighteen Champion’s Award winners and finalists from the last three World Festivals, exactly as published by FIRST. Finalists are not ranked by FIRST; where a team’s own school reports a placing (“2nd in the world”), the profile says so and attributes it.<sup class="fn"><a href="#psrc-1">1</a> <a href="#psrc-2">2</a> <a href="#psrc-3">3</a></sup></p>
+    <div class="dates roster-table">
+      <table>
+        <thead><tr><th scope="col">Season</th><th scope="col">Result</th><th scope="col">Team</th><th scope="col">Hometown</th><th scope="col">Src</th></tr></thead>
+        <tbody>
+<tr class="is-winner"><td>2025–26<br><small>UNEARTHED</small></td><td>Winner</td><td><strong>ROBOTECH</strong></td><td>Mollerussa / Barcelona, Spain</td><td><sup class="fn"><a href="#psrc-1">1</a></sup></td></tr>
+<tr class=""><td>2025–26<br><small>UNEARTHED</small></td><td>Finalist</td><td><strong>mindfactory</strong></td><td>Aargau, Switzerland</td><td><sup class="fn"><a href="#psrc-1">1</a></sup></td></tr>
+<tr class=""><td>2025–26<br><small>UNEARTHED</small></td><td>Finalist</td><td><strong>SCRAPS by FutureLab</strong></td><td>Kalamaria, Thessaloniki, Greece</td><td><sup class="fn"><a href="#psrc-1">1</a></sup></td></tr>
+<tr class=""><td>2025–26<br><small>UNEARTHED</small></td><td>Finalist</td><td><strong>SESI SENAI SC – Pipeline Surfer's</strong></td><td>Itajaí, Brazil</td><td><sup class="fn"><a href="#psrc-1">1</a></sup></td></tr>
+<tr class=""><td>2025–26<br><small>UNEARTHED</small></td><td>Finalist</td><td><strong>Tolebi Daryn</strong></td><td>Lenger, Kazakhstan</td><td><sup class="fn"><a href="#psrc-1">1</a></sup></td></tr>
+<tr class=""><td>2025–26<br><small>UNEARTHED</small></td><td>Finalist</td><td><strong>Robot Rampage</strong></td><td>West St. Paul, Minnesota, USA</td><td><sup class="fn"><a href="#psrc-1">1</a></sup></td></tr>
+<tr class="is-winner"><td>2024–25<br><small>SUBMERGED</small></td><td>Winner</td><td><strong>SESI HEROES</strong></td><td>Jundiaí, Brazil</td><td><sup class="fn"><a href="#psrc-2">2</a></sup></td></tr>
+<tr class=""><td>2024–25<br><small>SUBMERGED</small></td><td>Finalist</td><td><strong>FSIngenium Team</strong></td><td>Sarriguren, Navarra, Spain</td><td><sup class="fn"><a href="#psrc-2">2</a></sup></td></tr>
+<tr class=""><td>2024–25<br><small>SUBMERGED</small></td><td>Finalist</td><td><strong>SKILLSET</strong></td><td>Astana, Kazakhstan</td><td><sup class="fn"><a href="#psrc-2">2</a></sup></td></tr>
+<tr class=""><td>2024–25<br><small>SUBMERGED</small></td><td>Finalist</td><td><strong>BIOTECH</strong></td><td>Barra Bonita, Brazil</td><td><sup class="fn"><a href="#psrc-2">2</a></sup></td></tr>
+<tr class=""><td>2024–25<br><small>SUBMERGED</small></td><td>Finalist</td><td><strong>RED</strong></td><td>Ansan, Republic of Korea</td><td><sup class="fn"><a href="#psrc-2">2</a></sup></td></tr>
+<tr class=""><td>2024–25<br><small>SUBMERGED</small></td><td>Finalist</td><td><strong>Intelligent Mavericks</strong></td><td>Richland, Washington, USA</td><td><sup class="fn"><a href="#psrc-2">2</a></sup></td></tr>
+<tr class="is-winner"><td>2023–24<br><small>MASTERPIECE</small></td><td>Winner</td><td><strong>Los Atômicos</strong></td><td>Araras, Brazil</td><td><sup class="fn"><a href="#psrc-3">3</a></sup></td></tr>
+<tr class=""><td>2023–24<br><small>MASTERPIECE</small></td><td>Finalist</td><td><strong>Knots and Bots</strong></td><td>Illinois, USA</td><td><sup class="fn"><a href="#psrc-3">3</a></sup></td></tr>
+<tr class=""><td>2023–24<br><small>MASTERPIECE</small></td><td>Finalist</td><td><strong>Master Cubz</strong></td><td>Andover, Massachusetts, USA</td><td><sup class="fn"><a href="#psrc-3">3</a></sup></td></tr>
+<tr class=""><td>2023–24<br><small>MASTERPIECE</small></td><td>Finalist</td><td><strong>Breaking Bot</strong></td><td>Paraguay</td><td><sup class="fn"><a href="#psrc-3">3</a></sup></td></tr>
+<tr class=""><td>2023–24<br><small>MASTERPIECE</small></td><td>Finalist</td><td><strong>Invictus</strong></td><td>Spain</td><td><sup class="fn"><a href="#psrc-3">3</a></sup></td></tr>
+<tr class=""><td>2023–24<br><small>MASTERPIECE</small></td><td>Finalist</td><td><strong>PARDOBOOTS</strong></td><td>Santa Cruz do Rio Pardo, Brazil</td><td><sup class="fn"><a href="#psrc-3">3</a></sup></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="section section--offset" id="profiles">
+  <div class="container">
+    <p class="kicker">Nine profiles · three seasons</p>
+    <h2 class="section-title">The winners and the finalists with the most to teach</h2>
+    <p class="lede">Each season’s winner plus the finalists with the best public documentation. Where a team has not published a detail, the card says so rather than guessing. Contacts are public team, school or organization channels only; no personal phone numbers or private emails appear on this site, consistent with our <a href="#privacy">privacy rules</a>.</p>
+    <div class="champ-grid">
+      <article class="champ">
+        <div class="champ__head">
+          <span class="champ__season">2025–26 · UNEARTHED</span>
+          <span class="champ__place champ__place--win">Champion’s Award winner</span>
+        </div>
+        <h3>ROBOTECH</h3>
+        <p class="champ__where">Mollerussa (Lleida), competing as Barcelona, Spain</p>
+        <dl class="champ__grid">
+          <dt>Who they are</dt><dd>An independent, student-led STEM team (not a school team) from the small city of Mollerussa; the team describes itself as boys and girls who develop programming and robotics projects together.<sup class="fn"><a href="#psrc-4">4</a></sup></dd>
+          <dt>The challenge</dt><dd>The 2025–26 UNEARTHED season asked teams to use technology to explore the past: archaeology, excavation and what artifacts tell us about people. World Festival: 160 teams from 66 countries, Houston, April 29–May 2, 2026.<sup class="fn"><a href="#psrc-1">1</a> <a href="#psrc-13">13</a></sup></dd>
+          <dt>Innovation Project (design)</dt><dd><strong>ARKEODENS</strong>, an automated flotation and sediment-processing system that helps archaeologists recover seeds, tiny bones, shells and charcoal from soil samples by separating material by density and size. They learned flotation is slow, manual and inconsistent, so they automated part of it and built in documentation, explicitly to assist archaeologists rather than replace them. They attended Archaeological Institute of America webinars, visited sites and museums, and interviewed university, museum and heritage experts by video call.<sup class="fn"><a href="#psrc-5">5</a></sup></dd>
+          <dt>Robot build</dt><dd>Robot hardware is not described in public coverage, but the result is: 5th in the world in Robot Performance at the Festival, so the robot was both fast and consistent.<sup class="fn"><a href="#psrc-1">1</a></sup></dd>
+          <dt>Software</dt><dd>Not publicly documented; ask the team through the channel below.</dd>
+          <dt>Presentation &amp; Core Values</dt><dd>The AIA, which fielded a flood of archaeology questions from FLL teams, singled out ROBOTECH for how seriously the students engaged real practitioners.<sup class="fn"><a href="#psrc-5">5</a></sup></dd>
+          <dt>Why they scored so highly</dt><dd>The Champion’s Award goes to the team ranked first across all four rubrics. ROBOTECH paired a top-5 robot with an Innovation Project judged by the discipline’s own professional society as genuinely useful. Lesson for Ridge: talk to the actual experts, and let them tell you what is slow and annoying in their work.<sup class="fn"><a href="#psrc-1">1</a> <a href="#psrc-5">5</a></sup></dd>
+          <dt>Public contact</dt><dd>Team website: <a href="https://www.robotech.cat/english/home" target="_blank" rel="noopener noreferrer">robotech.cat</a> (contact form on site). No personal numbers published.</dd>
+        </dl>
+        <p class="champ__src">Sources <sup class="fn"><a href="#psrc-1">1</a> <a href="#psrc-4">4</a> <a href="#psrc-5">5</a></sup></p>
+      </article>
+      <article class="champ">
+        <div class="champ__head">
+          <span class="champ__season">2025–26 · UNEARTHED</span>
+          <span class="champ__place ">Champion’s Award finalist</span>
+        </div>
+        <h3>SCRAPS by FutureLab</h3>
+        <p class="champ__where">Kalamaria, Thessaloniki, Greece</p>
+        <dl class="champ__grid">
+          <dt>Who they are</dt><dd>A team from FutureLab, an educational robotics academy founded by scientists and educators, with Aristotle University of Thessaloniki’s technology-transfer company (ACTA) as strategic partner since 2019. Greek national champions in 2026.<sup class="fn"><a href="#psrc-6">6</a> <a href="#psrc-7">7</a></sup></dd>
+          <dt>The challenge</dt><dd>The 2025–26 UNEARTHED season asked teams to use technology to explore the past: archaeology, excavation and what artifacts tell us about people. World Festival: 160 teams from 66 countries, Houston, April 29–May 2, 2026.<sup class="fn"><a href="#psrc-1">1</a> <a href="#psrc-13">13</a></sup></dd>
+          <dt>Innovation Project (design)</dt><dd>Public coverage describes an “innovative proposal” on the archaeology theme that earned top rubric marks, but not the specifics.<sup class="fn"><a href="#psrc-6">6</a></sup></dd>
+          <dt>Robot build</dt><dd>A perfect Robot Game: <strong>545 points</strong>, which ten teams matched; SCRAPS ranked 9th worldwide on tiebreak. That is every mission, every run.<sup class="fn"><a href="#psrc-6">6</a></sup></dd>
+          <dt>Software</dt><dd>Not publicly documented; ask the team through the channel below.</dd>
+          <dt>Presentation &amp; Core Values</dt><dd>Top rubric evaluations in Robot Design, Innovation Project and Core Values, per the academy.<sup class="fn"><a href="#psrc-6">6</a></sup></dd>
+          <dt>Why they scored so highly</dt><dd>Balance. A maximum robot score plus top marks on all three judged rubrics is exactly the Champion’s Award formula. Lesson for Ridge: the robot ceiling is reachable, but the award is decided in the judging room.<sup class="fn"><a href="#psrc-1">1</a> <a href="#psrc-6">6</a></sup></dd>
+          <dt>Public contact</dt><dd>Academy website: <a href="https://roboticsacademy.edu.gr/" target="_blank" rel="noopener noreferrer">roboticsacademy.edu.gr</a> · generic email info@futurelab.edu.gr (organization inbox).</dd>
+        </dl>
+        <p class="champ__src">Sources <sup class="fn"><a href="#psrc-1">1</a> <a href="#psrc-6">6</a> <a href="#psrc-7">7</a></sup></p>
+      </article>
+      <article class="champ">
+        <div class="champ__head">
+          <span class="champ__season">2025–26 · UNEARTHED</span>
+          <span class="champ__place ">Champion’s Award finalist</span>
+        </div>
+        <h3>Robot Rampage</h3>
+        <p class="champ__where">West St. Paul, Minnesota, USA</p>
+        <dl class="champ__grid">
+          <dt>Who they are</dt><dd>A five-student middle-school team from St. Croix Lutheran Academy, in its ninth year as a program; the current team credits earlier members for the foundation.<sup class="fn"><a href="#psrc-8">8</a> <a href="#psrc-9">9</a></sup></dd>
+          <dt>The challenge</dt><dd>The 2025–26 UNEARTHED season asked teams to use technology to explore the past: archaeology, excavation and what artifacts tell us about people. World Festival: 160 teams from 66 countries, Houston, April 29–May 2, 2026.<sup class="fn"><a href="#psrc-1">1</a> <a href="#psrc-13">13</a></sup></dd>
+          <dt>Innovation Project (design)</dt><dd><strong>Tripodamus</strong>, a tool-holding invention that keeps archaeologists from losing tools and straining their backs. It has a provisional patent and is in use at active dig sites.<sup class="fn"><a href="#psrc-8">8</a></sup></dd>
+          <dt>Robot build</dt><dd>Judges praised shifting gears, “pencil-point accuracy” and innovative attachments. After technical trouble in two rounds, the team made fixes over the midday break and hit a team-record 500 on the final run.<sup class="fn"><a href="#psrc-8">8</a></sup></dd>
+          <dt>Software</dt><dd>Not publicly documented; ask the team through the channel below.</dd>
+          <dt>Presentation &amp; Core Values</dt><dd>Ran a design forum to share robot methods with other teams; judges also noted robust testing methods and how the team honored absent teammates. 1st in Core Values at state.<sup class="fn"><a href="#psrc-8">8</a></sup></dd>
+          <dt>Why they scored so highly</dt><dd>Outreach that helps rivals, a project with real users, and the composure to repair and re-run under pressure. Lesson for Ridge: build a repair plan into competition day, and share what you know.<sup class="fn"><a href="#psrc-1">1</a> <a href="#psrc-8">8</a></sup></dd>
+          <dt>Public contact</dt><dd>School: <a href="https://www.stcroixlutheran.org/msrobot" target="_blank" rel="noopener noreferrer">stcroixlutheran.org/msrobot</a> · team site <a href="https://www.robot-rampage.com/" target="_blank" rel="noopener noreferrer">robot-rampage.com</a>.</dd>
+        </dl>
+        <p class="champ__src">Sources <sup class="fn"><a href="#psrc-1">1</a> <a href="#psrc-8">8</a> <a href="#psrc-9">9</a></sup></p>
+      </article>
+      <article class="champ">
+        <div class="champ__head">
+          <span class="champ__season">2024–25 · SUBMERGED</span>
+          <span class="champ__place champ__place--win">Champion’s Award winner</span>
+        </div>
+        <h3>SESI HEROES</h3>
+        <p class="champ__where">Jundiaí, São Paulo, Brazil</p>
+        <dl class="champ__grid">
+          <dt>Who they are</dt><dd>Students of Escola SESI Jundiaí, part of the SESI-SP industry-run school network, which with this win became a three-time World Festival champion.<sup class="fn"><a href="#psrc-10">10</a> <a href="#psrc-11">11</a></sup></dd>
+          <dt>The challenge</dt><dd>The 2024–25 SUBMERGED season asked teams to solve problems ocean explorers face, from sensors to habitats. World Festival: 160 Challenge teams, Houston, April 16–19, 2025.<sup class="fn"><a href="#psrc-2">2</a> <a href="#psrc-10">10</a></sup></dd>
+          <dt>Innovation Project (design)</dt><dd><strong>SmartReef</strong>, an automated extractor for removing invasive corals from the seabed, replacing divers’ mallet-and-chisel work that is slow and risky. Invasive coral is a documented problem on the São Paulo coast.<sup class="fn"><a href="#psrc-10">10</a> <a href="#psrc-11">11</a></sup></dd>
+          <dt>Robot build</dt><dd>Not publicly documented; ask the team through the channel below.</dd>
+          <dt>Software</dt><dd>Not publicly documented; ask the team through the channel below.</dd>
+          <dt>Presentation &amp; Core Values</dt><dd>Judges cited “exemplary performance in all evaluated categories”; the school highlights teamwork, research and programming.<sup class="fn"><a href="#psrc-10">10</a></sup></dd>
+          <dt>Why they scored so highly</dt><dd>A clearly scoped, locally grounded problem with a mechanical solution the team could demonstrate. Lesson for Ridge: pick a problem you can see from your own shoreline (or orchard), and show the device working.<sup class="fn"><a href="#psrc-2">2</a> <a href="#psrc-10">10</a></sup></dd>
+          <dt>Public contact</dt><dd>School network: <a href="https://jundiai.sesisp.org.br/" target="_blank" rel="noopener noreferrer">jundiai.sesisp.org.br</a> · SESI-SP general line (11) 4210-4455 (organization, not a person).</dd>
+        </dl>
+        <p class="champ__src">Sources <sup class="fn"><a href="#psrc-2">2</a> <a href="#psrc-10">10</a> <a href="#psrc-11">11</a></sup></p>
+      </article>
+      <article class="champ">
+        <div class="champ__head">
+          <span class="champ__season">2024–25 · SUBMERGED</span>
+          <span class="champ__place ">Champion’s Award finalist</span>
+        </div>
+        <h3>Intelligent Mavericks</h3>
+        <p class="champ__where">Richland, Washington, USA</p>
+        <dl class="champ__grid">
+          <dt>Who they are</dt><dd>A grades 5–8 team drawing from Lewis and Clark Elementary, Libby and Enterprise Middle Schools and Three Rivers HomeLink in the Richland School District. The first Washington team ever to reach the Champion’s finalist tier, and the only U.S. team to do so in 2025.<sup class="fn"><a href="#psrc-12">12</a> <a href="#psrc-14">14</a></sup></dd>
+          <dt>The challenge</dt><dd>The 2024–25 SUBMERGED season asked teams to solve problems ocean explorers face, from sensors to habitats. World Festival: 160 Challenge teams, Houston, April 16–19, 2025.<sup class="fn"><a href="#psrc-2">2</a> <a href="#psrc-10">10</a></sup></dd>
+          <dt>Innovation Project (design)</dt><dd><strong>EPIC</strong> (Epibiosis Preventative Illuminated Contraption), an underwater UV-C lighting rig to stop biofouling on ocean sensors. Built with Pacific Northwest National Laboratory scientists, deployed twice in salt water at PNNL-Sequim and John Wayne Marina, then revised into EPIC Twist after expert feedback. Perfect Innovation Project rubric score.<sup class="fn"><a href="#psrc-12">12</a> <a href="#psrc-15">15</a></sup></dd>
+          <dt>Robot build</dt><dd>A motor failed in match one (100 points). FSIngenium of Spain lent a spare; the team rebuilt and re-tuned, scoring 355 then <strong>535</strong>, ten points from their maximum.<sup class="fn"><a href="#psrc-14">14</a></sup></dd>
+          <dt>Software</dt><dd>Reprogrammed mission paths to the replacement motor’s behavior between matches; language and tools not stated.<sup class="fn"><a href="#psrc-14">14</a></sup></dd>
+          <dt>Presentation &amp; Core Values</dt><dd>Judges praised confidence, creativity and deep understanding of the science; the team shared its robot and project with attendees.<sup class="fn"><a href="#psrc-14">14</a> <a href="#psrc-15">15</a></sup></dd>
+          <dt>Why they scored so highly</dt><dd>Real field data from a national lab partnership, plus grace under failure. Lesson for Ridge: PNNL is in Washington; so are WSU Extension, fisheries biologists and orchardists. Ask them. And carry a spare motor.<sup class="fn"><a href="#psrc-2">2</a> <a href="#psrc-14">14</a></sup></dd>
+          <dt>Public contact</dt><dd>District: <a href="https://www.rsd.edu/" target="_blank" rel="noopener noreferrer">rsd.edu</a> · info@rsd.edu · (509) 967-6000 · team site <a href="https://46665robotics.weebly.com/" target="_blank" rel="noopener noreferrer">46665robotics.weebly.com</a>.</dd>
+        </dl>
+        <p class="champ__src">Sources <sup class="fn"><a href="#psrc-2">2</a> <a href="#psrc-12">12</a> <a href="#psrc-14">14</a> <a href="#psrc-15">15</a></sup></p>
+      </article>
+      <article class="champ">
+        <div class="champ__head">
+          <span class="champ__season">2024–25 · SUBMERGED</span>
+          <span class="champ__place ">Champion’s Award finalist</span>
+        </div>
+        <h3>FSIngenium Team</h3>
+        <p class="champ__where">Sarriguren, Navarra, Spain</p>
+        <dl class="champ__grid">
+          <dt>Who they are</dt><dd>A community team mentored through FSESTRUCTURA, an engineering firm whose head, Fernando Sarría, started the team; members span several ages and meet at a headquarters in Sarriguren. Earlier they won Mechanical Robot Design at the St. Louis World Festival.<sup class="fn"><a href="#psrc-17">17</a></sup></dd>
+          <dt>The challenge</dt><dd>The 2024–25 SUBMERGED season asked teams to solve problems ocean explorers face, from sensors to habitats. World Festival: 160 Challenge teams, Houston, April 16–19, 2025.<sup class="fn"><a href="#psrc-2">2</a> <a href="#psrc-10">10</a></sup></dd>
+          <dt>Innovation Project (design)</dt><dd>Not publicly documented; ask the team through the channel below.</dd>
+          <dt>Robot build</dt><dd>Historic strength in mechanical design (a world Robot Design title). 2025 robot details not public.<sup class="fn"><a href="#psrc-17">17</a></sup></dd>
+          <dt>Software</dt><dd>Not publicly documented; ask the team through the channel below.</dd>
+          <dt>Presentation &amp; Core Values</dt><dd>Best documented act of the 2025 Festival: lending a spare motor to a stricken rival team, the Intelligent Mavericks, who then finished alongside them as finalists.<sup class="fn"><a href="#psrc-14">14</a></sup></dd>
+          <dt>Why they scored so highly</dt><dd>Gracious Professionalism is scored, not just admired. Lesson for Ridge: the team at the next table is a teammate in the Core Values rubric.<sup class="fn"><a href="#psrc-2">2</a> <a href="#psrc-14">14</a></sup></dd>
+          <dt>Public contact</dt><dd>Team website: <a href="http://fsingenium.com/en/the-team/" target="_blank" rel="noopener noreferrer">fsingenium.com</a> · mentor firm <a href="https://fsgroup-e.com/" target="_blank" rel="noopener noreferrer">fsgroup-e.com</a>.</dd>
+        </dl>
+        <p class="champ__src">Sources <sup class="fn"><a href="#psrc-2">2</a> <a href="#psrc-14">14</a> <a href="#psrc-17">17</a></sup></p>
+      </article>
+      <article class="champ">
+        <div class="champ__head">
+          <span class="champ__season">2023–24 · MASTERPIECE</span>
+          <span class="champ__place champ__place--win">Champion’s Award winner</span>
+        </div>
+        <h3>Los Atômicos</h3>
+        <p class="champ__where">Araras, São Paulo, Brazil</p>
+        <dl class="champ__grid">
+          <dt>Who they are</dt><dd>Escola SESI-SP de Araras (CE 303); the program dates to 2012 and the coach credits that legacy. Regional runner-up, national champion, then world champion in one season.<sup class="fn"><a href="#psrc-18">18</a> <a href="#psrc-19">19</a></sup></dd>
+          <dt>The challenge</dt><dd>The 2023–24 MASTERPIECE season asked teams to explore the role STEM plays in the arts and how people share their passions. World Festival: 152 Challenge teams, Houston, April 17–20, 2024.<sup class="fn"><a href="#psrc-3">3</a> <a href="#psrc-16">16</a></sup></dd>
+          <dt>Innovation Project (design)</dt><dd>An inclusion and accessibility project: an intelligent chessboard to bring more people, including those with disabilities, into chess. Project electronics: Arduino, a reflectance sensor, speaker and addressable LED strips.<sup class="fn"><a href="#psrc-18">18</a> <a href="#psrc-20">20</a></sup></dd>
+          <dt>Robot build</dt><dd>Built “to optimize mission time”: SPIKE kit, two large and two medium motors, two color sensors, a gyro, and a pneumatic piston kit for attachments.<sup class="fn"><a href="#psrc-20">20</a></sup></dd>
+          <dt>Software</dt><dd>Not stated beyond the sensor set; the gyro and dual color sensors imply heading control and line/edge squaring.<sup class="fn"><a href="#psrc-20">20</a></sup></dd>
+          <dt>Presentation &amp; Core Values</dt><dd>Coach: a team of students “with values who respect each other’s opinions,” and a decade of accumulated know-how passed down.<sup class="fn"><a href="#psrc-18">18</a></sup></dd>
+          <dt>Why they scored so highly</dt><dd>Everything, consistently: the award text itself says excellence across Robot Performance, Robot Design, Innovation Project and Core Values. Lesson for Ridge: keep the notebook and the attachments from year to year; legacy is a competitive advantage.<sup class="fn"><a href="#psrc-3">3</a> <a href="#psrc-20">20</a></sup></dd>
+          <dt>Public contact</dt><dd>School: <a href="https://araras.sesisp.org.br/" target="_blank" rel="noopener noreferrer">araras.sesisp.org.br</a> · SESI-SP general line (11) 4210-4455 · published coach: Ana Paula Carroci da Silva (reach via the school).</dd>
+        </dl>
+        <p class="champ__src">Sources <sup class="fn"><a href="#psrc-3">3</a> <a href="#psrc-18">18</a> <a href="#psrc-19">19</a> <a href="#psrc-20">20</a></sup></p>
+      </article>
+      <article class="champ">
+        <div class="champ__head">
+          <span class="champ__season">2023–24 · MASTERPIECE</span>
+          <span class="champ__place ">Champion’s Award finalist (tied 2nd)</span>
+        </div>
+        <h3>Master Cubz</h3>
+        <p class="champ__where">Andover, Massachusetts, USA</p>
+        <dl class="champ__grid">
+          <dt>Who they are</dt><dd>A local middle-school team that won the Massachusetts MASTERPIECE state championship before Houston.<sup class="fn"><a href="#psrc-21">21</a></sup></dd>
+          <dt>The challenge</dt><dd>The 2023–24 MASTERPIECE season asked teams to explore the role STEM plays in the arts and how people share their passions. World Festival: 152 Challenge teams, Houston, April 17–20, 2024.<sup class="fn"><a href="#psrc-3">3</a> <a href="#psrc-16">16</a></sup></dd>
+          <dt>Innovation Project (design)</dt><dd><strong>Steering into the Future</strong>: a 3D-printed, touchable replica of the Addison Gallery’s model ship Clermont with a button that plays an AI-scripted audio description, so visitors with visual impairments can experience the museum piece.<sup class="fn"><a href="#psrc-21">21</a></sup></dd>
+          <dt>Robot build</dt><dd>Robot “Wall-E” ran three clean runs including one maximum score; 5th in Robot Performance worldwide and first among U.S. teams.<sup class="fn"><a href="#psrc-21">21</a></sup></dd>
+          <dt>Software</dt><dd>Not publicly documented; ask the team through the channel below.</dd>
+          <dt>Presentation &amp; Core Values</dt><dd>The museum itself published the team’s story and credits “warm and cooperative core values.”<sup class="fn"><a href="#psrc-21">21</a></sup></dd>
+          <dt>Why they scored so highly</dt><dd>A partner institution that wanted the project, three impeccable runs, and a visible accessibility payoff. Lesson for Ridge: find a museum, library or farm that will actually install what you build.<sup class="fn"><a href="#psrc-3">3</a> <a href="#psrc-21">21</a></sup></dd>
+          <dt>Public contact</dt><dd>Project partner: Addison Gallery of American Art, <a href="https://addison.andover.edu/" target="_blank" rel="noopener noreferrer">addison.andover.edu</a> · addison@andover.edu · (978) 749-4015 (institution, not a person).</dd>
+        </dl>
+        <p class="champ__src">Sources <sup class="fn"><a href="#psrc-3">3</a> <a href="#psrc-21">21</a></sup></p>
+      </article>
+      <article class="champ">
+        <div class="champ__head">
+          <span class="champ__season">2025–26 · UNEARTHED</span>
+          <span class="champ__place ">Champion’s Award finalist</span>
+        </div>
+        <h3>SESI SENAI SC – Pipeline Surfers</h3>
+        <p class="champ__where">Itajaí, Santa Catarina, Brazil</p>
+        <dl class="champ__grid">
+          <dt>Who they are</dt><dd>Escola SESI de Referência de Itajaí (SESI SC network); members aged 9–15. Won Brazil’s national stage in São Paulo to qualify.<sup class="fn"><a href="#psrc-22">22</a> <a href="#psrc-23">23</a></sup></dd>
+          <dt>The challenge</dt><dd>The 2025–26 UNEARTHED season asked teams to use technology to explore the past: archaeology, excavation and what artifacts tell us about people. World Festival: 160 teams from 66 countries, Houston, April 29–May 2, 2026.<sup class="fn"><a href="#psrc-1">1</a> <a href="#psrc-13">13</a></sup></dd>
+          <dt>Innovation Project (design)</dt><dd>Specifics not published; the school says preparation focused on “technical improvement of the robot and developing its judged presentations.”<sup class="fn"><a href="#psrc-22">22</a></sup></dd>
+          <dt>Robot build</dt><dd>Not publicly documented; ask the team through the channel below.</dd>
+          <dt>Software</dt><dd>Not publicly documented; ask the team through the channel below.</dd>
+          <dt>Presentation &amp; Core Values</dt><dd>Coach credits dedication, effort, persistence and learning; the state industry federation received the team afterward.<sup class="fn"><a href="#psrc-22">22</a> <a href="#psrc-23">23</a></sup></dd>
+          <dt>Why they scored so highly</dt><dd>Among the five finalists out of 160 teams from 66 countries. Lesson for Ridge: practice the judged presentations as hard as the robot; this team says that is literally what they did.<sup class="fn"><a href="#psrc-1">1</a> <a href="#psrc-22">22</a></sup></dd>
+          <dt>Public contact</dt><dd>School network: <a href="https://fiesc.com.br/" target="_blank" rel="noopener noreferrer">fiesc.com.br</a> · FIESC line (48) 3231-4100 (organization).</dd>
+        </dl>
+        <p class="champ__src">Sources <sup class="fn"><a href="#psrc-1">1</a> <a href="#psrc-22">22</a> <a href="#psrc-23">23</a></sup></p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section section--tight sources" id="psources">
+  <div class="container">
+    <p class="kicker">Sources for this page</p>
+    <h2 class="section-title">Every placement from FIRST; every detail from the team, school or partner that published it</h2>
+    <ol style="margin-top: var(--space-6)">
+      <li id="psrc-1">FIRST LEGO League staff, "Teams From Around the World Made History at #FIRSTChamp," May 13, 2026 (complete 2026 World Festival awards list). <a href="https://community.firstinspires.org/teams-from-around-the-world-made-history-at-firstchamp" target="_blank" rel="noopener noreferrer">https://community.firstinspires.org/teams-from-around-the-world-made-history-at-firstchamp</a></li>
+      <li id="psrc-2">FIRST LEGO League staff, "Teams From Around the World Made a Splash at #FIRSTChamp" (complete 2025 World Festival awards list). <a href="https://community.firstinspires.org/teams-from-around-the-world-made-a-splash-at-firstchamp" target="_blank" rel="noopener noreferrer">https://community.firstinspires.org/teams-from-around-the-world-made-a-splash-at-firstchamp</a></li>
+      <li id="psrc-3">FIRST LEGO League staff, "It's Time for a #FIRSTChamp Curtain Call!" Apr. 26, 2024 (complete 2024 World Festival awards list; 152 Challenge teams). <a href="https://fllblog.wordpress.com/2024/04/26/its-time-for-a-firstchamp-curtain-call/" target="_blank" rel="noopener noreferrer">https://fllblog.wordpress.com/2024/04/26/its-time-for-a-firstchamp-curtain-call/</a></li>
+      <li id="psrc-4">ROBOTECH, team website (independent team from Mollerussa; 2026 world champions). <a href="https://www.robotech.cat/english/home" target="_blank" rel="noopener noreferrer">https://www.robotech.cat/english/home</a></li>
+      <li id="psrc-5">Archaeological Institute of America, "Team ROBOTECH of Barcelona Wins the 2026 FIRST LEGO League Champion's Award," June 9, 2026 (ARKEODENS; expert consultation). <a href="https://www.archaeological.org/team-robotech-of-barcelona-wins-the-2026-first-lego-league-champions-award/" target="_blank" rel="noopener noreferrer">https://www.archaeological.org/team-robotech-of-barcelona-wins-the-2026-first-lego-league-champions-award/</a></li>
+      <li id="psrc-6">FutureLab Robotics Academy, "SCRAPS by FutureLab win Champion Award Finalist at the FLL World Championship 2026" (545 points; rubric results). <a href="https://roboticsacademy.edu.gr/robotics/blog/oi-scraps-by-futurelab-katektisan-to-champion-award-finalist-sto-world-championship-fll-2026" target="_blank" rel="noopener noreferrer">https://roboticsacademy.edu.gr/robotics/blog/oi-scraps-by-futurelab-katektisan-to-champion-award-finalist-sto-world-championship-fll-2026</a></li>
+      <li id="psrc-7">FutureLab Robotics Academy, "SCRAPS, champions of Greece 2026." <a href="https://roboticsacademy.edu.gr/robotics/blog/oi-scraps-protathlites-ellados-i-futurelab-xana-stin-korufi-tou-first-lego-league-greece-2026" target="_blank" rel="noopener noreferrer">https://roboticsacademy.edu.gr/robotics/blog/oi-scraps-protathlites-ellados-i-futurelab-xana-stin-korufi-tou-first-lego-league-greece-2026</a></li>
+      <li id="psrc-8">St. Croix Lutheran Academy, "2026 Middle School Robotics: Team Finishes 2nd in the World," May 2, 2026 (Tripodamus; judges' comments; 500-point run). <a href="https://www.stcroixlutheran.org/msrobot" target="_blank" rel="noopener noreferrer">https://www.stcroixlutheran.org/msrobot</a></li>
+      <li id="psrc-9">Robot Rampage FLL, team website (five students; nine-year program). <a href="https://www.robot-rampage.com/" target="_blank" rel="noopener noreferrer">https://www.robot-rampage.com/</a></li>
+      <li id="psrc-10">SESI Jundiaí, "Equipe Heroes, do SESI Jundiaí, conquista título mundial," Apr. 22, 2025 (SmartReef; judges' citation). <a href="https://jundiai.sesisp.org.br/noticia/equipe-heroes-do-sesi-jundiai-conquista-titulo-mundial-na-maior-competicao-de-robotica-do-mundo" target="_blank" rel="noopener noreferrer">https://jundiai.sesisp.org.br/noticia/equipe-heroes-do-sesi-jundiai-conquista-titulo-mundial-na-maior-competicao-de-robotica-do-mundo</a></li>
+      <li id="psrc-11">SESI-SP, "Sesi-SP brilha no Mundial de Robótica nos EUA" (Heroes, Biotech, Wise Foxes; three-time champion network). <a href="https://www.sesisp.org.br/noticia/sesi-sp-brilha-no-mundial-de-robotica-nos-eua-e-conquista-o-maior-premio-com-equipe-de-jundiai" target="_blank" rel="noopener noreferrer">https://www.sesisp.org.br/noticia/sesi-sp-brilha-no-mundial-de-robotica-nos-eua-e-conquista-o-maior-premio-com-equipe-de-jundiai</a></li>
+      <li id="psrc-12">Richland School District, "RSD Robotics Team Ranks Top 5 in the World at FIRST LEGO League Global Competition," Apr. 24, 2025. <a href="https://www.rsd.edu/news-announcements/news-details/~board/district-news/post/rsd-robotics-team-ranks-top-5-in-the-world-at-first-lego-league-global-competition" target="_blank" rel="noopener noreferrer">https://www.rsd.edu/news-announcements/news-details/~board/district-news/post/rsd-robotics-team-ranks-top-5-in-the-world-at-first-lego-league-global-competition</a></li>
+      <li id="psrc-13">FIESC, "Equipe de robótica é recebida pela diretoria da FIESC após destaque em mundial" (160 teams, 66 countries, 2026). <a href="https://fiesc.com.br/pt-br/imprensa/equipe-de-robotica-e-recebida-pela-diretoria-da-fiesc-apos-destaque-em-mundial" target="_blank" rel="noopener noreferrer">https://fiesc.com.br/pt-br/imprensa/equipe-de-robotica-e-recebida-pela-diretoria-da-fiesc-apos-destaque-em-mundial</a></li>
+      <li id="psrc-14">Intelligent Mavericks, team website (World Festival update: motor failure, FSIngenium loan, 100/355/535 scores, perfect project rubric). <a href="https://46665robotics.weebly.com/" target="_blank" rel="noopener noreferrer">https://46665robotics.weebly.com/</a></li>
+      <li id="psrc-15">Pacific Northwest National Laboratory, "Researchers Help Students Design Marine Solutions in Robotics Competitions" (EPIC; Sequim deployments; named PNNL mentors). <a href="https://www.pnnl.gov/publications/researchers-help-students-design-marine-solutions-robotics-competitions" target="_blank" rel="noopener noreferrer">https://www.pnnl.gov/publications/researchers-help-students-design-marine-solutions-robotics-competitions</a></li>
+      <li id="psrc-16">FIRST, "FIRST Championship Email Blast #8" (MASTERPIECE World Festival, Apr. 17–20, 2024). <a href="https://info.firstinspires.org/first-championship-email-blast-12" target="_blank" rel="noopener noreferrer">https://info.firstinspires.org/first-championship-email-blast-12</a></li>
+      <li id="psrc-17">FSIngenium Team, "The Team" (origin with FSESTRUCTURA; St. Louis Mechanical Robot Design award). <a href="http://fsingenium.com/en/the-team/" target="_blank" rel="noopener noreferrer">http://fsingenium.com/en/the-team/</a></li>
+      <li id="psrc-18">SESI Araras, "Equipe Los Atômicos é campeã de torneio mundial de robótica," Apr. 22, 2024 (chessboard project; coach quotes; program since 2012). <a href="https://araras.sesisp.org.br/noticia/los-atomicos-e-campea-de-torneio-mundial-de-robotica" target="_blank" rel="noopener noreferrer">https://araras.sesisp.org.br/noticia/los-atomicos-e-campea-de-torneio-mundial-de-robotica</a></li>
+      <li id="psrc-19">SESI-SP, "Estudantes do Sesi-SP conquistam 1º lugar no maior torneio de robótica do mundo" (Los Atômicos and Pardoboots; season placements). <a href="https://www.sesisp.org.br/educacao/noticia/estudantes-do-sesi-sp-conquistam-1o-lugar-no-maior-torneio-de-robotica-do-mundo" target="_blank" rel="noopener noreferrer">https://www.sesisp.org.br/educacao/noticia/estudantes-do-sesi-sp-conquistam-1o-lugar-no-maior-torneio-de-robotica-do-mundo</a></li>
+      <li id="psrc-20">Portal da Indústria, "Segredo do sucesso: conheça os robôs mais tecnológicos de equipes premiadas" (Los Atômicos motors, sensors, pneumatics, Arduino project; Turma do BOB logging practices). <a href="https://noticias.portaldaindustria.com.br/noticias/robotica/segredo-do-sucesso-conheca-os-robos-mais-tecnologicos-de-equipes-premiadas-na-robotica/" target="_blank" rel="noopener noreferrer">https://noticias.portaldaindustria.com.br/noticias/robotica/segredo-do-sucesso-conheca-os-robos-mais-tecnologicos-de-equipes-premiadas-na-robotica/</a></li>
+      <li id="psrc-21">Addison Gallery of American Art, "UPDATE! Steering into the Future: Enhancing Museum Accessibility," Apr. 20, 2024 (Master Cubz project; Wall-E; 5th in Robot Performance; tied 2nd). <a href="https://addison.andover.edu/steering-into-the-future/" target="_blank" rel="noopener noreferrer">https://addison.andover.edu/steering-into-the-future/</a></li>
+      <li id="psrc-22">FIESC, "Estudantes da Escola SESI SC estão entre os 5 melhores do planeta em robótica," May 4, 2026. <a href="https://fiesc.com.br/pt-br/imprensa/estudantes-da-escola-sesi-sc-estao-entre-os-5-melhores-do-planeta-em-robotica" target="_blank" rel="noopener noreferrer">https://fiesc.com.br/pt-br/imprensa/estudantes-da-escola-sesi-sc-estao-entre-os-5-melhores-do-planeta-em-robotica</a></li>
+      <li id="psrc-23">Gazeta do Povo, "Estudantes de SC ficam entre os melhores do mundo em robótica." <a href="https://www.gazetadopovo.com.br/santa-catarina/estudantes-sc-ficam-entre-os-5-melhores-do-mundo-em-robotica/" target="_blank" rel="noopener noreferrer">https://www.gazetadopovo.com.br/santa-catarina/estudantes-sc-ficam-entre-os-5-melhores-do-mundo-em-robotica/</a></li>
+      <li id="psrc-24">FIRST, "FIRST LEGO League Challenge UNEARTHED Awards and Allocation" (PDF: Champion's Award goes to the team ranked first in the Champion's Rank; one winner and finalists). <a href="https://firstinspires.blob.core.windows.net/fll/challenge/2025-26/fll-challenge-unearthed-awards-and-allocation.pdf" target="_blank" rel="noopener noreferrer">https://firstinspires.blob.core.windows.net/fll/challenge/2025-26/fll-challenge-unearthed-awards-and-allocation.pdf</a></li>
+      <li id="psrc-25">FIRST Washington, "FLL UNEARTHED Blog: Volume 23" (Washington's path: state Champion's Award to World Festival; lottery to Open Invitationals). <a href="https://firstwa.org/2026/02/18/fll-unearthed-blog-volume-23/" target="_blank" rel="noopener noreferrer">https://firstwa.org/2026/02/18/fll-unearthed-blog-volume-23/</a></li>
+    </ol>
+  </div>
+</section>
 <section class="findus section" id="find-us">
   <div class="container">
     <div class="findus__grid">
@@ -1134,7 +1451,7 @@ sup.fn a:hover { color: var(--color-primary-deep); }
       </div>
     </div>
     <div class="footer-meta">
-      <span>Prepared for the GM Cares visit to Ridge Robotics · Columbia Ridge Elementary · Ephrata, Washington · October 22, 2026 · <a href="#privacy">Privacy &amp; kids' safety</a> · <a href="#hibt">v1.6 · HIBT-AIGovOps</a> · <a href="https://github.com/bobrapp/gm-cares-about-ridge-robotics" target="_blank" rel="noopener noreferrer">Source on GitHub</a></span>
+      <span>Prepared for the GM Cares visit to Ridge Robotics · Columbia Ridge Elementary · Ephrata, Washington · October 22, 2026 · <a href="#privacy">Privacy &amp; kids' safety</a> · <a href="#hibt">v1.7 · HIBT-AIGovOps</a> · <a href="https://github.com/bobrapp/gm-cares-about-ridge-robotics" target="_blank" rel="noopener noreferrer">Source on GitHub</a></span>
       <span>FIRST and FIRST LEGO League are trademarks of FIRST; LEGO is a trademark of the LEGO Group; General Motors marks belong to GM. This volunteer page is not an official publication of any of them.</span>
     </div>
   </div>
@@ -1143,9 +1460,9 @@ sup.fn a:hover { color: var(--color-primary-deep); }
 <script type="application/json" id="hibt-data">{
   "standard": "HIBT-AIGovOps ledger, v1",
   "project": "Ridge Robotics × GM Cares — celebration site for the October 22, 2026 visit, Columbia Ridge Elementary, Ephrata, WA",
-  "version": "1.6",
-  "generated_at": "2026-10-20T17:11:35+00:00",
-  "built_from_commit": "3d3a106",
+  "version": "1.7",
+  "generated_at": "2026-10-22T00:53:18+00:00",
+  "built_from_commit": "9171825",
   "hash_algorithm": "SHA-256",
   "chain_rule": "chain = sha256(prev + canonical_json(entry_without_chain))",
   "files": [
@@ -1226,8 +1543,8 @@ sup.fn a:hover { color: var(--color-primary-deep); }
     },
     {
       "path": "find-us.html",
-      "sha256": "1b82b87c659f1a2bdb6d6fe1e23fd4ad6a1e19d53be9c8615a99b69e5da8fa80",
-      "bytes": 6733
+      "sha256": "b028f6fdd9caccf162d5690ccdb68ffee8f2a336fb1324508186b5dd3745f0b6",
+      "bytes": 6741
     },
     {
       "path": "fonts.css",
@@ -1236,8 +1553,8 @@ sup.fn a:hover { color: var(--color-primary-deep); }
     },
     {
       "path": "index.html",
-      "sha256": "7c8034ea39f2e2fa65ab4e0aa06983559a2873b6fd51dddc597db8c1fef6ef08",
-      "bytes": 103160
+      "sha256": "229e366bb69e9743f7e79b4f25285df467e7ba923ced02fae429b1845959b1ec",
+      "bytes": 103629
     },
     {
       "path": "js-flag.js",
@@ -1245,9 +1562,14 @@ sup.fn a:hover { color: var(--color-primary-deep); }
       "bytes": 46
     },
     {
+      "path": "past-champions.html",
+      "sha256": "4a02e733bdc339bb788d5ea49d040ed6580c1301f877695c95c5c0fd63d720c8",
+      "bytes": 48162
+    },
+    {
       "path": "style.css",
-      "sha256": "f9edd15f71ac7b52183c9887491d0963298064dc479caf01cedf7799ebdc4b30",
-      "bytes": 34509
+      "sha256": "0691108e66cde29f2a377bd2f275573d515ab885b23c07d46eabc9de85eaf1c2",
+      "bytes": 37367
     }
   ],
   "changelog": [
@@ -1285,6 +1607,11 @@ sup.fn a:hover { color: var(--color-primary-deep); }
       "version": "1.6",
       "date": "2026-10-20",
       "summary": "Offline single-file build (offline/ridge-robotics-gm-cares-offline.html) with CSS, fonts, images, PDF, QR and ledger inlined, downloadable from every footer and the Find-us page for schools that block the host. GitHub Pages enabled as a mirror at bobrapp.github.io/gm-cares-about-ridge-robotics. Share buttons always share the canonical address. Dropped the meta frame-ancestors directive. The offline bundle embeds hibt.json and is therefore excluded from the hash chain by design."
+    },
+    {
+      "version": "1.7",
+      "date": "2026-10-21",
+      "summary": "New page and menu item 'Past Champions: What Can We Learn?' — the FIRST LEGO League Challenge World Festival Champion's Award podium (winner + finalists) for MASTERPIECE 2024, SUBMERGED 2025 and UNEARTHED 2026 (18 teams, global), a tutorial on how the Champion's Award is scored, nine team profiles (robot build, software, project design, presentation and Core Values, why they scored highly) with public team/school contacts only, and 25 page-specific sources. Restored the mobile table-stacking CSS that an earlier print-stylesheet rewrite had dropped. 'Visit day' left the top nav (section remains). Offline bundle now includes the new page."
     }
   ],
   "entries": [
@@ -1447,9 +1774,30 @@ sup.fn a:hover { color: var(--color-primary-deep); }
       ],
       "prev": "b19e237c0c0918c77f702b8d75ddf39d1cc6d2a6cc125a42c798768fc04f9ebe",
       "chain": "2f40245281560edd71890d6422d2d75a1b6c34fb9fd14a019e765730747a2b23"
+    },
+    {
+      "seq": 9,
+      "version": "1.7",
+      "timestamp": "2026-10-21T09:30:00-07:00",
+      "person": "Bob Rapp",
+      "role": "Requester",
+      "model": "Claude Fable 5.1 (Perplexity Computer orchestrator)",
+      "prompt": "Create a link and tutorial to the last 10 winning teams in the 4th grade league (same as Ridge Robotics) in the last three years — the top 3 finishers — with a review of the team, summary of their challenge, how they approached it (robot build, software build, presentation, design), why their team scored so highly; create a roster of winning teams as an example for Ridge Robotics; give a contact for each team coach and school; make this a global list; add a new menu item called Past Champions: What Can We Learn?",
+      "result": "Built past-champions.html from FIRST's official World Festival award lists (2024, 2025, 2026) plus team, school, lab and museum publications; profiled the three winners and six finalists with the best documentation; listed all 18 podium teams; published only public team/school/organization contact channels (no personal numbers), consistent with the site's privacy policy; axe-core 0 violations; added to nav on all pages and to the offline bundle.",
+      "files_changed": [
+        "past-champions.html",
+        "index.html",
+        "find-us.html",
+        "style.css",
+        "build/build_single.py",
+        "offline/ridge-robotics-gm-cares-offline.html",
+        "hibt.json"
+      ],
+      "prev": "2f40245281560edd71890d6422d2d75a1b6c34fb9fd14a019e765730747a2b23",
+      "chain": "bcce61d60e218810625e52fad8a0571ba17f6645c68343af8e6d6bddc9aa2a4f"
     }
   ],
-  "head": "2f40245281560edd71890d6422d2d75a1b6c34fb9fd14a019e765730747a2b23"
+  "head": "bcce61d60e218810625e52fad8a0571ba17f6645c68343af8e6d6bddc9aa2a4f"
 }</script>
 <script>
 (function () {
