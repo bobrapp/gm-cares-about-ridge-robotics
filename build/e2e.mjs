@@ -32,7 +32,14 @@ export async function runE2E({ chromium, axeSrc, base, root, outFile, liveHosts 
     ok('Security', 'Content-Security-Policy present', pg, html.includes('Content-Security-Policy'));
     ok('i18n', 'lang attribute correct', pg, pg.startsWith('es/') ? html.includes('<html lang="es"') : html.includes('<html lang="en"'));
     ok('i18n', 'Language switch present', pg, html.includes('class="lang-switch"'));
+    const idList = [...html.matchAll(/ id="([^"]+)"/g)].map(m => m[1]); const dup = idList.filter((x, i) => idList.indexOf(x) !== i);
+    ok('HTML', 'No duplicate ids', pg, dup.length === 0, [...new Set(dup)].join(', '));
+    ok('HTML', 'No placeholder/TODO text', pg, !/\bTODO\b|lorem ipsum|\bPLACEHOLDER\b/.test(html.replace(/placeholder="[^"]*"/g, '')));
+    ok('HTML', 'Images have alt text', pg, [...html.matchAll(/<img\b[^>]*>/g)].every(m => /\balt="/.test(m[0])));
+    ok('HTML', 'External links open safely (noopener)', pg, [...html.matchAll(/<a [^>]*href="https?:[^"]*"[^>]*>/g)].filter(m => /target="_blank"/.test(m[0])).every(m => /rel="[^"]*noopener/.test(m[0])));
   }
+  const titles = pages.map(p => (fs.readFileSync(path.join(root, p), 'utf8').match(/<title>([^<]*)<\/title>/) || [])[1]);
+  ok('HTML', 'Unique <title> per page', 'all pages', new Set(titles).size === titles.length, titles.join(' | '));
 
   // ---------- 2. Browser checks per page (desktop + mobile) ----------
   for (const pg of pages) {
@@ -63,9 +70,21 @@ export async function runE2E({ chromium, axeSrc, base, root, outFile, liveHosts 
         const rows = await page.evaluate(() => new Set([...document.querySelectorAll('.site-nav a')].map(a => Math.round(a.getBoundingClientRect().top))).size);
         ok('Nav', 'Nav fits on one line', `${pg} @desktop`, rows === 1, `${rows} rows`);
       }
+      const leak = await page.evaluate(() => /\b(undefined|NaN|\[object Object\])\b/.test(document.body.innerText));
+      ok('Render', 'No undefined/NaN/[object Object] in rendered text', `${pg} @${vp.name}`, !leak);
       ok('Console', 'No console/page errors', `${pg} @${vp.name}`, errs.length === 0, errs.slice(0, 3).join(' | '));
+      if (vp.name === 'desktop') {
+        await page.keyboard.press('Tab'); const focused = await page.evaluate(() => document.activeElement && document.activeElement.className);
+        ok('Accessibility', 'First Tab lands on skip link', `${pg} @desktop`, focused === 'skip-link', String(focused));
+      }
       await ctx.close();
     }
+    // No-JavaScript rendering: content must be visible without scripts
+    const nj = await browser.newContext({ javaScriptEnabled: false, viewport: { width: 1200, height: 800 } }); const np = await nj.newPage();
+    await np.goto(base + pg, { waitUntil: 'load' });
+    const visible = await np.evaluate(() => { const els = [...document.querySelectorAll('.reveal, .stats, .champ, .findus__qr')]; return els.length === 0 || els.every(e => parseFloat(getComputedStyle(e).opacity) > 0.9); });
+    ok('Resilience', 'Content visible with JavaScript disabled', pg, visible);
+    await nj.close();
   }
 
   // ---------- 3. Functional flows (home EN + ES) ----------
@@ -109,6 +128,8 @@ export async function runE2E({ chromium, axeSrc, base, root, outFile, liveHosts 
     ok('Flow', 'QR PNG download', pg, /QR\.png$/.test(dl.suggestedFilename()));
     const off = await page.evaluate(async () => { const a = document.querySelector('a[href*="offline/"]'); const r = await fetch(a.getAttribute('href'), { method: 'GET' }); return r.status + ' ' + (await r.text()).length; });
     ok('Flow', 'Offline single-file download reachable', pg, off.startsWith('200'), off);
+    await page.emulateMedia({ media: 'print' }); const poster = await page.pdf({ format: 'Letter' }); await page.emulateMedia({ media: 'screen' });
+    ok('Flow', 'QR poster prints', pg, poster.length > 5000, `${Math.round(poster.length / 1024)} KB`);
     await ctx.close();
   }
   // Champions page content
@@ -148,6 +169,10 @@ export async function runE2E({ chromium, axeSrc, base, root, outFile, liveHosts 
       await page.click('#verify-btn'); await page.waitForTimeout(10000);
       const v = await page.textContent('#verify-status');
       ok('Live', 'Hosted files match ledger', host, /All \d+ files match/.test(v) && /intact/.test(v), v);
+      const missing = await page.evaluate(async () => { const led = await (await fetch('./hibt.json', { cache: 'no-store' })).json(); const out = []; for (const f of led.files) { const r = await fetch('./' + f.path, { method: 'GET', cache: 'no-store' }); if (r.status !== 200) out.push(f.path + ':' + r.status); } for (const extra of ['offline/ridge-robotics-gm-cares-offline.html', 'offline/ridge-robotics-gm-cares-sin-conexion.html', 'offline/teacher-package.zip', 'es/index.html', 'es/find-us.html', 'es/past-champions.html']) { const r = await fetch('./' + extra, { method: 'GET', cache: 'no-store' }); if (r.status !== 200) out.push(extra + ':' + r.status); } return out; });
+      ok('Live', 'Every ledger file + offline bundles + Spanish pages served (200)', host, missing.length === 0, missing.join(', '));
+      const es = await page.goto(host + '/es/index.html?v=' + Date.now(), { waitUntil: 'networkidle', timeout: 90000 });
+      ok('Live', 'Spanish home served with lang=es', host, es.status() === 200 && (await page.getAttribute('html', 'lang')) === 'es');
     } catch (e) { ok('Live', 'Host serves site', host, false, e.message.slice(0, 100)); }
     await ctx.close();
   }

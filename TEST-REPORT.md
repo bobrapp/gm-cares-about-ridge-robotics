@@ -1,6 +1,6 @@
 # End-to-end test report
 
-Generated 2026-10-22T01:35:10.054Z · 186 passed · 0 failed · 186 checks
+Generated 2026-10-22T01:53:38.416Z · 245 passed · 0 failed · 245 checks
 
 Scope: six pages (EN + ES), two offline single-file builds, desktop 1400px and mobile 375px, axe-core WCAG 2.1 A/AA + best-practice, functional flows (share, pledge build/copy/download/email, cake PDF and print, QR download, HIBT ledger verification), static link/anchor/footnote integrity, privacy guards (no third-party requests, no raw emails, no student surnames, CSP), external source reachability, and live-host verification.
 
@@ -16,6 +16,10 @@ Scope: six pages (EN + ES), two offline single-file builds, desktop 1400px and m
 | PASS | Security | Content-Security-Policy present | index.html |  |
 | PASS | i18n | lang attribute correct | index.html |  |
 | PASS | i18n | Language switch present | index.html |  |
+| PASS | HTML | No duplicate ids | index.html |  |
+| PASS | HTML | No placeholder/TODO text | index.html |  |
+| PASS | HTML | Images have alt text | index.html |  |
+| PASS | HTML | External links open safely (noopener) | index.html |  |
 | PASS | Links | Internal file links resolve | find-us.html |  |
 | PASS | Links | Anchor targets exist | find-us.html |  |
 | PASS | Sourcing | Footnotes present | find-us.html | 0 footnote groups, 0 single-source (attributed quotes) |
@@ -24,6 +28,10 @@ Scope: six pages (EN + ES), two offline single-file builds, desktop 1400px and m
 | PASS | Security | Content-Security-Policy present | find-us.html |  |
 | PASS | i18n | lang attribute correct | find-us.html |  |
 | PASS | i18n | Language switch present | find-us.html |  |
+| PASS | HTML | No duplicate ids | find-us.html |  |
+| PASS | HTML | No placeholder/TODO text | find-us.html |  |
+| PASS | HTML | Images have alt text | find-us.html |  |
+| PASS | HTML | External links open safely (noopener) | find-us.html |  |
 | PASS | Links | Internal file links resolve | past-champions.html |  |
 | PASS | Links | Anchor targets exist | past-champions.html |  |
 | PASS | Sourcing | Footnotes present | past-champions.html | 108 footnote groups, 63 single-source (attributed quotes) |
@@ -32,6 +40,10 @@ Scope: six pages (EN + ES), two offline single-file builds, desktop 1400px and m
 | PASS | Security | Content-Security-Policy present | past-champions.html |  |
 | PASS | i18n | lang attribute correct | past-champions.html |  |
 | PASS | i18n | Language switch present | past-champions.html |  |
+| PASS | HTML | No duplicate ids | past-champions.html |  |
+| PASS | HTML | No placeholder/TODO text | past-champions.html |  |
+| PASS | HTML | Images have alt text | past-champions.html |  |
+| PASS | HTML | External links open safely (noopener) | past-champions.html |  |
 | PASS | Links | Internal file links resolve | es/index.html |  |
 | PASS | Links | Anchor targets exist | es/index.html |  |
 | PASS | Sourcing | Footnotes present | es/index.html | 78 footnote groups, 3 single-source (attributed quotes) |
@@ -40,6 +52,10 @@ Scope: six pages (EN + ES), two offline single-file builds, desktop 1400px and m
 | PASS | Security | Content-Security-Policy present | es/index.html |  |
 | PASS | i18n | lang attribute correct | es/index.html |  |
 | PASS | i18n | Language switch present | es/index.html |  |
+| PASS | HTML | No duplicate ids | es/index.html |  |
+| PASS | HTML | No placeholder/TODO text | es/index.html |  |
+| PASS | HTML | Images have alt text | es/index.html |  |
+| PASS | HTML | External links open safely (noopener) | es/index.html |  |
 | PASS | Links | Internal file links resolve | es/find-us.html |  |
 | PASS | Links | Anchor targets exist | es/find-us.html |  |
 | PASS | Sourcing | Footnotes present | es/find-us.html | 0 footnote groups, 0 single-source (attributed quotes) |
@@ -48,6 +64,10 @@ Scope: six pages (EN + ES), two offline single-file builds, desktop 1400px and m
 | PASS | Security | Content-Security-Policy present | es/find-us.html |  |
 | PASS | i18n | lang attribute correct | es/find-us.html |  |
 | PASS | i18n | Language switch present | es/find-us.html |  |
+| PASS | HTML | No duplicate ids | es/find-us.html |  |
+| PASS | HTML | No placeholder/TODO text | es/find-us.html |  |
+| PASS | HTML | Images have alt text | es/find-us.html |  |
+| PASS | HTML | External links open safely (noopener) | es/find-us.html |  |
 | PASS | Links | Internal file links resolve | es/past-champions.html |  |
 | PASS | Links | Anchor targets exist | es/past-champions.html |  |
 | PASS | Sourcing | Footnotes present | es/past-champions.html | 108 footnote groups, 63 single-source (attributed quotes) |
@@ -56,6 +76,11 @@ Scope: six pages (EN + ES), two offline single-file builds, desktop 1400px and m
 | PASS | Security | Content-Security-Policy present | es/past-champions.html |  |
 | PASS | i18n | lang attribute correct | es/past-champions.html |  |
 | PASS | i18n | Language switch present | es/past-champions.html |  |
+| PASS | HTML | No duplicate ids | es/past-champions.html |  |
+| PASS | HTML | No placeholder/TODO text | es/past-champions.html |  |
+| PASS | HTML | Images have alt text | es/past-champions.html |  |
+| PASS | HTML | External links open safely (noopener) | es/past-champions.html |  |
+| PASS | HTML | Unique <title> per page | all pages | GM Cares × Ridge Robotics — Celebration Day, October 22, 2026 · Ephrata, WA / Find us and support us — Ridge Robotics × GM Cares / Past Champions: What Can We L |
 | PASS | Load | HTTP 200 | index.html @desktop | 200 |
 | PASS | Layout | No horizontal overflow | index.html @desktop | scrollWidth 1400 |
 | PASS | Assets | Self-hosted fonts loaded | index.html @desktop |  |
@@ -63,7 +88,9 @@ Scope: six pages (EN + ES), two offline single-file builds, desktop 1400px and m
 | PASS | Assets | All images load | index.html @desktop | 4/4 |
 | PASS | Accessibility | axe-core: 0 violations (WCAG 2.1 A/AA + best-practice) | index.html @desktop |  |
 | PASS | Nav | Nav fits on one line | index.html @desktop | 1 rows |
+| PASS | Render | No undefined/NaN/[object Object] in rendered text | index.html @desktop |  |
 | PASS | Console | No console/page errors | index.html @desktop |  |
+| PASS | Accessibility | First Tab lands on skip link | index.html @desktop | skip-link |
 | PASS | Load | HTTP 200 | index.html @mobile | 200 |
 | PASS | Layout | No horizontal overflow | index.html @mobile | scrollWidth 375 |
 | PASS | Assets | Self-hosted fonts loaded | index.html @mobile |  |
@@ -71,7 +98,9 @@ Scope: six pages (EN + ES), two offline single-file builds, desktop 1400px and m
 | PASS | Assets | All images load | index.html @mobile | 4/4 |
 | PASS | Accessibility | axe-core: 0 violations (WCAG 2.1 A/AA + best-practice) | index.html @mobile |  |
 | PASS | Nav | Mobile menu opens | index.html @mobile |  |
+| PASS | Render | No undefined/NaN/[object Object] in rendered text | index.html @mobile |  |
 | PASS | Console | No console/page errors | index.html @mobile |  |
+| PASS | Resilience | Content visible with JavaScript disabled | index.html |  |
 | PASS | Load | HTTP 200 | find-us.html @desktop | 200 |
 | PASS | Layout | No horizontal overflow | find-us.html @desktop | scrollWidth 1400 |
 | PASS | Assets | Self-hosted fonts loaded | find-us.html @desktop |  |
@@ -79,7 +108,9 @@ Scope: six pages (EN + ES), two offline single-file builds, desktop 1400px and m
 | PASS | Assets | All images load | find-us.html @desktop | 2/2 |
 | PASS | Accessibility | axe-core: 0 violations (WCAG 2.1 A/AA + best-practice) | find-us.html @desktop |  |
 | PASS | Nav | Nav fits on one line | find-us.html @desktop | 1 rows |
+| PASS | Render | No undefined/NaN/[object Object] in rendered text | find-us.html @desktop |  |
 | PASS | Console | No console/page errors | find-us.html @desktop |  |
+| PASS | Accessibility | First Tab lands on skip link | find-us.html @desktop | skip-link |
 | PASS | Load | HTTP 200 | find-us.html @mobile | 200 |
 | PASS | Layout | No horizontal overflow | find-us.html @mobile | scrollWidth 375 |
 | PASS | Assets | Self-hosted fonts loaded | find-us.html @mobile |  |
@@ -87,7 +118,9 @@ Scope: six pages (EN + ES), two offline single-file builds, desktop 1400px and m
 | PASS | Assets | All images load | find-us.html @mobile | 2/2 |
 | PASS | Accessibility | axe-core: 0 violations (WCAG 2.1 A/AA + best-practice) | find-us.html @mobile |  |
 | PASS | Nav | Mobile menu opens | find-us.html @mobile |  |
+| PASS | Render | No undefined/NaN/[object Object] in rendered text | find-us.html @mobile |  |
 | PASS | Console | No console/page errors | find-us.html @mobile |  |
+| PASS | Resilience | Content visible with JavaScript disabled | find-us.html |  |
 | PASS | Load | HTTP 200 | past-champions.html @desktop | 200 |
 | PASS | Layout | No horizontal overflow | past-champions.html @desktop | scrollWidth 1400 |
 | PASS | Assets | Self-hosted fonts loaded | past-champions.html @desktop |  |
@@ -95,7 +128,9 @@ Scope: six pages (EN + ES), two offline single-file builds, desktop 1400px and m
 | PASS | Assets | All images load | past-champions.html @desktop | 1/1 |
 | PASS | Accessibility | axe-core: 0 violations (WCAG 2.1 A/AA + best-practice) | past-champions.html @desktop |  |
 | PASS | Nav | Nav fits on one line | past-champions.html @desktop | 1 rows |
+| PASS | Render | No undefined/NaN/[object Object] in rendered text | past-champions.html @desktop |  |
 | PASS | Console | No console/page errors | past-champions.html @desktop |  |
+| PASS | Accessibility | First Tab lands on skip link | past-champions.html @desktop | skip-link |
 | PASS | Load | HTTP 200 | past-champions.html @mobile | 200 |
 | PASS | Layout | No horizontal overflow | past-champions.html @mobile | scrollWidth 375 |
 | PASS | Assets | Self-hosted fonts loaded | past-champions.html @mobile |  |
@@ -103,7 +138,9 @@ Scope: six pages (EN + ES), two offline single-file builds, desktop 1400px and m
 | PASS | Assets | All images load | past-champions.html @mobile | 1/1 |
 | PASS | Accessibility | axe-core: 0 violations (WCAG 2.1 A/AA + best-practice) | past-champions.html @mobile |  |
 | PASS | Nav | Mobile menu opens | past-champions.html @mobile |  |
+| PASS | Render | No undefined/NaN/[object Object] in rendered text | past-champions.html @mobile |  |
 | PASS | Console | No console/page errors | past-champions.html @mobile |  |
+| PASS | Resilience | Content visible with JavaScript disabled | past-champions.html |  |
 | PASS | Load | HTTP 200 | es/index.html @desktop | 200 |
 | PASS | Layout | No horizontal overflow | es/index.html @desktop | scrollWidth 1400 |
 | PASS | Assets | Self-hosted fonts loaded | es/index.html @desktop |  |
@@ -111,7 +148,9 @@ Scope: six pages (EN + ES), two offline single-file builds, desktop 1400px and m
 | PASS | Assets | All images load | es/index.html @desktop | 4/4 |
 | PASS | Accessibility | axe-core: 0 violations (WCAG 2.1 A/AA + best-practice) | es/index.html @desktop |  |
 | PASS | Nav | Nav fits on one line | es/index.html @desktop | 1 rows |
+| PASS | Render | No undefined/NaN/[object Object] in rendered text | es/index.html @desktop |  |
 | PASS | Console | No console/page errors | es/index.html @desktop |  |
+| PASS | Accessibility | First Tab lands on skip link | es/index.html @desktop | skip-link |
 | PASS | Load | HTTP 200 | es/index.html @mobile | 200 |
 | PASS | Layout | No horizontal overflow | es/index.html @mobile | scrollWidth 375 |
 | PASS | Assets | Self-hosted fonts loaded | es/index.html @mobile |  |
@@ -119,7 +158,9 @@ Scope: six pages (EN + ES), two offline single-file builds, desktop 1400px and m
 | PASS | Assets | All images load | es/index.html @mobile | 4/4 |
 | PASS | Accessibility | axe-core: 0 violations (WCAG 2.1 A/AA + best-practice) | es/index.html @mobile |  |
 | PASS | Nav | Mobile menu opens | es/index.html @mobile |  |
+| PASS | Render | No undefined/NaN/[object Object] in rendered text | es/index.html @mobile |  |
 | PASS | Console | No console/page errors | es/index.html @mobile |  |
+| PASS | Resilience | Content visible with JavaScript disabled | es/index.html |  |
 | PASS | Load | HTTP 200 | es/find-us.html @desktop | 200 |
 | PASS | Layout | No horizontal overflow | es/find-us.html @desktop | scrollWidth 1400 |
 | PASS | Assets | Self-hosted fonts loaded | es/find-us.html @desktop |  |
@@ -127,7 +168,9 @@ Scope: six pages (EN + ES), two offline single-file builds, desktop 1400px and m
 | PASS | Assets | All images load | es/find-us.html @desktop | 2/2 |
 | PASS | Accessibility | axe-core: 0 violations (WCAG 2.1 A/AA + best-practice) | es/find-us.html @desktop |  |
 | PASS | Nav | Nav fits on one line | es/find-us.html @desktop | 1 rows |
+| PASS | Render | No undefined/NaN/[object Object] in rendered text | es/find-us.html @desktop |  |
 | PASS | Console | No console/page errors | es/find-us.html @desktop |  |
+| PASS | Accessibility | First Tab lands on skip link | es/find-us.html @desktop | skip-link |
 | PASS | Load | HTTP 200 | es/find-us.html @mobile | 200 |
 | PASS | Layout | No horizontal overflow | es/find-us.html @mobile | scrollWidth 375 |
 | PASS | Assets | Self-hosted fonts loaded | es/find-us.html @mobile |  |
@@ -135,7 +178,9 @@ Scope: six pages (EN + ES), two offline single-file builds, desktop 1400px and m
 | PASS | Assets | All images load | es/find-us.html @mobile | 2/2 |
 | PASS | Accessibility | axe-core: 0 violations (WCAG 2.1 A/AA + best-practice) | es/find-us.html @mobile |  |
 | PASS | Nav | Mobile menu opens | es/find-us.html @mobile |  |
+| PASS | Render | No undefined/NaN/[object Object] in rendered text | es/find-us.html @mobile |  |
 | PASS | Console | No console/page errors | es/find-us.html @mobile |  |
+| PASS | Resilience | Content visible with JavaScript disabled | es/find-us.html |  |
 | PASS | Load | HTTP 200 | es/past-champions.html @desktop | 200 |
 | PASS | Layout | No horizontal overflow | es/past-champions.html @desktop | scrollWidth 1400 |
 | PASS | Assets | Self-hosted fonts loaded | es/past-champions.html @desktop |  |
@@ -143,7 +188,9 @@ Scope: six pages (EN + ES), two offline single-file builds, desktop 1400px and m
 | PASS | Assets | All images load | es/past-champions.html @desktop | 1/1 |
 | PASS | Accessibility | axe-core: 0 violations (WCAG 2.1 A/AA + best-practice) | es/past-champions.html @desktop |  |
 | PASS | Nav | Nav fits on one line | es/past-champions.html @desktop | 1 rows |
+| PASS | Render | No undefined/NaN/[object Object] in rendered text | es/past-champions.html @desktop |  |
 | PASS | Console | No console/page errors | es/past-champions.html @desktop |  |
+| PASS | Accessibility | First Tab lands on skip link | es/past-champions.html @desktop | skip-link |
 | PASS | Load | HTTP 200 | es/past-champions.html @mobile | 200 |
 | PASS | Layout | No horizontal overflow | es/past-champions.html @mobile | scrollWidth 375 |
 | PASS | Assets | Self-hosted fonts loaded | es/past-champions.html @mobile |  |
@@ -151,7 +198,9 @@ Scope: six pages (EN + ES), two offline single-file builds, desktop 1400px and m
 | PASS | Assets | All images load | es/past-champions.html @mobile | 1/1 |
 | PASS | Accessibility | axe-core: 0 violations (WCAG 2.1 A/AA + best-practice) | es/past-champions.html @mobile |  |
 | PASS | Nav | Mobile menu opens | es/past-champions.html @mobile |  |
+| PASS | Render | No undefined/NaN/[object Object] in rendered text | es/past-champions.html @mobile |  |
 | PASS | Console | No console/page errors | es/past-champions.html @mobile |  |
+| PASS | Resilience | Content visible with JavaScript disabled | es/past-champions.html |  |
 | PASS | Flow | Share button copies link | index.html | Link copied. Paste it anywhere. |
 | PASS | Flow | Pledge: empty submit shows guidance | index.html | Pick at least one way to help. |
 | PASS | Flow | Pledge: note generated with name | index.html | Hi Coach Keegan, |
@@ -181,16 +230,26 @@ Scope: six pages (EN + ES), two offline single-file builds, desktop 1400px and m
 | PASS | Console | No page errors during flows | es/index.html |  |
 | PASS | Flow | QR PNG download | find-us.html |  |
 | PASS | Flow | Offline single-file download reachable | find-us.html | 200 2352669 |
+| PASS | Flow | QR poster prints | find-us.html | 18 KB |
 | PASS | Flow | QR PNG download | es/find-us.html |  |
 | PASS | Flow | Offline single-file download reachable | es/find-us.html | 200 2366670 |
+| PASS | Flow | QR poster prints | es/find-us.html | 18 KB |
 | PASS | Content | 18 podium rows + 9 profiles + rural table | past-champions.html |  |
 | PASS | Content | 18 podium rows + 9 profiles + rural table | es/past-champions.html |  |
 | PASS | Offline | Single-file app opens from disk with all images, zero network requests | offline/ridge-robotics-gm-cares-offline.html | 5/5 images, 0 requests |
 | PASS | Offline | Ledger shown inline, verify disabled with explanation | offline/ridge-robotics-gm-cares-offline.html |  |
 | PASS | Offline | Single-file app opens from disk with all images, zero network requests | offline/ridge-robotics-gm-cares-sin-conexion.html | 5/5 images, 0 requests |
 | PASS | Offline | Ledger shown inline, verify disabled with explanation | offline/ridge-robotics-gm-cares-sin-conexion.html |  |
-| PASS | Sources | External source links reachable (116/117; 403/429 bot-walls counted as reachable) | all pages | https://fiesc.com.br/ (AbortError) |
+| PASS | Sources | External source links reachable (117/117; 403/429 bot-walls counted as reachable) | all pages |  |
 | PASS | Live | Host serves site | https://gm-cares-about-ridge-robotics.pplx.app | v1.8 · 06b476b |
 | PASS | Live | Hosted files match ledger | https://gm-cares-about-ridge-robotics.pplx.app | All 24 files match the ledger. Ledger chain intact (head 6305dcd392ee…). |
+| PASS | Live | Every ledger file + offline bundles + Spanish pages served (200) | https://gm-cares-about-ridge-robotics.pplx.app |  |
+| PASS | Live | Spanish home served with lang=es | https://gm-cares-about-ridge-robotics.pplx.app |  |
+| PASS | Live | Host serves site | https://ridge-robotics-gm-cares.pplx.app | v1.8 · 06b476b |
+| PASS | Live | Hosted files match ledger | https://ridge-robotics-gm-cares.pplx.app | All 24 files match the ledger. Ledger chain intact (head 6305dcd392ee…). |
+| PASS | Live | Every ledger file + offline bundles + Spanish pages served (200) | https://ridge-robotics-gm-cares.pplx.app |  |
+| PASS | Live | Spanish home served with lang=es | https://ridge-robotics-gm-cares.pplx.app |  |
 | PASS | Live | Host serves site | https://bobrapp.github.io/gm-cares-about-ridge-robotics | v1.8 · 06b476b |
 | PASS | Live | Hosted files match ledger | https://bobrapp.github.io/gm-cares-about-ridge-robotics | All 24 files match the ledger. Ledger chain intact (head 6305dcd392ee…). |
+| PASS | Live | Every ledger file + offline bundles + Spanish pages served (200) | https://bobrapp.github.io/gm-cares-about-ridge-robotics |  |
+| PASS | Live | Spanish home served with lang=es | https://bobrapp.github.io/gm-cares-about-ridge-robotics |  |
