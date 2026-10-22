@@ -1,23 +1,8 @@
 # End-to-end test report
 
-Generated 2026-10-22T01:25:44.927Z · 172 passed · 10 failed · 182 checks
+Generated 2026-10-22T01:27:49.809Z · 182 passed · 0 failed · 182 checks
 
 Scope: six pages (EN + ES), two offline single-file builds, desktop 1400px and mobile 375px, axe-core WCAG 2.1 A/AA + best-practice, functional flows (share, pledge build/copy/download/email, cake PDF and print, QR download, HIBT ledger verification), static link/anchor/footnote integrity, privacy guards (no third-party requests, no raw emails, no student surnames, CSP), external source reachability.
-
-## Failures
-
-| Area | Test | Page | Detail |
-|---|---|---|---|
-| Assets | All images load | index.html @desktop | 2/4 |
-| Assets | All images load | index.html @mobile | 2/4 |
-| Assets | All images load | past-champions.html @desktop | 0/1 |
-| Assets | All images load | past-champions.html @mobile | 0/1 |
-| Assets | All images load | es/index.html @desktop | 2/4 |
-| Assets | All images load | es/index.html @mobile | 2/4 |
-| Assets | All images load | es/past-champions.html @desktop | 0/1 |
-| Assets | All images load | es/past-champions.html @mobile | 0/1 |
-| HIBT | Ledger loads and hashes verify locally | index.html | 1 file(s) differ from the ledger. Ledger chain intact (head bcce61d60e21…). |
-| HIBT | Ledger loads and hashes verify locally | es/index.html | 1 archivo(s) difieren del registro. Cadena del registro íntegra (cabeza bcce61d60e21…). |
 
 ## All checks
 
@@ -75,7 +60,7 @@ Scope: six pages (EN + ES), two offline single-file builds, desktop 1400px and m
 | PASS | Layout | No horizontal overflow | index.html @desktop | scrollWidth 1400 |
 | PASS | Assets | Self-hosted fonts loaded | index.html @desktop |  |
 | PASS | Privacy | Zero third-party requests | index.html @desktop |  |
-| FAIL | Assets | All images load | index.html @desktop | 2/4 |
+| PASS | Assets | All images load | index.html @desktop | 4/4 |
 | PASS | Accessibility | axe-core: 0 violations (WCAG 2.1 A/AA + best-practice) | index.html @desktop |  |
 | PASS | Nav | Nav fits on one line | index.html @desktop | 1 rows |
 | PASS | Console | No console/page errors | index.html @desktop |  |
@@ -83,7 +68,7 @@ Scope: six pages (EN + ES), two offline single-file builds, desktop 1400px and m
 | PASS | Layout | No horizontal overflow | index.html @mobile | scrollWidth 375 |
 | PASS | Assets | Self-hosted fonts loaded | index.html @mobile |  |
 | PASS | Privacy | Zero third-party requests | index.html @mobile |  |
-| FAIL | Assets | All images load | index.html @mobile | 2/4 |
+| PASS | Assets | All images load | index.html @mobile | 4/4 |
 | PASS | Accessibility | axe-core: 0 violations (WCAG 2.1 A/AA + best-practice) | index.html @mobile |  |
 | PASS | Nav | Mobile menu opens | index.html @mobile |  |
 | PASS | Console | No console/page errors | index.html @mobile |  |
@@ -107,7 +92,7 @@ Scope: six pages (EN + ES), two offline single-file builds, desktop 1400px and m
 | PASS | Layout | No horizontal overflow | past-champions.html @desktop | scrollWidth 1400 |
 | PASS | Assets | Self-hosted fonts loaded | past-champions.html @desktop |  |
 | PASS | Privacy | Zero third-party requests | past-champions.html @desktop |  |
-| FAIL | Assets | All images load | past-champions.html @desktop | 0/1 |
+| PASS | Assets | All images load | past-champions.html @desktop | 1/1 |
 | PASS | Accessibility | axe-core: 0 violations (WCAG 2.1 A/AA + best-practice) | past-champions.html @desktop |  |
 | PASS | Nav | Nav fits on one line | past-champions.html @desktop | 1 rows |
 | PASS | Console | No console/page errors | past-champions.html @desktop |  |
@@ -115,7 +100,7 @@ Scope: six pages (EN + ES), two offline single-file builds, desktop 1400px and m
 | PASS | Layout | No horizontal overflow | past-champions.html @mobile | scrollWidth 375 |
 | PASS | Assets | Self-hosted fonts loaded | past-champions.html @mobile |  |
 | PASS | Privacy | Zero third-party requests | past-champions.html @mobile |  |
-| FAIL | Assets | All images load | past-champions.html @mobile | 0/1 |
+| PASS | Assets | All images load | past-champions.html @mobile | 1/1 |
 | PASS | Accessibility | axe-core: 0 violations (WCAG 2.1 A/AA + best-practice) | past-champions.html @mobile |  |
 | PASS | Nav | Mobile menu opens | past-champions.html @mobile |  |
 | PASS | Console | No console/page errors | past-champions.html @mobile |  |
@@ -123,7 +108,7 @@ Scope: six pages (EN + ES), two offline single-file builds, desktop 1400px and m
 | PASS | Layout | No horizontal overflow | es/index.html @desktop | scrollWidth 1400 |
 | PASS | Assets | Self-hosted fonts loaded | es/index.html @desktop |  |
 | PASS | Privacy | Zero third-party requests | es/index.html @desktop |  |
-| FAIL | Assets | All images load | es/index.html @desktop | 2/4 |
+| PASS | Assets | All images load | es/index.html @desktop | 4/4 |
 | PASS | Accessibility | axe-core: 0 violations (WCAG 2.1 A/AA + best-practice) | es/index.html @desktop |  |
 | PASS | Nav | Nav fits on one line | es/index.html @desktop | 1 rows |
 | PASS | Console | No console/page errors | es/index.html @desktop |  |
@@ -131,7 +116,7 @@ Scope: six pages (EN + ES), two offline single-file builds, desktop 1400px and m
 | PASS | Layout | No horizontal overflow | es/index.html @mobile | scrollWidth 375 |
 | PASS | Assets | Self-hosted fonts loaded | es/index.html @mobile |  |
 | PASS | Privacy | Zero third-party requests | es/index.html @mobile |  |
-| FAIL | Assets | All images load | es/index.html @mobile | 2/4 |
+| PASS | Assets | All images load | es/index.html @mobile | 4/4 |
 | PASS | Accessibility | axe-core: 0 violations (WCAG 2.1 A/AA + best-practice) | es/index.html @mobile |  |
 | PASS | Nav | Mobile menu opens | es/index.html @mobile |  |
 | PASS | Console | No console/page errors | es/index.html @mobile |  |
@@ -155,7 +140,7 @@ Scope: six pages (EN + ES), two offline single-file builds, desktop 1400px and m
 | PASS | Layout | No horizontal overflow | es/past-champions.html @desktop | scrollWidth 1400 |
 | PASS | Assets | Self-hosted fonts loaded | es/past-champions.html @desktop |  |
 | PASS | Privacy | Zero third-party requests | es/past-champions.html @desktop |  |
-| FAIL | Assets | All images load | es/past-champions.html @desktop | 0/1 |
+| PASS | Assets | All images load | es/past-champions.html @desktop | 1/1 |
 | PASS | Accessibility | axe-core: 0 violations (WCAG 2.1 A/AA + best-practice) | es/past-champions.html @desktop |  |
 | PASS | Nav | Nav fits on one line | es/past-champions.html @desktop | 1 rows |
 | PASS | Console | No console/page errors | es/past-champions.html @desktop |  |
@@ -163,7 +148,7 @@ Scope: six pages (EN + ES), two offline single-file builds, desktop 1400px and m
 | PASS | Layout | No horizontal overflow | es/past-champions.html @mobile | scrollWidth 375 |
 | PASS | Assets | Self-hosted fonts loaded | es/past-champions.html @mobile |  |
 | PASS | Privacy | Zero third-party requests | es/past-champions.html @mobile |  |
-| FAIL | Assets | All images load | es/past-champions.html @mobile | 0/1 |
+| PASS | Assets | All images load | es/past-champions.html @mobile | 1/1 |
 | PASS | Accessibility | axe-core: 0 violations (WCAG 2.1 A/AA + best-practice) | es/past-champions.html @mobile |  |
 | PASS | Nav | Mobile menu opens | es/past-champions.html @mobile |  |
 | PASS | Console | No console/page errors | es/past-champions.html @mobile |  |
@@ -177,7 +162,7 @@ Scope: six pages (EN + ES), two offline single-file builds, desktop 1400px and m
 | PASS | Privacy | School email assembled client-side only | index.html |  |
 | PASS | Flow | Cake order PDF downloadable | index.html | 200 application/pdf |
 | PASS | Flow | Print stylesheet renders (cake sheet) | index.html | 3167 KB |
-| FAIL | HIBT | Ledger loads and hashes verify locally | index.html | 1 file(s) differ from the ledger. Ledger chain intact (head bcce61d60e21…). |
+| PASS | HIBT | Ledger loads and hashes verify locally | index.html | All 24 files match the ledger. Ledger chain intact (head 6305dcd392ee…). |
 | PASS | HIBT | Ledger entries rendered | index.html |  |
 | PASS | Console | No page errors during flows | index.html |  |
 | PASS | Flow | Share button copies link | es/index.html | Enlace copiado. Pégalo donde quieras. |
@@ -191,13 +176,13 @@ Scope: six pages (EN + ES), two offline single-file builds, desktop 1400px and m
 | PASS | Privacy | School email assembled client-side only | es/index.html |  |
 | PASS | Flow | Cake order PDF downloadable | es/index.html | 200 application/pdf |
 | PASS | Flow | Print stylesheet renders (cake sheet) | es/index.html | 3165 KB |
-| FAIL | HIBT | Ledger loads and hashes verify locally | es/index.html | 1 archivo(s) difieren del registro. Cadena del registro íntegra (cabeza bcce61d60e21…). |
+| PASS | HIBT | Ledger loads and hashes verify locally | es/index.html | Los 24 archivos coinciden con el registro. Cadena del registro íntegra (cabeza 6305dcd392ee…). |
 | PASS | HIBT | Ledger entries rendered | es/index.html |  |
 | PASS | Console | No page errors during flows | es/index.html |  |
 | PASS | Flow | QR PNG download | find-us.html |  |
-| PASS | Flow | Offline single-file download reachable | find-us.html | 200 2350635 |
+| PASS | Flow | Offline single-file download reachable | find-us.html | 200 2352535 |
 | PASS | Flow | QR PNG download | es/find-us.html |  |
-| PASS | Flow | Offline single-file download reachable | es/find-us.html | 200 2364570 |
+| PASS | Flow | Offline single-file download reachable | es/find-us.html | 200 2366470 |
 | PASS | Content | 18 podium rows + 9 profiles + rural table | past-champions.html |  |
 | PASS | Content | 18 podium rows + 9 profiles + rural table | es/past-champions.html |  |
 | PASS | Offline | Single-file app opens from disk with all images, zero network requests | offline/ridge-robotics-gm-cares-offline.html | 5/5 images, 0 requests |

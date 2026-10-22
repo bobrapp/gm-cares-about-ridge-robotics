@@ -1,17 +1,12 @@
 {
   "standard": "HIBT-AIGovOps ledger, v1",
   "project": "Ridge Robotics × GM Cares — celebration site for the October 22, 2026 visit, Columbia Ridge Elementary, Ephrata, WA",
-  "version": "1.7",
-  "generated_at": "2026-10-22T01:20:47+00:00",
-  "built_from_commit": "68e85c9",
+  "version": "1.8",
+  "generated_at": "2026-10-22T01:26:22+00:00",
+  "built_from_commit": "23922a7",
   "hash_algorithm": "SHA-256",
   "chain_rule": "chain = sha256(prev + canonical_json(entry_without_chain))",
   "files": [
-    {
-      "path": "TEST-REPORT.md",
-      "sha256": "64662ed2934f0a1149de1279742c50568cbd3e663b1d3159d44d915c8c2c3f0f",
-      "bytes": 18052
-    },
     {
       "path": "app.js",
       "sha256": "cb002e2ea6d15b1b4c876a1aa0d0096dca2137b0b631f882c295841c4adf450d",
@@ -89,22 +84,22 @@
     },
     {
       "path": "es/find-us.html",
-      "sha256": "28ddd0b873c61bdcadd50e42019dec770034c7a1dcaf3c1ba99abfd7808de858",
+      "sha256": "9bfd74ea019074e1bc4b74296f17de864db4967498b4e198d186e57c0d5c2afe",
       "bytes": 7563
     },
     {
       "path": "es/index.html",
-      "sha256": "5cfda28c73231148c81253ec569fe46995bb0a7d9e17460a484d5302f304444d",
+      "sha256": "f51703156d34fc8aafdfbd06a2344d0b2c72369e1c2f0781ca25617e38d2cf36",
       "bytes": 117085
     },
     {
       "path": "es/past-champions.html",
-      "sha256": "ec0aac77149bddf2e4bfd3d2ad7bf223ef461c6389cf6914bad1762e94122625",
+      "sha256": "9a6ea10475f4fad7ade5e9ac4e092afce2ad0f51b30348e7df79b1a41031db35",
       "bytes": 62437
     },
     {
       "path": "find-us.html",
-      "sha256": "8d1d98ade77567097a9a8f7dbb37b4b957f031f5c65ec173bce2b8634449f6d1",
+      "sha256": "eeab5b57eb47f22edfd9093d7775c2b4f6df94ef1058adc58eed7f514bb7f6be",
       "bytes": 7081
     },
     {
@@ -114,7 +109,7 @@
     },
     {
       "path": "index.html",
-      "sha256": "0414144907f3e856462556b08ca2bc9b1b3d109092d2aec3b7c937222fa32214",
+      "sha256": "313ff871143ddf0425e48187face40b0a8dc6f644a5c7438797f6b626cbe1dcd",
       "bytes": 107916
     },
     {
@@ -124,7 +119,7 @@
     },
     {
       "path": "past-champions.html",
-      "sha256": "65d2a7bd7f413a8377c9502c4bfa2ea54ba82d1fa1b461f7a49aa73a3fdf5223",
+      "sha256": "2845650bceb1c77ecc0be8065f100a0a8834d7cd6ba9b4279ee062092e2a8be3",
       "bytes": 56560
     },
     {
@@ -173,6 +168,11 @@
       "version": "1.7",
       "date": "2026-10-21",
       "summary": "New page and menu item 'Past Champions: What Can We Learn?' — the FIRST LEGO League Challenge World Festival Champion's Award podium (winner + finalists) for MASTERPIECE 2024, SUBMERGED 2025 and UNEARTHED 2026 (18 teams, global), a tutorial on how the Champion's Award is scored, nine team profiles (robot build, software, project design, presentation and Core Values, why they scored highly) with public team/school contacts only, and 25 page-specific sources. Restored the mobile table-stacking CSS that an earlier print-stylesheet rewrite had dropped. 'Visit day' left the top nav (section remains). Offline bundle now includes the new page."
+    },
+    {
+      "version": "1.8",
+      "date": "2026-10-21",
+      "summary": "Full Spanish edition (es/index.html, es/find-us.html, es/past-champions.html) with EN/ES switch in every header, hreflang alternates and Spanish UI strings; Spanish offline single-file build. 'Prior chapters' section with links to every earlier season document and sibling programs. 'Small towns, big trophies' table of award-winning rural FIRST LEGO League teams in Washington, Idaho and Montana (11 rows, sourced). Automated end-to-end suite (182 checks: links, anchors, footnotes, privacy guards, CSP, fonts, images, overflow, axe-core, nav, flows, HIBT verification, offline files, external source reachability, live hosts) with TEST-REPORT.md committed. Teacher ZIP package."
     }
   ],
   "entries": [
@@ -356,7 +356,31 @@
       ],
       "prev": "2f40245281560edd71890d6422d2d75a1b6c34fb9fd14a019e765730747a2b23",
       "chain": "bcce61d60e218810625e52fad8a0571ba17f6645c68343af8e6d6bddc9aa2a4f"
+    },
+    {
+      "seq": 10,
+      "version": "1.8",
+      "timestamp": "2026-10-21T11:00:00-07:00",
+      "person": "Bob Rapp",
+      "role": "Requester",
+      "model": "Claude Fable 5.1 (Perplexity Computer orchestrator); Spanish translation drafted by GPT-6 Luna via the Computer LLM tool under a preserve-markup instruction, then structurally validated (tags, links, ids, footnotes identical) and spot-read",
+      "prompt": "Do all the queued items (Spanish version of the whole site, prior-season links, rural WA/ID/MT champions list, teacher download package, written end-to-end test report).",
+      "result": "Shipped all five: Spanish edition with language switch; prior-chapters links; rural champions table; teacher ZIP; automated E2E suite and report. Fixed Spanish nav width and a lang-switch accessible-name mismatch found by the suite.",
+      "files_changed": [
+        "es/*",
+        "index.html",
+        "find-us.html",
+        "past-champions.html",
+        "style.css",
+        "app.js",
+        "build/build_single.py",
+        "offline/*",
+        "TEST-REPORT.md",
+        "hibt.json"
+      ],
+      "prev": "bcce61d60e218810625e52fad8a0571ba17f6645c68343af8e6d6bddc9aa2a4f",
+      "chain": "6305dcd392eebd5495f2059c3e9a19afd221f03d521a37effb106311cc61ad30"
     }
   ],
-  "head": "bcce61d60e218810625e52fad8a0571ba17f6645c68343af8e6d6bddc9aa2a4f"
+  "head": "6305dcd392eebd5495f2059c3e9a19afd221f03d521a37effb106311cc61ad30"
 }
